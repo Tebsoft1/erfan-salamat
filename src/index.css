@@ -1,0 +1,95 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-900: var(--primary-900);
+  --color-primary-700: var(--primary-700);
+  --color-primary-500: var(--primary-500);
+  --color-primary-300: var(--primary-300);
+
+  --color-secondary-900: var(--secondary-900);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-100: var(--secondary-100);
+
+  --font-family-iran: 'iranYekan', system-ui, -apple-system, sans-serif;
+  --font-family-system: system-ui, -apple-system, sans-serif;
+}
+
+@font-face {
+  font-family: 'iranYekan';
+  src: url('./assets/fonts/iranyekan.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'iranYekan';
+  src: url('./assets/fonts/iranyekan-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'iranYekan';
+  src: url('./assets/fonts/iranyekan-black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --primary-900: #00291d;
+  --primary-700: #003e2c;
+  --primary-500: #00573e;
+  --primary-300: #3effc7;
+
+  --secondary-900: #434343;
+  --secondary-500: #9e9e9e;
+  --secondary-100: #ffffff;
+
+  font-family: 'iranYekan', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--secondary-100);
+  background-color: var(--primary-900);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  direction: rtl;
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
