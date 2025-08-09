@@ -4,9 +4,9 @@ import { useAuth } from '../hooks/useAuth'
 export default function UserRoutes() {
   const { isAuthenticated } = useAuth()
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />
-  }
+  // if (!isAuthenticated) {
+  //   return <Navigate to="/login" replace />
+  // }
 
   return <Outlet />
 }
