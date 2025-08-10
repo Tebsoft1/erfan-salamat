@@ -16,6 +16,10 @@ interface FormInputProps {
   showTogglePassword?: boolean
 }
 
+const getInputDirection = (type: string) => {
+  const ltrTypes = ['tel', 'number', 'email', 'url']
+  return ltrTypes.includes(type) ? 'ltr' : 'rtl'
+}
 const FormInput: React.FC<FormInputProps> = ({
   name,
   label,
@@ -31,14 +35,17 @@ const FormInput: React.FC<FormInputProps> = ({
   const isPassword = type === 'password'
 
   return (
-    <div className="w-full mb-4">
+    <div className={`!w-full ${className}`}>
       {label && (
-        <label className="block mb-1 text-sm font-medium text-gray-700">
+        <label className="block mb-1 text-sm font-medium text-secondary-500">
           {label}
         </label>
       )}
 
-      <div className="relative">
+      <div
+        className="flex justify-between items-center gap-2 w-full px-5 py-3  border rounded-full ${
+            error ? 'border-rose-500' : 'border-gray-300"
+      >
         <input
           {...register(name)}
           type={
@@ -49,16 +56,11 @@ const FormInput: React.FC<FormInputProps> = ({
               : type
           }
           placeholder={placeholder}
-          className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 ${
-            error ? 'border-rose-500' : 'border-gray-300'
-          } ${className}`}
+          dir={'rtl'}
+          className={`flex-1 focus:outline-none placeholder:text-xs`}
         />
 
-        {icon && (
-          <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300">
-            {icon}
-          </span>
-        )}
+        {icon && <span className="text-primary-700 text-lg">{icon}</span>}
 
         {isPassword && showTogglePassword && (
           <button
