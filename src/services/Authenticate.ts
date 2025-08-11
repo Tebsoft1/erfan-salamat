@@ -1,5 +1,10 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import baseQuery from './baseApi'
+import type { UserData } from '@/types/userdata'
+
+type ApiResponse<T> = {
+  data: T;
+};
 
 export const Authenticate = createApi({
   reducerPath: 'Authenticate',
@@ -12,7 +17,16 @@ export const Authenticate = createApi({
         body: credentials,
       }),
     }),
+
+    getUserData: builder.query<UserData , void>({
+      query: () => ({
+        url: '/Authenticate/GetCurrentUserData',
+        method: 'POST',
+      }),
+      transformResponse: (response: ApiResponse<UserData>) => response.data,
+    }),
   }),
+  
 })
 
-export const { useLoginMutation } = Authenticate
+export const { useLoginMutation  , useGetUserDataQuery } = Authenticate
