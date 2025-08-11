@@ -43,7 +43,7 @@ const SpecialServices: React.FC = () => {
       {/* White Box - Now positioned below */}
       <div className="bg-secondary-100 rounded-4xl p-1 flex flex-col justify-center items-center">
         <h2 className="font-bold">خدمات ویژه عرفان</h2>
-        <p className="text-m font-bold text-dunkel mb-8 text-center max-h-8">
+        <p className="text-m font-semibold text-dunkel mb-8 text-center max-h-7">
           خدمات ویژه عرفان سلامت ، با رویکری نوین و فناورانه برای بهبود و تسریع روند دریافت خدمات طراحی گردیده است. 
         </p>
         <button className="w-45/100 bg-dunkel text-secondary-100 hover:bg-primary-300 hover:text-dunkel rounded-full p-2.5 text-xs whitespace-nowrap mb-2">
