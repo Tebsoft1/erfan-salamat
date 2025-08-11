@@ -4,14 +4,14 @@ import DoctorImg from '@/assets/images/DoctorImg.png';
 
 const DoctorCard: React.FC = () => {
   return (
-    <div className="w-95/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-40 mb-10 mt-8">
+    <div className="w-95/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-50 mb-10 mt-8">
       <img
         src={DoctorImg}
         alt="+"
-        className="bg-primary-300 w-30 h-48 rounded-4xl p-2 mb-40 -mt-7 -mr-3"
+        className="bg-primary-300 w-30 h-55 rounded-4xl p-2 mb-40 -mt-6 -mr-3"
       />
 
-      <div className="flex flex-col justify-center gap-2 mr-8">
+      <div className="flex flex-col gap-2 mr-8 mt-5">
         <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-4 py-2 rounded-lg transition-colors">
           ویزیت پزشک
         </button>
@@ -23,7 +23,7 @@ const DoctorCard: React.FC = () => {
         </button>
       </div>
 
-      <div className="p-4 rounded-lg flex flex-col items-center flex-1 justify-end">
+      <div className="p-4 rounded-lg flex flex-col items-center flex-1 gap-1 mt-4">
         <svg
         width="23"
         height="24"
