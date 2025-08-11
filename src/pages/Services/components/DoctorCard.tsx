@@ -1,5 +1,6 @@
 import React from 'react';
 import DoctorImg from '@/assets/images/DoctorImg.png';
+import '@/assets/images/DoctorImg2.png';
 
 
 const DoctorCard: React.FC = () => {
