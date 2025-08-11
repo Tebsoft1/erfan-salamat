@@ -5,22 +5,18 @@ import ProfileList from "./components/ProfileList";
 import { useGetUserDataQuery } from "../../services/Authenticate";
 import ProfileHeader from "./components/ProfileHeader";
 
-
 const Profile: React.FC = () => {
   const { data, isLoading } = useGetUserDataQuery();
 
-  if (isLoading) {
-    return <p>در حال بارگذاری...</p>;
-  }
 
   return (
-    <div className="py-3 px-6 w-full flex flex-col items-center">
+    <div className="py-3  !w-full flex flex-col items-center">
       <div className="flex gap-[1px] items-center w-full">
         <img src={Back} className="w-[28px]" alt="بازگشت" />
         <p>بازگشت</p>
       </div>
       <div className="w-full mt-4">
-        <ProfileHeader data={data}/>
+        <ProfileHeader data={data} />
       </div>
       <div className="w-full mt-10">
         <ProfileList />
@@ -33,5 +29,3 @@ const Profile: React.FC = () => {
 };
 
 export default Profile;
-
-

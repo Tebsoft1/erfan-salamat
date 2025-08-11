@@ -54,17 +54,12 @@ export const routes = [
               { path: 'nurse', element: <Nurse /> },
             ],
           },
-          {
-            path: 'profile',
-            element: <Profile />,
-            children: [
-              { path: 'identity', element: <Identity /> },
-              { path: 'notifications', element: <Notifications /> },
-              { path: 'orders', element: <Orders /> },
-              { path: 'medical-record', element: <MedicalRecord /> },
-              { path: 'addresses', element: <Addresses /> },
-            ],
-          },
+          { path: 'profile', element: <Profile /> },
+          { path: 'profile/orders', element: <Orders /> },
+          { path: 'profile/identity', element: <Identity /> },
+          { path: 'profile/notifications', element: <Notifications /> },
+          { path: 'profile/medical-record', element: <MedicalRecord /> },
+          { path: 'profile/addresses', element: <Addresses /> },
         ],
       },
 
