@@ -43,7 +43,7 @@ const ChildrenServices: React.FC = () => {
     <img
       src={BabyImg}
       alt="+"
-      className="bg-primary-300 w-30 h-55 rounded-4xl p-2 mb-40 -mt-6"
+      className="bg-primary-300 w-40 h-55 rounded-4xl p-2 mb-40 -mt-6 -ml-3"
     />
   </div>
   );
