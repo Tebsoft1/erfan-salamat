@@ -4,29 +4,29 @@ import DoctorImg from '@/assets/images/DoctorImg.png';
 
 const DoctorCard: React.FC = () => {
   return (
-    <div className="w-95/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-50 mb-10 mt-8">
+    <div className="w-97/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-45 mb-10 mt-4">
       <img
         src={DoctorImg}
         alt="+"
-        className="bg-primary-300 w-30 h-55 rounded-4xl p-2 mb-40 -mt-6 -mr-3"
+        className="bg-primary-300 w-28 h-45 rounded-4xl p-2 -mt-3 -mr-3"
       />
 
-      <div className="flex flex-col gap-2 mr-8 mt-5">
-        <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-4 py-2 rounded-lg transition-colors">
+      <div className="flex flex-col gap-3 mr-3 mt-5 text-xs">
+        <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors">
           ویزیت پزشک
         </button>
-        <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-4 py-2 rounded-lg transition-colors">
+        <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors">
           خدمات پرستاری
         </button>
-        <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-4 py-2 rounded-lg transition-colors">
+        <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors">
           خدمات پرستاری
         </button>
       </div>
 
-      <div className="p-4 rounded-lg flex flex-col items-center flex-1 gap-1 mt-4">
+      <div className="p-3 rounded-lg flex flex-row items-center flex-1 gap-2 mt-2 mr-4">
         <svg
-        width="23"
-        height="24"
+        width="34"
+        height="34"
         viewBox="0 0 23 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -48,8 +48,8 @@ const DoctorCard: React.FC = () => {
         </svg>
 
         <svg
-        width="23"
-        height="24"
+        width="34"
+        height="30"
         viewBox="0 0 23 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -69,8 +69,8 @@ const DoctorCard: React.FC = () => {
       <div>
 
         <svg
-          width="23"
-          height="24"
+          width="30"
+          height="30"
           viewBox="0 0 14 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
