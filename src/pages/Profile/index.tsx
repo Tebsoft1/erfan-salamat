@@ -1,8 +1,9 @@
 import React from "react";
 import Back from "../../assets/images/Back.png";
-import ProfileHeader from "./components/profileHeader";
+
 import ProfileList from "./components/ProfileList";
 import { useGetUserDataQuery } from "../../services/Authenticate";
+import ProfileHeader from "./components/ProfileHeader";
 
 
 const Profile: React.FC = () => {
