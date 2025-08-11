@@ -1,4 +1,8 @@
+import MobileSignup from "./components/MobileSignup"
+
 const Signup = () => {
-  return <p>Signup</p>
+  return <div className="w-full">
+    <MobileSignup />
+  </div>
 }
 export default Signup

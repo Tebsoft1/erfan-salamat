@@ -20,6 +20,7 @@ const getInputDirection = (type: string) => {
   const ltrTypes = ['tel', 'number', 'email', 'url']
   return ltrTypes.includes(type) ? 'ltr' : 'rtl'
 }
+
 const FormInput: React.FC<FormInputProps> = ({
   name,
   label,
