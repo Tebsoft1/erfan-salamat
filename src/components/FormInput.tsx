@@ -16,11 +16,6 @@ interface FormInputProps {
   showTogglePassword?: boolean
 }
 
-const getInputDirection = (type: string) => {
-  const ltrTypes = ['tel', 'number', 'email', 'url']
-  return ltrTypes.includes(type) ? 'ltr' : 'rtl'
-}
-
 const FormInput: React.FC<FormInputProps> = ({
   name,
   label,
@@ -44,8 +39,8 @@ const FormInput: React.FC<FormInputProps> = ({
       )}
 
       <div
-        className="flex justify-between items-center gap-2 w-full px-5 py-3  border rounded-full ${
-            error ? 'border-rose-500' : 'border-gray-300"
+        className={`flex justify-between items-center gap-2 w-full px-5 py-3  border rounded-full ${
+            error ? 'border-rose-500' : 'border-gray-300'}`}
       >
         <input
           {...register(name)}

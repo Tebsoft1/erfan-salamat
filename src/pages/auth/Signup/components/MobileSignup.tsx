@@ -8,19 +8,66 @@ import { useNavigate } from 'react-router-dom'
 import RadioButton from '@/ui/RadioButton'
 import { IoPersonOutline } from 'react-icons/io5'
 import { HiOutlineIdentification } from 'react-icons/hi'
-import { CiCalendarDate } from 'react-icons/ci'
+import DateInput from '@/components/DateInput'
 
-const schema = yup.object().shape({
-  phoneNumber: yup
+
+const isValidIranianNationalCode = (code: string) => {
+  if (!/^\d{10}$/.test(code)) return false;
+  const check = parseInt(code[9]);
+  const sum = code
+    .split("")
+    .slice(0, 9)
+    .reduce((acc, digit, index) => acc + parseInt(digit) * (10 - index), 0) % 11;
+  return (sum < 2 && check === sum) || (sum >= 2 && check === 11 - sum);
+};
+
+export const schema = yup.object({
+  fname: yup
     .string()
-    .required('شماره موبایل را وارد کنید')
-    .matches(/^09\d{9}$/, 'شماره موبایل نامعتبر است'),
-})
+    .required("وارد کردن نام الزامی است")
+    .matches(/^[\u0600-\u06FF\s]{2,}$/, "نام باید فقط شامل حروف فارسی باشد و حداقل ۲ کاراکتر باشد"),
+
+  lname: yup
+    .string()
+    .required("وارد کردن نام خانوادگی الزامی است")
+    .matches(/^[\u0600-\u06FF\s]{2,}$/, "نام خانوادگی باید فقط شامل حروف فارسی باشد و حداقل ۲ کاراکتر باشد"),
+
+  birthDay: yup
+    .date()
+    .typeError("تاریخ تولد معتبر نیست")
+    .required("وارد کردن تاریخ تولد الزامی است")
+    .max(new Date(), "تاریخ تولد نمی‌تواند در آینده باشد")
+    .test("age-limit", "سن باید بین 0 تا 120 سال باشد", (value) => {
+      if (!value) return false;
+      const age = new Date().getFullYear() - value.getFullYear();
+      return age >= 0 && age <= 120;
+    }),
+
+  nationalCode: yup
+    .string()
+    .required("وارد کردن کد ملی الزامی است")
+    .matches(/^\d{10}$/, "کد ملی باید ۱۰ رقم باشد")
+    .test("is-valid-national-code", "کد ملی معتبر نیست", (value) => {
+      if (!value) return false;
+      return isValidIranianNationalCode(value);
+    }),
+
+  mobile: yup
+    .string()
+    .required("وارد کردن شماره موبایل الزامی است")
+    .matches(/^09\d{9}$/, "شماره موبایل باید با 09 شروع شود و ۱۱ رقم باشد"),
+
+    gender: yup
+  .number()
+  .required("انتخاب جنسیت الزامی است")
+  .oneOf([0, 1], "جنسیت باید ۰ یا ۱ باشد"),
+});
 
 const MobileSignup = () => {
   const {
     register,
     handleSubmit,
+    control,
     watch,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) })
@@ -41,44 +88,43 @@ const MobileSignup = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col gap-4">
         
         <FormInput
-          name="phoneNumber"
+          name="fname"
           placeholder="نام"
           type="text"
           icon={<IoPersonOutline />}
           register={register}
-          error={errors.phoneNumber}
+          error={errors.fname}
         />
          <FormInput
-          name="phoneNumber"
+          name="lname"
           placeholder="نام خانوادگی"
           type="text"
           icon={<IoPersonOutline />}
           register={register}
-          error={errors.phoneNumber}
+          error={errors.lname}
         />
          <FormInput
-          name="phoneNumber"
+          name="nationalCode"
           placeholder="کد ملی"
           type="number"
           icon={<HiOutlineIdentification />}
           register={register}
-          error={errors.phoneNumber}
+          error={errors.nationalCode}
         />
-         <FormInput
-          name="phoneNumber"
-          placeholder="تاریخ تولد"
-          type="text"
-          icon={<CiCalendarDate />}
-          register={register}
-          error={errors.phoneNumber}
-        />
+         <DateInput
+        name="birthDay"
+        label="تاریخ تولد"
+        control={control}
+        error={errors.birthDay}
+      />
+        
         <FormInput
-          name="phoneNumber"
+          name="mobile"
           placeholder="شماره موبایل"
           type="tel"
           icon={<FaMobileAlt />}
           register={register}
-          error={errors.phoneNumber}
+          error={errors.mobile}
         />
 
 <div className="flex items-center gap-4 mb-4">
@@ -93,7 +139,7 @@ const MobileSignup = () => {
             }`}
             type="submit"
             disabled={!true}
-            text="ورود"
+            text="تایید اطلاعات"
           />
           
         </div>
