@@ -11,6 +11,8 @@
   --color-secondary-300: var(--secondary-300);
   --color-secondary-100: var(--secondary-100);
 
+  --color-dunkel: var(--Dunkel);
+
   --font-family-iran: 'Yekan Bakh', system-ui, -apple-system, sans-serif;
   --font-family-system: system-ui, -apple-system, sans-serif;
 }
@@ -92,11 +94,15 @@
   --primary-700: #003e2c;
   --primary-500: #00573e;
   --primary-300: #3effc7;
+  
 
   --secondary-900: #434343;
   --secondary-500: #616161;
   --secondary-300: #9e9e9e;
   --secondary-100: #ffffff;
+
+
+  --Dunkel: #1E1E1E;
 
   font-family: 'Yekan Bakh', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -115,7 +121,7 @@
 html {
   direction: rtl;
   height: 100%;
-  font-size: 16px;
+  font-size: 14px;
 }
 body {
   margin: 0;

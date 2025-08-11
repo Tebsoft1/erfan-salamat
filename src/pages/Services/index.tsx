@@ -37,7 +37,7 @@ const ServicesPage: React.FC = () => {
       <SearchBar />
       <ServicesCarousel />
       <SpecialServices />
-      <DoctorCard name="دکتر حسینی" image="https://via.placeholder.com/100" />
+      <DoctorCard/>
       <AppointmentSection />
       <ChildrenServices />
       <StatsSection />
