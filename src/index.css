@@ -12,6 +12,7 @@
   --color-secondary-100: var(--secondary-100);
 
   --color-dunkel: var(--Dunkel);
+  --color-blue: var(--blue);
 
   --font-family-iran: 'Yekan Bakh', system-ui, -apple-system, sans-serif;
   --font-family-system: system-ui, -apple-system, sans-serif;
@@ -101,6 +102,7 @@
   --secondary-100: #ffffff;
 
   --Dunkel: #1e1e1e;
+  --blue: #3E48FF;
 
   font-family: 'Yekan Bakh', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

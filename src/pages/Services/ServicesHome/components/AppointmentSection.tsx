@@ -10,7 +10,7 @@ const AppointmentSection: React.FC = () => {
       <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-3 min-h-20">
         <div className="flex flex-row justify-between items-center flex-1 gap-4 relative">
           
-          <div className="bg-transparen">
+          <div className="bg-transparent">
             <img
               src={Calendarwaiting}
               alt="+"
