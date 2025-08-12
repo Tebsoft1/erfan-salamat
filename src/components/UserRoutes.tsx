@@ -8,5 +8,9 @@ export default function UserRoutes() {
   //   return <Navigate to="/login" replace />
   // }
 
-  return <div className='px-4'><Outlet /></div>
+  return (
+    <div className="px-4 w-full">
+      <Outlet />
+    </div>
+  )
 }
