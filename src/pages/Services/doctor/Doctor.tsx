@@ -9,7 +9,6 @@ const Doctor: React.FC = () => {
   return (
     <div className=" text-white flex flex-col items-center w-full">
       <HeaderDoctor />
-
       <Footer />
       
     </div>

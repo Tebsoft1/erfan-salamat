@@ -1,7 +1,7 @@
 import React from 'react';
 import footer from '@/assets/images/footer.png';
 
-const FooterNav: React.FC = () => {
+const Footer: React.FC = () => {
   return (
     <img
       src={footer}
@@ -11,4 +11,4 @@ const FooterNav: React.FC = () => {
   );
 };
 
-export default FooterNav;
+export default Footer;
