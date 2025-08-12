@@ -1,10 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import baseQuery from './baseApi'
 import type { UserData } from '@/types/userdata'
+import type { SignupType } from '@/types/servicesTypes/Authenticate'
 
 type ApiResponse<T> = {
-  data: T;
-};
+  data: T
+}
 
 export const Authenticate = createApi({
   reducerPath: 'Authenticate',
@@ -12,21 +13,28 @@ export const Authenticate = createApi({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (credentials) => ({
-        url: '/Authenticate/Login',
+        url: 'Authenticate/Login',
         method: 'POST',
         body: credentials,
       }),
     }),
+    signup: builder.mutation({
+      query: (registerFormData: SignupType) => ({
+        url: 'Authenticate/RegisterCustumer',
+        method: 'POST',
+        body: registerFormData,
+      }),
+    }),
 
-    getUserData: builder.query<UserData , void>({
+    getUserData: builder.query<UserData, void>({
       query: () => ({
-        url: '/Authenticate/GetCurrentUserData',
+        url: 'Authenticate/GetCurrentUserData',
         method: 'POST',
       }),
       transformResponse: (response: ApiResponse<UserData>) => response.data,
     }),
   }),
-  
 })
 
-export const { useLoginMutation  , useGetUserDataQuery } = Authenticate
+export const { useLoginMutation, useSignupMutation, useGetUserDataQuery } =
+  Authenticate
