@@ -24,6 +24,7 @@ import FAQ from '@/pages/FAQ'
 
 import UserRoutes from '@/components/UserRoutes'
 import GuestRoutes from '@/components/GuestRoutes'
+import ServicesHome from './pages/Services/ServivcesHome'
 
 export const routes = [
   {
@@ -47,6 +48,7 @@ export const routes = [
             path: 'services',
             element: <Services />,
             children: [
+              { index: true, element: <ServicesHome /> },
               { path: 'doctor', element: <Doctor /> },
               { path: 'pharmacy', element: <Pharmacy /> },
               { path: 'laboratory', element: <Laboratory /> },
