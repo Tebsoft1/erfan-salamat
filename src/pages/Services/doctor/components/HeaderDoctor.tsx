@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Backbutton from '@/assets/images/BackButton.png';
 import Stethoscope3 from '@/assets/images/Stethoscope3.png';
 
-const Header: React.FC = () => {
+const HeaderDoctor: React.FC = () => {
   return (
     <div className="relative p-4">
       
@@ -17,4 +17,4 @@ const Header: React.FC = () => {
   );
 }
 
-export default Header;
+export default HeaderDoctor;
