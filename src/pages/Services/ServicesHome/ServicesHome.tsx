@@ -10,29 +10,11 @@ import ChildrenServices from './components/ChildrenServices'
 import StatsSection from './components/StatsSection'
 import FooterNav from './components/FooterNav'
 
-// شبیه‌سازی وضعیت ورود (بعداً با Auth Context جایگزین کنید)
-const useAuth = () => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(
-    localStorage.getItem('isLoggedIn') === 'true'
-  )
-
-  return { isLoggedIn, setIsLoggedIn }
-}
 
 const ServicesHome: React.FC = () => {
-  const { isLoggedIn } = useAuth()
-  const navigate = useNavigate()
-
-  React.useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/login')
-    }
-  }, [isLoggedIn, navigate])
-
-  if (!isLoggedIn) return null
 
   return (
-    <div className=" text-white min-h-screen flex flex-col items-center">
+    <div className=" text-white flex flex-col items-center">
       <Header />
       <SearchBar />
       <ServicesCarousel />
@@ -45,7 +27,5 @@ const ServicesHome: React.FC = () => {
     </div>
   )
 }
-
-localStorage.setItem('isLoggedIn', 'true')
 
 export default ServicesHome

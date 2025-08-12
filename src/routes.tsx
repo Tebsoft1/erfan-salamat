@@ -24,7 +24,7 @@ import FAQ from '@/pages/FAQ'
 
 import UserRoutes from '@/components/UserRoutes'
 import GuestRoutes from '@/components/GuestRoutes'
-import ServicesHome from './pages/Services/ServicesHome/ServivcesHome'
+import ServicesHome from './pages/Services/ServicesHome/ServicesHome'
 
 export const routes = [
   {

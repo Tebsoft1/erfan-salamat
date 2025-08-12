@@ -1,36 +1,17 @@
-import React from 'react';
-import Calendarwaiting from '@/assets/images/Calendarwaiting.png';
-import Arrowleft from '@/assets/images/Arrowleft.png';
+import React from 'react'
+import { useNavigate } from 'react-router-dom' // اگر از React Router استفاده می‌کنید
+import Header from './components/Header'
 
-const Doctor : React.FC = () => {
-    return (
-    <div className="w-95/100 mb-5">
-      {/* Gray Box with Icons */}
-      <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-3 min-h-20">
-        <div className="flex flex-row justify-between items-center flex-1 gap-4 relative">
-          
-          <div className="bg-transparen">
-            <img
-              src={Calendarwaiting}
-              alt="+"
-              className="w-10 h-10 mr-2"
-            />
-          </div>
 
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center">
-            نوبت دهی پزشک ، آزمایشگاه
-          </span>
+const Doctor: React.FC = () => {
 
-          <div className="bg-transparent">
-            <img
-              src={Arrowleft}
-              alt="+"
-              className="w-10 h-10"
-            />
-          </div>
-        </div>
-      </div>
+  return (
+    <div className=" text-white flex flex-col items-center w-full">
+      <Header />
+      
     </div>
-  );
-};
+  )
+}
+
+
 export default Doctor

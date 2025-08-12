@@ -2,9 +2,8 @@ import { Outlet } from 'react-router-dom'
 
 const Services = () => {
   return (
-    <div>
-      <Outlet />
-    </div>
+    <Outlet />
+  
   )
 }
 export default Services
