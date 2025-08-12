@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom' // اگر از React Router استفاده می‌کنید
-import Header from './components/Header'
+import Header from './components/HeaderServices'
 import SearchBar from './components/SearchBar'
 import ServicesCarousel from './components/ServicesCarousel'
 import SpecialServices from './components/SpecialServices'
