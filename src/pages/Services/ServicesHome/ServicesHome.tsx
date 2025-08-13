@@ -1,20 +1,35 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom' // اگر از React Router استفاده می‌کنید
-import Header from './components/HeaderServices'
-import SearchBar from './components/SearchBar'
-import ServicesCarousel from './components/ServicesCarousel'
-import SpecialServices from './components/SpecialServices'
-import DoctorCard from './components/DoctorCard'
-import AppointmentSection from './components/AppointmentSection'
-import ChildrenServices from './components/ChildrenServices'
-import StatsSection from './components/StatsSection'
-import FooterNav from './components/FooterNav'
-
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import Header from './components/HeaderServices';
+import SearchBar from './components/SearchBar';
+import ServicesCarousel from './components/ServicesCarousel';
+import SpecialServices from './components/SpecialServices';
+import DoctorCard from './components/DoctorCard';
+import AppointmentSection from './components/AppointmentSection';
+import ChildrenServices from './components/ChildrenServices';
+import StatsSection from './components/StatsSection';
+import FooterNav from './components/FooterNav';
 
 const ServicesHome: React.FC = () => {
+  const location = useLocation();
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  useEffect(() => {
+    if (location.state?.showSuccess) {
+      setShowSuccessModal(true);
+      const timer = setTimeout(() => setShowSuccessModal(false), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [location.state]);
 
   return (
-    <div className=" text-white flex flex-col items-center">
+    <div className="text-white flex flex-col items-center">
+      {showSuccessModal && (
+        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-Success text-dunkel px-6 py-3 rounded-lg shadow-lg z-50">
+          سفارش با موفقیت ثبت شد ✅
+        </div>
+      )}
+
       <Header />
       <SearchBar />
       <ServicesCarousel />
@@ -25,7 +40,7 @@ const ServicesHome: React.FC = () => {
       <StatsSection />
       <FooterNav />
     </div>
-  )
-}
+  );
+};
 
-export default ServicesHome
+export default ServicesHome;
