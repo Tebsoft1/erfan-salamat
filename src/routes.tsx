@@ -18,6 +18,7 @@ import Notifications from '@/pages/Profile/Notifications'
 import Orders from '@/pages/Profile/Orders'
 import MedicalRecord from '@/pages/Profile/MedicalRecord'
 import Addresses from '@/pages/Profile/Addresses'
+import Checkout from '@/pages/Profile/Checkout/Checkout'
 
 import Contact from '@/pages/Contact'
 import FAQ from '@/pages/FAQ'
@@ -25,6 +26,7 @@ import FAQ from '@/pages/FAQ'
 import UserRoutes from '@/components/UserRoutes'
 import GuestRoutes from '@/components/GuestRoutes'
 import ServicesHome from './pages/Services/ServicesHome/ServicesHome'
+import ProfileHome from './pages/Profile/ProfileHome'
 
 export const routes = [
   {
@@ -60,7 +62,9 @@ export const routes = [
             path: 'profile',
             element: <Profile />,
             children: [
+              { index: true, element: <ProfileHome /> },
               { path: 'identity', element: <Identity /> },
+              { path: 'checkout', element: <Checkout /> },
               { path: 'notifications', element: <Notifications /> },
               { path: 'orders', element: <Orders /> },
               { path: 'medical-record', element: <MedicalRecord /> },
