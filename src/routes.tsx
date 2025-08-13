@@ -3,7 +3,7 @@ import App from '@/App'
 import Home from '@/pages/Home'
 
 import Login from '@/pages/auth/Login'
-import Signup from '@/pages/auth/Signup/Signup'
+import Signup from '@/pages/auth/Signup'
 
 import Services from '@/pages/Services/services'
 import Doctor from '@/pages/Services/doctor/Doctor'

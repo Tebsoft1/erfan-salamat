@@ -12,8 +12,10 @@ import DateInput from '@/components/DateInput'
 import moment from 'moment-jalaali'
 import { useSignupMutation } from '@/services/Authenticate'
 import ArrowBack from '@/ui/ArrowBack'
+import type { ApiResponse } from '@/types/servicesTypes/globalSerivicesType'
+import { RejectToast } from '@/ui/Toasts'
 
-export type RegisterFormType = {
+export type SignupFormType = {
   birthDay: Date
   fname: string
   gender: string
@@ -82,7 +84,7 @@ export const schema = yup.object({
     .oneOf(['0', '1'], 'جنسیت باید مرد یا زن باشد'),
 })
 
-const MobileSignup = () => {
+const SingupForm = () => {
   const {
     register,
     handleSubmit,
@@ -99,7 +101,7 @@ const MobileSignup = () => {
 
   const hasError = !isValid || !isDirty
 
-  const onSubmit = async (data: RegisterFormType) => {
+  const onSubmit = async (data: SignupFormType) => {
     const shamsiDate = moment(new Date(data.birthDay))
       .locale('fa')
       .format('jYYYY/jMM/jDD')
@@ -108,8 +110,12 @@ const MobileSignup = () => {
       birthDay: shamsiDate,
       gender: Number(data.gender),
     }
-    const response = await signup(reviesedData)
+    const response: ApiResponse<null> = await signup(reviesedData).unwrap()
     console.log(response)
+    if (response.isSuccess) {
+    } else {
+      RejectToast(response.message)
+    }
   }
 
   return (
@@ -186,7 +192,7 @@ const MobileSignup = () => {
             isFormButton={true}
             canClick={!hasError}
             type="submit"
-            disabled={hasError}
+            disabled={hasError || signupLoading}
             loading={signupLoading}
             text="تایید اطلاعات"
           />
@@ -195,4 +201,4 @@ const MobileSignup = () => {
     </div>
   )
 }
-export default MobileSignup
+export default SingupForm
