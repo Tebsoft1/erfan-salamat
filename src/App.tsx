@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import header from './assets/images/header.png'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <div className="flex flex-1 overflow-auto mt-[-50px] ">
         <Outlet />
       </div>
+      <ToastContainer />
     </div>
   )
 }

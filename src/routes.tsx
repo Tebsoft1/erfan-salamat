@@ -2,7 +2,7 @@ import App from '@/App'
 
 import Home from '@/pages/Home'
 
-import Login from '@/pages/auth/Login/Login'
+import Login from '@/pages/auth/Login'
 import Signup from '@/pages/auth/Signup/Signup'
 
 import Services from '@/pages/Services/services'

@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 
 export default function GuestRoutes() {
@@ -9,7 +9,7 @@ export default function GuestRoutes() {
   // }
 
   return (
-    <div className="flex flex-col items-center flex-1 w-full p-4 mt-10  bg-secondary-100 rounded-tr-4xl rounded-tl-4xl bg-gradient-to-b from-secondary-100 to-secondary-100 text-primary-900">
+    <div className="flex flex-col items-center flex-1 w-full p-4 mt-10  bg-secondary-100 rounded-tr-4xl rounded-tl-4xl bg-gradient-to-b from-secondary-100 to-secondary-100 text-primary-900 relative">
       <Outlet />
     </div>
   )

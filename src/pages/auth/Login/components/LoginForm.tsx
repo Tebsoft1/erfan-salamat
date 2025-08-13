@@ -5,6 +5,17 @@ import * as yup from 'yup'
 import { FaMobileAlt } from 'react-icons/fa'
 import Button from '@/ui/Button'
 import { useNavigate } from 'react-router-dom'
+import { useSendOTPMutation } from '@/services/Authenticate'
+import type { ApiResponse } from '@/types/servicesTypes/globalSerivicesType'
+import { RejectToast, SuccessToast } from '@/ui/Toasts'
+
+type LoginFormPropsType = {
+  setIsLoginForm: (data: boolean) => void
+  setMobileNumber: (data: string) => void
+}
+type LoginFormType = {
+  phoneNumber: string
+}
 
 const schema = yup.object().shape({
   phoneNumber: yup
@@ -13,7 +24,8 @@ const schema = yup.object().shape({
     .matches(/^09\d{9}$/, 'شماره موبایل نامعتبر است'),
 })
 
-const MobileLogin = () => {
+const LoginForm = (props: LoginFormPropsType) => {
+  const { setIsLoginForm, setMobileNumber } = props
   const {
     register,
     handleSubmit,
@@ -21,12 +33,25 @@ const MobileLogin = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) })
 
+  const [SendOTP, { isLoading: SendOTPLoading }] = useSendOTPMutation()
+
   const phoneValue = watch('phoneNumber') || ''
 
   // چک کن که 11 رقم هست و خطا نداره
   const isPhoneNumberValid = phoneValue.length === 11 && !errors.phoneNumber
-  const onSubmit = (data: any) => {
-    console.log(data)
+
+  const onSubmit = async (data: LoginFormType) => {
+    const response: ApiResponse<boolean> = await SendOTP({
+      phoneNumber: data.phoneNumber,
+      typeId: 0,
+    }).unwrap()
+    if (response.isSuccess) {
+      SuccessToast('رمز یک بار مصرف ارسال شد')
+      setIsLoginForm(false)
+      setMobileNumber(data.phoneNumber)
+    } else {
+      RejectToast('لطفا ابتدا ثبت نام کنید')
+    }
   }
 
   let navigate = useNavigate()
@@ -46,21 +71,23 @@ const MobileLogin = () => {
         />
         <div className="flex items-center gap-2">
           <Button
-            className={`flex-1 text-secondary-100 ${
-              !isPhoneNumberValid ? 'bg-secondary-300 ' : 'bg-primary-700 '
-            }`}
             type="submit"
-            disabled={!isPhoneNumberValid}
+            disabled={!isPhoneNumberValid || SendOTPLoading}
+            loading={SendOTPLoading}
             text="ورود"
+            isFormButton={true}
+            canClick={isPhoneNumberValid}
+            className="flex-1"
           />
           <Button
             onsubmit={() => navigate('/signup')}
             text="ثبت نام"
-            className="text-primary-900 border border-primary-900 bg-secondary-100"
+            type="button"
+            className="!text-primary-900 border border-primary-900 !bg-secondary-100"
           ></Button>
         </div>
       </form>
     </div>
   )
 }
-export default MobileLogin
+export default LoginForm

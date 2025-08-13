@@ -11,6 +11,7 @@ import { HiOutlineIdentification } from 'react-icons/hi'
 import DateInput from '@/components/DateInput'
 import moment from 'moment-jalaali'
 import { useSignupMutation } from '@/services/Authenticate'
+import ArrowBack from '@/ui/ArrowBack'
 
 export type RegisterFormType = {
   birthDay: Date
@@ -117,6 +118,7 @@ const MobileSignup = () => {
       <p className="text-sm font-light mb-20">
         اطلاعات مورد نیاز را وارد نمایید
       </p>
+      <ArrowBack address="/login" className="top-4 left-4" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full flex flex-col gap-4"

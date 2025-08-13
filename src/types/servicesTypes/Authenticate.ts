@@ -6,3 +6,7 @@ export type SignupType = {
   mobile: string
   nationalCode: string
 }
+export type SendOTPType = {
+  phoneNumber: string
+  typeId: number
+}

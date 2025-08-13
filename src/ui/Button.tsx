@@ -1,4 +1,4 @@
-import { FadeLoader } from 'react-spinners'
+import { BeatLoader } from 'react-spinners'
 
 type ButtonProps = {
   onsubmit?: () => void
@@ -23,14 +23,18 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       onClick={onsubmit}
-      className={`py-3 px-8 rounded-md text-sm  ${
+      className={`py-3 px-8 rounded-md text-sm text-secondary-100  ${
         isFormButton && canClick
           ? 'bg-primary-700 cursor-pointer'
           : 'bg-secondary-300 cursor-not-allowed'
       } ${className}`}
       {...restProps}
     >
-      {loading ? <FadeLoader color="white" /> : text}
+      {loading ? (
+        <BeatLoader color="white" size={9} className="w-full" />
+      ) : (
+        text
+      )}
     </button>
   )
 }
