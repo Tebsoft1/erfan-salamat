@@ -1,7 +1,7 @@
 import React from "react";
 
 const Wallet: React.FC = () => {
-  const balance = 1250000;
+  const balance = 1250000; {/* Balance in Rial */}
 
   const transactions = [
     {
