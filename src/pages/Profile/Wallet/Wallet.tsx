@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Wallet: React.FC = () => {
-  const balance = 1250000; {/* Balance in Rial */}
+  const balance = 1250000; // Balance in Rial
 
   const transactions = [
     {
@@ -24,40 +24,53 @@ const Wallet: React.FC = () => {
     },
   ];
 
+  const [openRow, setOpenRow] = useState<number | null>(null);
+
+  const toggleRow = (index: number) => {
+    setOpenRow(openRow === index ? null : index);
+  };
+
   return (
     <div className="flex flex-col gap-6">
 
       <div className="bg-secondary-900 rounded-xl p-5 flex flex-col items-center shadow-md">
-        <span className="text-lg text-secondary-100">موجودی کیف پول</span>
-        <span className="text-3xl font-bold text-primary-300">
+        <span className="text-lg text-secondary-100 whitespace-nowrap">
+          موجودی کیف پول
+        </span>
+        <span className="text-3xl font-bold text-primary-300 whitespace-nowrap">
           {balance.toLocaleString()} ریال
         </span>
       </div>
 
-      <div className="bg-secondary-900 rounded-xl p-4 shadow-md">
+
+      <div className="bg-secondary-900 rounded-xl p-4 mt-4 shadow-md">
         <h2 className="text-xl font-bold text-primary-300 mb-4">
           لیست تراکنش‌ها
         </h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-secondary-100 text-sm border-collapse">
-            <thead>
-              <tr className="bg-secondary-800 whitespace-nowrap">
-                <th className="p-3 text-right">عنوان تراکنش</th>
-                <th className="p-3 text-right">تاریخ تراکنش</th>
-                <th className="p-3 text-right">مبلغ تراکنش</th>
-                <th className="p-3 text-right">توضیحات</th>
-              </tr>
-            </thead>
-            <tbody>
-              {transactions.map((tx, index) => (
-                <tr
-                  key={index}
-                  className="border-b border-secondary-700 hover:bg-secondary-800 transition-colors"
-                >
-                  <td className="p-3">{tx.title}</td>
-                  <td className="p-3">{tx.date}</td>
+
+        <table className="w-full text-secondary-100 text-sm border-collapse table-fixed">
+          <thead>
+            <tr className="bg-secondary-800">
+              <th className="p-3 text-right w-1/3 whitespace-nowrap">
+                عنوان تراکنش
+              </th>
+              <th className="p-3 text-right w-1/4 whitespace-nowrap">
+                تاریخ تراکنش
+              </th>
+              <th className="p-3 text-right w-1/4 whitespace-nowrap">
+                مبلغ تراکنش
+              </th>
+              <th className="p-3 w-10"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {transactions.map((tx, index) => (
+              <React.Fragment key={index}>
+                <tr className="border-b border-secondary-700 hover:bg-secondary-800 transition-colors">
+                  <td className="p-3 whitespace-nowrap">{tx.title}</td>
+                  <td className="p-3 whitespace-nowrap">{tx.date}</td>
                   <td
-                    className={`p-3 font-bold ${
+                    className={`p-3 font-bold whitespace-nowrap ${
                       tx.amount.startsWith("+")
                         ? "text-green-400"
                         : "text-red-400"
@@ -65,12 +78,32 @@ const Wallet: React.FC = () => {
                   >
                     {tx.amount} ریال
                   </td>
-                  <td className="p-3">{tx.desc}</td>
+                  <td className="p-3 text-center">
+                    <button
+                      onClick={() => toggleRow(index)}
+                      className="text-primary-300 font-bold hover:text-primary-200 cursor-pointer"
+                    >
+                      i
+                    </button>
+                  </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+
+
+                <tr>
+                  <td colSpan={4} className="p-0">
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        openRow === index ? "max-h-40 p-3" : "max-h-0 p-0"
+                      } bg-secondary-800 text-secondary-100 text-sm`}
+                    >
+                      {tx.desc}
+                    </div>
+                  </td>
+                </tr>
+              </React.Fragment>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
