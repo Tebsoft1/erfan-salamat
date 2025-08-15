@@ -27,7 +27,7 @@ const HamburgerMenu: React.FC = () => {
 
   return (
     <>
-      {/* دکمه همبرگر */}
+      
       <button
         className="fixed top-4 right-4 z-50 bg-primary-300 text-dunkel p-2 rounded-lg shadow-lg hover:bg-primary-500"
         onClick={() => setIsOpen(true)}
@@ -36,7 +36,7 @@ const HamburgerMenu: React.FC = () => {
         <Menu size={28} />
       </button>
 
-      {/* بک‌دراپ */}
+      
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-40 z-40"
@@ -44,13 +44,13 @@ const HamburgerMenu: React.FC = () => {
         ></div>
       )}
 
-      {/* منوی کشویی */}
+      
       <div
         className={`fixed top-0 right-0 h-full w-64 bg-secondary-900 text-secondary-100 z-50 transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* هدر منو */}
+        
         <div className="flex justify-between items-center p-4 border-b border-secondary-700">
           <span className="text-lg font-bold text-primary-300">منو</span>
           <button onClick={() => setIsOpen(false)} aria-label="Close Menu">
@@ -58,7 +58,7 @@ const HamburgerMenu: React.FC = () => {
           </button>
         </div>
 
-        {/* آیتم‌ها */}
+        
         <ul className="flex flex-col p-4 gap-3">
           {menuItems.map((item, index) => (
             <li key={index}>
