@@ -4,6 +4,8 @@ import Back from "../../assets/images/Back.png";
 import ProfileList from "./components/ProfileList";
 import { useGetUserDataQuery } from "../../services/Authenticate";
 import ProfileHeader from "./components/ProfileHeader";
+import HamburgerMenu from '@/components/HamburgerMenu'
+
 
 
 const ProfileHome: React.FC = () => {
@@ -15,6 +17,7 @@ const ProfileHome: React.FC = () => {
 
   return (
     <div className="py-3 px-6 w-full flex flex-col items-center">
+      <HamburgerMenu />
       <div className="flex gap-[1px] items-center w-full">
         <img src={Back} className="w-[28px]" alt="بازگشت" />
         <p>بازگشت</p>

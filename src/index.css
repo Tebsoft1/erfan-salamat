@@ -17,6 +17,7 @@
   --color-DarkRed: var(--DarkRed);
   --color-SemiDarkGray: var(--SemiDarkGray);
   --color-Success: var(--Success);
+  --color-Green: var(--Green);
 
   --font-family-iran: 'Yekan Bakh', system-ui, -apple-system, sans-serif;
   --font-family-system: system-ui, -apple-system, sans-serif;
@@ -111,6 +112,7 @@
   --DarkRed: #C62828;
   --SemiDarkGray: #B0BEC5;
   --Success: #4CAF50;
+  --Green: #66BB6A;
 
   font-family: 'Yekan Bakh', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

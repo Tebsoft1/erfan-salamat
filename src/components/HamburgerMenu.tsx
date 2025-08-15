@@ -1,12 +1,22 @@
 import React, { useState } from "react";
-import { Menu, X, Home, ShoppingCart, History, FileText, Wallet, List, LogOut } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  ShoppingCart,
+  History,
+  FileText,
+  Wallet,
+  List,
+  LogOut,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HamburgerMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "خانه", icon: <Home size={22} />, link: "/" },
+    { name: "خانه", icon: <Home size={22} />, link: "/services" },
     { name: "سبد سرویس‌های انتخابی", icon: <ShoppingCart size={22} />, link: "/cart" },
     { name: "درخواست‌های قبلی من", icon: <History size={22} />, link: "/orders" },
     { name: "پرونده الکترونیکی", icon: <FileText size={22} />, link: "/records" },
@@ -55,7 +65,8 @@ const HamburgerMenu: React.FC = () => {
               <Link
                 to={item.link}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 p-2 rounded-lg hover:bg-secondary-800 transition-colors"
+                className="flex items-center gap-3 p-2 rounded-lg transition-colors
+                           hover:bg-primary-300 hover:text-dunkel"
               >
                 {item.icon}
                 <span>{item.name}</span>

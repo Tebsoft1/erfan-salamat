@@ -6,7 +6,7 @@ import HamburgerMenu from '@/components/HamburgerMenu'
 
 const Doctor: React.FC = () => {
   return (
-    <div className=" text-secondary-100">
+    <div className=" text-secondary-100 ">
       
       <HamburgerMenu />
       <ShoppingCart />
