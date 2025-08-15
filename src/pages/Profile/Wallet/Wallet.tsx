@@ -25,7 +25,7 @@ const Wallet: React.FC = () => {
   ];
 
   return (
-    <div className="p-4 flex flex-col gap-6">
+    <div className="flex flex-col gap-6">
 
       <div className="bg-secondary-900 rounded-xl p-5 flex flex-col items-center shadow-md">
         <span className="text-lg text-secondary-100">موجودی کیف پول</span>
