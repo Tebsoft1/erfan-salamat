@@ -5,7 +5,6 @@ import Arrowleft from '@/assets/images/Arrowleft.png';
 const DoctorAppoinment: React.FC = () => {
   return (
     <div className="w-95/100 mb-5">
-      {/* Gray Box with Icons */}
       <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-10 min-h-14 cursor-pointer hover:bg-blue hover:text-secondary-100 group">
   <div className="flex flex-row justify-between items-center flex-1 gap-4 relative">
     
@@ -34,9 +33,6 @@ const DoctorAppoinment: React.FC = () => {
     </div>
   </div>
 </div>
-
-
-      
     </div>
   );
 };

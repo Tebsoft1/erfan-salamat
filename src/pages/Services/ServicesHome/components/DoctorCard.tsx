@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const DoctorCard: React.FC = () => {
-    const navigate = useNavigate(); // initialize the hook
+    const navigate = useNavigate();
     
     return (
       <div className="w-97/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-45 mb-10 mt-4">
