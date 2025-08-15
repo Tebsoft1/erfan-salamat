@@ -1,9 +1,7 @@
 import React from "react";
-import HamburgerMenu from '@/components/HamburgerMenu'
-
 
 const Wallet: React.FC = () => {
-  const balance = 1250000; // موجودی به ریال
+  const balance = 1250000;
 
   const transactions = [
     {
@@ -28,8 +26,7 @@ const Wallet: React.FC = () => {
 
   return (
     <div className="p-4 flex flex-col gap-6">
-      <HamburgerMenu />
-      {/* موجودی کیف پول */}
+
       <div className="bg-secondary-900 rounded-xl p-5 flex flex-col items-center shadow-md">
         <span className="text-lg text-secondary-100">موجودی کیف پول</span>
         <span className="text-3xl font-bold text-primary-300">
@@ -37,7 +34,6 @@ const Wallet: React.FC = () => {
         </span>
       </div>
 
-      {/* لیست تراکنش‌ها */}
       <div className="bg-secondary-900 rounded-xl p-4 shadow-md">
         <h2 className="text-xl font-bold text-primary-300 mb-4">
           لیست تراکنش‌ها

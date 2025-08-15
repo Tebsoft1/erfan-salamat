@@ -9,7 +9,6 @@ import AppointmentSection from './components/AppointmentSection';
 import ChildrenServices from './components/ChildrenServices';
 import StatsSection from './components/StatsSection';
 import FooterNav from './components/FooterNav';
-import HamburgerMenu from '@/components/HamburgerMenu'
 
 const ServicesHome: React.FC = () => {
   const location = useLocation();
@@ -32,7 +31,6 @@ const ServicesHome: React.FC = () => {
       )}
 
       <Header />
-      <HamburgerMenu />
       <SearchBar />
       <ServicesCarousel />
       <SpecialServices />

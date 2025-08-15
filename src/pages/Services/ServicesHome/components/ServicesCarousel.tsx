@@ -15,7 +15,6 @@ const ServicesCarousel: React.FC = () => {
     { name: 'کمک بهیار منزل', image: FirstAidKit },
   ];
 
-  // Group services into chunks of 4
   const chunkServices = (arr: typeof services, size: number) => {
     const chunks = [];
     for (let i = 0; i < arr.length; i += size) {
@@ -45,7 +44,6 @@ const ServicesCarousel: React.FC = () => {
         <h2 className="text-xl mb-4">سرویس های عرفان سلامت</h2>
       </div>
 
-      {/* اسلایدر */}
       <div className="relative">
         <div className="overflow-hidden w-full">
           <div
@@ -67,7 +65,6 @@ const ServicesCarousel: React.FC = () => {
           </div>
         </div>
 
-        {/* دکمه‌های navigation */}
         <div className="flex justify-between items-center mt-4">
           <button onClick={prevSlide} className="p-2">
             <FaChevronRight className="text-xl" />
