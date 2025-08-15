@@ -1,10 +1,24 @@
+import { useState } from 'react'
 import SingupForm from './components/SingupForm'
+import OTPForm from '../components/OTPForm'
 
 const Signup = () => {
-  return (
-    <div className="w-full">
-      <SingupForm />
-    </div>
-  )
+  const [isOTPComponent, setIsOTPComponent] = useState(false)
+  const [mobileNumber, setMobileNumber] = useState<string>('')
+  if (!isOTPComponent)
+    return (
+      <SingupForm
+        setIsOTPComponent={setIsOTPComponent}
+        setMobileNumber={setMobileNumber}
+      />
+    )
+  if (isOTPComponent)
+    return (
+      <OTPForm
+        mobileNumber={mobileNumber}
+        arrowBackAddress="/login"
+        onTimeFinish={() => setIsOTPComponent(false)}
+      />
+    )
 }
 export default Signup

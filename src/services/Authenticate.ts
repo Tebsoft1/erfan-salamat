@@ -4,6 +4,7 @@ import type { UserData } from '@/types/userdata'
 import type {
   SendOTPType,
   SignupType,
+  VerifyOTPType,
 } from '@/types/servicesTypes/Authenticate'
 
 type ApiResponse<T> = {
@@ -19,6 +20,13 @@ export const Authenticate = createApi({
         url: 'Authenticate/SendOtp',
         method: 'POST',
         body: sendOTPFormData,
+      }),
+    }),
+    verfiyOTP: builder.mutation({
+      query: (verifyOTPFormData: VerifyOTPType) => ({
+        url: 'Authenticate/VerifyOtp',
+        method: 'POST',
+        body: verifyOTPFormData,
       }),
     }),
     signup: builder.mutation({
@@ -39,5 +47,9 @@ export const Authenticate = createApi({
   }),
 })
 
-export const { useSendOTPMutation, useSignupMutation, useGetUserDataQuery } =
-  Authenticate
+export const {
+  useSendOTPMutation,
+  useVerfiyOTPMutation,
+  useSignupMutation,
+  useGetUserDataQuery,
+} = Authenticate

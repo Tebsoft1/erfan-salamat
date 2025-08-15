@@ -1,24 +1,28 @@
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../hooks/useAuth'
 import { useEffect } from 'react'
 import homeLogo from '@/assets/images/homeLogo.png'
 import homeSide from '@/assets/images/homeSide.png'
 import homeSingleSide from '@/assets/images/homeSingleSide.png'
 import { FadeLoader } from 'react-spinners'
+import { useSelector } from 'react-redux'
+import type { RootState } from '@/store'
 
 const Home = () => {
-  const { isAuthenticated } = useAuth()
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  )
   const navigate = useNavigate()
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       if (isAuthenticated) {
         navigate('/services')
       } else {
         navigate('/login')
       }
     }, 2000)
-  }, [isAuthenticated, navigate])
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div className="flex-1 flex flex-col items-center relative">

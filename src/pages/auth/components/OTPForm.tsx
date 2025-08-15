@@ -5,18 +5,60 @@ import { CiStopwatch } from 'react-icons/ci'
 import OtpInput from 'react-otp-input'
 import useTimer from '@/hooks/useTimer'
 import ArrowBack from '@/ui/ArrowBack'
+import { useVerfiyOTPMutation } from '@/services/Authenticate'
+import type { VerifyOTPDataResponseType } from '@/types/servicesTypes/Authenticate'
+import { handleApiCall } from '@/utils/handleApiCall'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { login } from '@/features/authSlice'
 
 type OTPFormPropsType = {
   mobileNumber: string
   arrowBackAddress: string
+  onTimeFinish: () => void
 }
+
 const OTPForm = (props: OTPFormPropsType) => {
-  const { mobileNumber, arrowBackAddress } = props
+  const { mobileNumber, arrowBackAddress, onTimeFinish } = props
+  const dispatch = useDispatch()
+
   const [otp, setOtp] = useState<string>('')
+
+  const [verifyOTP, { isLoading: VerfiyOTPLoading }] = useVerfiyOTPMutation()
+  let navigate = useNavigate()
+
   const formattedTime = useTimer({
     initialSeconds: 120,
-    onTimeFinish: () => {},
+    onTimeFinish: () => {
+      onTimeFinish()
+    },
   })
+
+  const handleSubmit = async () => {
+    await handleApiCall<VerifyOTPDataResponseType | null>(
+      () =>
+        verifyOTP({
+          phoneNumber: mobileNumber,
+          otp,
+          typeId: 0,
+        }).unwrap(),
+
+      (data) => {
+        localStorage.setItem('token', data?.token || '')
+        localStorage.setItem('tokenExpiration', data?.expiration || '')
+        dispatch(
+          login({
+            token: localStorage.getItem('token') || '',
+            expiration: localStorage.getItem('tokenExpiration') || '',
+          })
+        )
+        navigate('/services')
+      },
+      (response) => {
+        console.log('Error:', response)
+      }
+    )
+  }
 
   return (
     <div className="flex flex-col items-center !w-full">
@@ -42,12 +84,13 @@ const OTPForm = (props: OTPFormPropsType) => {
       <div className="flex items-center gap-2 !w-full">
         <Button
           type="submit"
-          disabled={otp.length !== 5}
+          disabled={otp.length !== 5 || VerfiyOTPLoading}
           text="ورود"
-          loading={false}
+          loading={VerfiyOTPLoading}
           isFormButton={true}
           canClick={otp.length === 5}
           className="flex-1"
+          onClick={handleSubmit}
         />
         <div className="flex justify-between items-center gap-2 border border-primary-900 text-primary-900 rounded-md px-3 py-3">
           <CiStopwatch className="text-xl text-primary-900 font-bold" />

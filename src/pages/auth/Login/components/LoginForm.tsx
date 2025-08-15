@@ -10,7 +10,7 @@ import type { ApiResponse } from '@/types/servicesTypes/globalSerivicesType'
 import { RejectToast, SuccessToast } from '@/ui/Toasts'
 
 type LoginFormPropsType = {
-  setIsLoginForm: (data: boolean) => void
+  setIsOTPComponent: (data: boolean) => void
   setMobileNumber: (data: string) => void
 }
 type LoginFormType = {
@@ -25,7 +25,7 @@ const schema = yup.object().shape({
 })
 
 const LoginForm = (props: LoginFormPropsType) => {
-  const { setIsLoginForm, setMobileNumber } = props
+  const { setIsOTPComponent, setMobileNumber } = props
   const {
     register,
     handleSubmit,
@@ -47,7 +47,7 @@ const LoginForm = (props: LoginFormPropsType) => {
     }).unwrap()
     if (response.isSuccess) {
       SuccessToast('رمز یک بار مصرف ارسال شد')
-      setIsLoginForm(false)
+      setIsOTPComponent(true)
       setMobileNumber(data.phoneNumber)
     } else {
       RejectToast('لطفا ابتدا ثبت نام کنید')
@@ -83,6 +83,7 @@ const LoginForm = (props: LoginFormPropsType) => {
             onsubmit={() => navigate('/signup')}
             text="ثبت نام"
             type="button"
+            disabled={SendOTPLoading}
             className="!text-primary-900 border border-primary-900 !bg-secondary-100"
           ></Button>
         </div>

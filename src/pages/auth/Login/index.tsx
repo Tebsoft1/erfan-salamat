@@ -1,21 +1,25 @@
 import { useState } from 'react'
 import OTPForm from '../components/OTPForm'
 import LoginForm from './components/LoginForm'
-import Map from '@/components/Map'
 
 const Login = () => {
-  const [isLoginForm, setIsLoginForm] = useState(true)
+  const [isOTPComponent, setIsOTPComponent] = useState(false)
   const [mobileNumber, setMobileNumber] = useState<string>('')
 
-  return <Map />
-  if (isLoginForm)
+  if (!isOTPComponent)
     return (
       <LoginForm
-        setIsLoginForm={setIsLoginForm}
+        setIsOTPComponent={setIsOTPComponent}
         setMobileNumber={setMobileNumber}
       />
     )
-  if (!isLoginForm)
-    return <OTPForm mobileNumber={mobileNumber} arrowBackAddress="/login" />
+  if (isOTPComponent)
+    return (
+      <OTPForm
+        mobileNumber={mobileNumber}
+        arrowBackAddress="/login"
+        onTimeFinish={() => setIsOTPComponent(false)}
+      />
+    )
 }
 export default Login
