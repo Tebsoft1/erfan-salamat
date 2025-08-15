@@ -12,8 +12,8 @@ import DateInput from '@/components/DateInput'
 import moment from 'moment-jalaali'
 import { useSignupMutation } from '@/services/Authenticate'
 import ArrowBack from '@/ui/ArrowBack'
-import type { ApiResponse } from '@/types/servicesTypes/globalSerivicesType'
-import { RejectToast } from '@/ui/Toasts'
+import { SuccessToast } from '@/ui/Toasts'
+import { handleApiCall } from '@/utils/handleApiCall'
 
 export type SignupFormType = {
   birthDay: Date
@@ -84,7 +84,12 @@ export const schema = yup.object({
     .oneOf(['0', '1'], 'جنسیت باید مرد یا زن باشد'),
 })
 
-const SingupForm = () => {
+type SingupFormPropsType = {
+  setIsOTPComponent: React.Dispatch<React.SetStateAction<boolean>>
+  setMobileNumber: React.Dispatch<React.SetStateAction<string>>
+}
+const SingupForm = (props: SingupFormPropsType) => {
+  const { setIsOTPComponent, setMobileNumber } = props
   const {
     register,
     handleSubmit,
@@ -110,12 +115,15 @@ const SingupForm = () => {
       birthDay: shamsiDate,
       gender: Number(data.gender),
     }
-    const response: ApiResponse<null> = await signup(reviesedData).unwrap()
-    console.log(response)
-    if (response.isSuccess) {
-    } else {
-      RejectToast(response.message)
-    }
+    await handleApiCall<boolean | null>(
+      () => signup(reviesedData).unwrap(),
+
+      () => {
+        setIsOTPComponent(true)
+        SuccessToast('کد به شماره موبایل شما ارسال شد')
+        setMobileNumber(reviesedData.mobile)
+      }
+    )
   }
 
   return (

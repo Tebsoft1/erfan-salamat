@@ -10,3 +10,16 @@ export type SendOTPType = {
   phoneNumber: string
   typeId: number
 }
+
+export type VerifyOTPType = {
+  phoneNumber: string
+  otp: string
+  typeId: number
+}
+
+export type VerifyOTPDataResponseType = {
+  token: string
+  expiration: string
+  userid: string
+  fullName: string
+}
