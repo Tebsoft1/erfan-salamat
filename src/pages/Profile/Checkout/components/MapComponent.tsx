@@ -19,7 +19,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ onLocationSelect, defaultCe
     iconAnchor: [12, 41],
   });
 
-  // گرفتن موقعیت فعلی کاربر
+  
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(

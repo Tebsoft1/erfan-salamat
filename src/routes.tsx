@@ -11,6 +11,7 @@ import Pharmacy from '@/pages/Services/Pharmacy'
 import Laboratory from '@/pages/Services/Laboratory'
 import Physiotherapy from '@/pages/Services/Physiotherapy'
 import Nurse from '@/pages/Services/Nurse'
+import ChooseService from '@/pages/Services/ServicesHome/ChooseService'
 
 import Profile from '@/pages/Profile'
 import Identity from '@/pages/Profile/Identity'
@@ -19,6 +20,7 @@ import Orders from '@/pages/Profile/Orders'
 import MedicalRecord from '@/pages/Profile/MedicalRecord'
 import Addresses from '@/pages/Profile/Addresses'
 import Checkout from '@/pages/Profile/Checkout/Checkout'
+import Wallet from '@/pages/Profile/Wallet/Wallet'
 
 import Contact from '@/pages/Contact'
 import FAQ from '@/pages/FAQ'
@@ -56,6 +58,7 @@ export const routes = [
               { path: 'laboratory', element: <Laboratory /> },
               { path: 'physiotherapy', element: <Physiotherapy /> },
               { path: 'nurse', element: <Nurse /> },
+              { path: 'chooseservice', element: <ChooseService /> }
             ],
           },
           {
@@ -65,6 +68,7 @@ export const routes = [
               { index: true, element: <ProfileHome /> },
               { path: 'identity', element: <Identity /> },
               { path: 'checkout', element: <Checkout /> },
+              { path: 'wallet', element: <Wallet /> },
               { path: 'notifications', element: <Notifications /> },
               { path: 'orders', element: <Orders /> },
               { path: 'medical-record', element: <MedicalRecord /> },
