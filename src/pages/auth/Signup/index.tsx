@@ -16,7 +16,7 @@ const Signup = () => {
     return (
       <OTPForm
         mobileNumber={mobileNumber}
-        arrowBackAddress="/login"
+        onBack={() => setIsOTPComponent(false)}
         onTimeFinish={() => setIsOTPComponent(false)}
       />
     )

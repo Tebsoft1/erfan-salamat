@@ -14,12 +14,12 @@ import { login } from '@/features/authSlice'
 
 type OTPFormPropsType = {
   mobileNumber: string
-  arrowBackAddress: string
+  onBack: () => void
   onTimeFinish: () => void
 }
 
 const OTPForm = (props: OTPFormPropsType) => {
-  const { mobileNumber, arrowBackAddress, onTimeFinish } = props
+  const { mobileNumber, onBack, onTimeFinish } = props
   const dispatch = useDispatch()
 
   const [otp, setOtp] = useState<string>('')
@@ -68,7 +68,7 @@ const OTPForm = (props: OTPFormPropsType) => {
       <p className="text-sm font-light mb-20">
         کد تایید پیامک شده را وارد کنید
       </p>
-      <ArrowBack address={arrowBackAddress} className="top-4 left-4" />
+      <ArrowBack onBack={onBack} className="top-4 left-4" />
       <div dir="ltr" className="mb-10">
         <OtpInput
           value={otp}
