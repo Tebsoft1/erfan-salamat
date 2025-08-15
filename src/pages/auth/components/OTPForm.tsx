@@ -1,6 +1,6 @@
 import Button from '@/ui/Button'
 import { convertToPersianDigits } from '@/utils/numberUtils'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CiStopwatch } from 'react-icons/ci'
 import OtpInput from 'react-otp-input'
 import useTimer from '@/hooks/useTimer'
@@ -23,6 +23,29 @@ const OTPForm = (props: OTPFormPropsType) => {
   const dispatch = useDispatch()
 
   const [otp, setOtp] = useState<string>('')
+
+  useEffect(() => {
+    if ('OTPCredential' in window) {
+      const ac = new AbortController()
+      debugger
+      setTimeout(() => ac.abort(), 120000)
+
+      navigator.credentials
+        .get({
+          otp: { transport: ['sms'] },
+          signal: ac.signal,
+        } as any)
+        .then((otp) => {
+          debugger
+          if (otp && 'code' in otp) {
+            setOtp(String((otp as { code?: string })?.code ?? ''))
+          }
+        })
+        .catch((err) => {
+          console.log('OTP detection failed:', err)
+        })
+    }
+  }, [])
 
   const [verifyOTP, { isLoading: VerfiyOTPLoading }] = useVerfiyOTPMutation()
   let navigate = useNavigate()
