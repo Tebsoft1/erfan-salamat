@@ -16,6 +16,7 @@
     "@types/moment-jalaali": "^0.7.9",
     "axios": "^1.11.0",
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.539.0",
     "moment-jalaali": "^0.10.4",
     "react": "^19.1.0",
     "react-date-object": "^2.1.9",

@@ -19,6 +19,7 @@ import Orders from '@/pages/Profile/Orders'
 import MedicalRecord from '@/pages/Profile/MedicalRecord'
 import Addresses from '@/pages/Profile/Addresses'
 import Checkout from '@/pages/Profile/Checkout/Checkout'
+import Wallet from '@/pages/Profile/Wallet/Wallet'
 
 import Contact from '@/pages/Contact'
 import FAQ from '@/pages/FAQ'
@@ -65,6 +66,7 @@ export const routes = [
               { index: true, element: <ProfileHome /> },
               { path: 'identity', element: <Identity /> },
               { path: 'checkout', element: <Checkout /> },
+              { path: 'wallet', element: <Wallet /> },
               { path: 'notifications', element: <Notifications /> },
               { path: 'orders', element: <Orders /> },
               { path: 'medical-record', element: <MedicalRecord /> },

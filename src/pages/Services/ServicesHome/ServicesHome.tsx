@@ -23,7 +23,7 @@ const ServicesHome: React.FC = () => {
   }, [location.state]);
 
   return (
-    <div className="text-white flex flex-col items-center">
+    <div className="text-secondary-100 flex flex-col items-center">
       {showSuccessModal && (
         <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-Success text-dunkel px-6 py-3 rounded-lg shadow-lg z-50">
           سفارش با موفقیت ثبت شد ✅
