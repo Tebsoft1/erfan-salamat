@@ -2,8 +2,13 @@ import React from 'react';
 import Calendarwaiting from '@/assets/images/Calendarwaiting.png';
 import Arrowleft from '@/assets/images/Arrowleft.png';
 import Emergencyphone from '@/assets/images/Emergencyphone.png';
+import { useNavigate } from "react-router-dom";
+
 
 const AppointmentSection: React.FC = () => {
+  const navigate = useNavigate();
+
+
   return (
     <div className="w-95/100 mb-5">
 
@@ -18,9 +23,9 @@ const AppointmentSection: React.FC = () => {
             />
           </div>
 
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center">
+          <button onClick={() => navigate ("chooseService")} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center cursor-pointer">
             نوبت دهی پزشک ، آزمایشگاه
-          </span>
+          </button>
 
           <div className="bg-transparent">
             <img
@@ -43,9 +48,9 @@ const AppointmentSection: React.FC = () => {
             />
           </div>
 
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center">
+          <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center">
             ویزیت تلفنی پزشک
-          </span>
+          </button>
 
           <div className="bg-transparent">
             <img
