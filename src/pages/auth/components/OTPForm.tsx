@@ -27,7 +27,6 @@ const OTPForm = (props: OTPFormPropsType) => {
   useEffect(() => {
     if ('OTPCredential' in window) {
       const ac = new AbortController()
-      debugger
       setTimeout(() => ac.abort(), 120000)
 
       navigator.credentials
@@ -36,7 +35,6 @@ const OTPForm = (props: OTPFormPropsType) => {
           signal: ac.signal,
         } as any)
         .then((otp) => {
-          debugger
           if (otp && 'code' in otp) {
             setOtp(String((otp as { code?: string })?.code ?? ''))
           }
