@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import Backbutton from '@/assets/images/BackButton.png';
 
 const Wallet: React.FC = () => {
+  
+  const navigate = useNavigate();
   const balance = 1250000; // Balance in Rial
 
   const transactions = [
@@ -32,6 +37,12 @@ const Wallet: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-6">
+
+        <Link to="/profile" className="flex items-center text-m  text-secondary-100 hover:underline">
+          <img src={Backbutton} alt="Back" className="h-6 w-6 " />
+          <span className='-mt-1'>بازگشت</span>
+        </Link>
+        
       <div className="bg-secondary-900 rounded-xl p-5 flex flex-col items-center shadow-md">
         <span className="text-lg text-secondary-100 whitespace-nowrap">
           موجودی کیف پول
