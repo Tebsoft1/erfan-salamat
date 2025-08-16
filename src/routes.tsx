@@ -36,8 +36,7 @@ export const routes = [
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-
-      {
+ {
         element: <GuestRoutes />,
         children: [
           { path: 'login', element: <Login /> },

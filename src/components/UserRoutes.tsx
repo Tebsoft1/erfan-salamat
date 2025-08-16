@@ -3,12 +3,14 @@ import { useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 
 export default function UserRoutes() {
-  const isAuthenticated = useSelector(
-    (state: RootState) => state.auth.isAuthenticated
-  )
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />
-  }
+  // const isAuthenticated = useSelector(
+  //   (state: RootState) => state.auth.isAuthenticated
+  // )
+  
+  // if (!isAuthenticated) {
+  //   debugger
+  //   return <Navigate to="/login" replace />
+  // }
 
   return (
     <div className="px-4 w-full">

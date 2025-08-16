@@ -18,11 +18,11 @@ function App() {
     dispatch(checkAuthFromStorage())
   }, [])
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/login')
-    }
-  }, [isAuthenticated, navigate])
+  // useEffect(() => {
+  //   if (!isAuthenticated) {
+  //     navigate('/login')
+  //   }
+  // }, [isAuthenticated, navigate])
 
   return (
     <div className="max-w-md container mx-auto h-screen flex flex-col">
