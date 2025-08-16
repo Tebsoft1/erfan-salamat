@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import OTPForm from '../components/OTPForm'
 import LoginForm from './components/LoginForm'
-import Map from '@/components/Map'
 
 
 const Login = () => {
@@ -9,7 +8,6 @@ const Login = () => {
   const [mobileNumber, setMobileNumber] = useState<string>('')
 
 
-return <Map />
   if (!isOTPComponent)
     return (
       <LoginForm
