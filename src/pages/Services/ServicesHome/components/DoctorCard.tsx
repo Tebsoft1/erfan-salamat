@@ -15,13 +15,13 @@ const DoctorCard: React.FC = () => {
         />
 
         <div className="flex flex-col gap-3 mr-3 mt-5 text-xs">
-          <button onClick = {() => navigate("Doctor")} className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors">
+          <button onClick = {() => navigate("Doctor")} className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors cursor-pointer">
             ویزیت پزشک
           </button>
-          <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors">
+          <button onClick={ () => navigate ("Nurse")} className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors cursor-pointer">
             خدمات پرستاری
           </button>
-          <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors">
+          <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors cursor-pointer">
             خدمات پرستاری
           </button>
         </div>
