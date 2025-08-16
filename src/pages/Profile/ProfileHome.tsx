@@ -5,9 +5,14 @@ import ProfileList from "./components/ProfileList";
 import { useGetUserDataQuery } from "../../services/Authenticate";
 import ProfileHeader from "./components/ProfileHeader";
 
+import { useNavigate } from 'react-router-dom';
+
+
 
 const ProfileHome: React.FC = () => {
   const { data, isLoading } = useGetUserDataQuery();
+    const navigate = useNavigate();
+  
 
   if (isLoading) {
     return <p>در حال بارگذاری...</p>;
@@ -16,7 +21,7 @@ const ProfileHome: React.FC = () => {
   return (
     <div className="py-3 px-6 w-full flex flex-col items-center">
       <div className="flex gap-[1px] items-center w-full">
-        <img src={Back} className="w-[28px]" alt="بازگشت" />
+        <img onClick = { () => navigate("/Services") } src={Back} className="w-[28px] cursor-pointer" alt="بازگشت" />
         <p>بازگشت</p>
       </div>
       <div className="w-full mt-4">

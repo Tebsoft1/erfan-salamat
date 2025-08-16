@@ -1,14 +1,19 @@
 import React from 'react';
 import Ellipse37 from '@/assets/images/Ellipse37.png';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
+    const navigate = useNavigate();
+
+
   return (
     <div className="w-full p-1 flex justify-between items-center">
       <div className="flex items-center">
         <img
           src={Ellipse37}
           alt="photo"
-          className="rounded-full w-12 h-12 bg-primary-300 flex items-center justify-center"
+          className="rounded-full w-12 h-12 bg-primary-300 flex items-center justify-center cursor-pointer"
+          onClick = { () => navigate("/Profile") }
         />
         <div className="flex flex-col items-end text-xs pr-2">
           <span>محمد پیله چی</span>
