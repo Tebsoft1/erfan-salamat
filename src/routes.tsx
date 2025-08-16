@@ -36,13 +36,14 @@ export const routes = [
     element: <App />,
     children: [
       { index: true, element: <Home /> },
- {
-        element: <GuestRoutes />,
-        children: [
-          { path: 'login', element: <Login /> },
-          { path: 'signup', element: <Signup /> },
-        ],
-      },
+{
+  path: 'auth',
+  element: <GuestRoutes />,
+  children: [
+    { path: 'login', element: <Login /> },
+    { path: 'signup', element: <Signup /> },
+  ],
+},
 
       {
         element: <UserRoutes />,

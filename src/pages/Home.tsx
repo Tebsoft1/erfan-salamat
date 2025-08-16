@@ -15,10 +15,10 @@ const Home = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (isAuthenticated) {
+      if (isAuthenticated===true) {
         navigate('/services')
-      } else {
-        navigate('/login')
+      } else if (isAuthenticated===false) {
+        navigate('/auth/login')
       }
     }, 2000)
     return () => clearTimeout(timer)
@@ -29,10 +29,12 @@ const Home = () => {
       <div>
         <img className="absolute -left-3 top-4" src={homeSingleSide} />{' '}
       </div>
+      {isAuthenticated===null &&
       <div className="flex flex-col justify-center items-center gap-1 z-20">
         <img src={homeLogo} className="mt-44" />
         <FadeLoader color="white" />
       </div>
+      }
       <div>
         <img src={homeSide} className="absolute -left-3 bottom-4" />
       </div>

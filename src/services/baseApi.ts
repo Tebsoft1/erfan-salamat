@@ -17,7 +17,7 @@ const baseQueryCore = fetchBaseQuery({
         if (tokenTime <= now) {
           localStorage.removeItem('token')
           localStorage.removeItem('tokenExpiration')
-          window.location.href = '/login'
+          window.location.href = '/auth/login'
           return headers
         }
       }
@@ -37,7 +37,7 @@ const baseQuery = async (args: any, api: any, extraOptions: any) => {
   if (!isExcluded && result.error && result.error.status === 401) {
     localStorage.removeItem('token')
     localStorage.removeItem('tokenExpiration')
-    window.location.href = '/login'
+    window.location.href = '/auth/login'
   }
 
   return result

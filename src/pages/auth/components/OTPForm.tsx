@@ -65,12 +65,10 @@ const OTPForm = (props: OTPFormPropsType) => {
         }).unwrap(),
 
       (data) => {
-        localStorage.setItem('token', data?.token || '')
-        localStorage.setItem('tokenExpiration', data?.expiration || '')
         dispatch(
           login({
-            token: localStorage.getItem('token') || '',
-            expiration: localStorage.getItem('tokenExpiration') || '',
+            token:data?.token || '',
+            expiration: data?.expiration || '',
           })
         )
         navigate('/services')

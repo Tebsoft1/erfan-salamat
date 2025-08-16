@@ -8,21 +8,11 @@ import type { RootState } from './store'
 
 function App() {
   const dispatch = useDispatch()
-  const isAuthenticated = useSelector(
-    (state: RootState) => state.auth.isAuthenticated
-  )
-
-  let navigate = useNavigate()
 
   useEffect(() => {
     dispatch(checkAuthFromStorage())
   }, [])
 
-  // useEffect(() => {
-  //   if (!isAuthenticated) {
-  //     navigate('/login')
-  //   }
-  // }, [isAuthenticated, navigate])
 
   return (
     <div className="max-w-md container mx-auto h-screen flex flex-col">

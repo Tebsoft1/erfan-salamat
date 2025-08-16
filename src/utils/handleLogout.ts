@@ -3,5 +3,5 @@ import { store } from '@/store'
 
 export const handleLogout = () => {
   store.dispatch(logout())
-  window.location.href = '/login'
+  window.location.href = '/auth/login'
 }

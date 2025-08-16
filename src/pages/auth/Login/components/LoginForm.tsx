@@ -80,7 +80,7 @@ const LoginForm = (props: LoginFormPropsType) => {
             className="flex-1"
           />
           <Button
-            onsubmit={() => navigate('/signup')}
+            onsubmit={() => navigate('/auth/signup')}
             text="ثبت نام"
             type="button"
             disabled={SendOTPLoading}
