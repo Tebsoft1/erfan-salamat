@@ -1,18 +1,19 @@
-import persian from "react-date-object/calendars/persian";
-import persian_fa from "react-date-object/locales/persian_fa";
-import { Controller, type Control, type FieldError } from "react-hook-form";
-import DatePicker from "react-multi-date-picker";
-import { CiCalendarDate } from "react-icons/ci";
-import React from "react";
+import persian from 'react-date-object/calendars/persian'
+import persian_fa from 'react-date-object/locales/persian_fa'
+import 'react-multi-date-picker/styles/colors/teal.css'
+import { Controller, type Control, type FieldError } from 'react-hook-form'
+import DatePicker from 'react-multi-date-picker'
+import { CiCalendarDate } from 'react-icons/ci'
+import React from 'react'
 
 interface FormInputProps {
-  name: string;
-  label?: string;
-  placeholder?: string;
-  icon?: React.ReactNode;
-  error?: FieldError;
-  className?: string;
-  control: Control<any>;
+  name: string
+  label?: string
+  placeholder?: string
+  icon?: React.ReactNode
+  error?: FieldError
+  className?: string
+  control: Control<any>
 }
 
 const DateInput: React.FC<FormInputProps> = ({
@@ -20,7 +21,7 @@ const DateInput: React.FC<FormInputProps> = ({
   label,
   placeholder,
   error,
-  className = "",
+  className = '',
   control,
 }) => {
   return (
@@ -33,11 +34,11 @@ const DateInput: React.FC<FormInputProps> = ({
 
       <div
         className={`flex justify-between items-center gap-2 w-full px-5 py-3 border rounded-full ${
-          error ? "border-rose-500" : "border-gray-300"
+          error ? 'border-rose-500' : 'border-gray-300'
         }`}
       >
         <Controller
-          name={name} 
+          name={name}
           control={control}
           render={({ field }) => (
             <DatePicker
@@ -46,12 +47,14 @@ const DateInput: React.FC<FormInputProps> = ({
               value={field.value}
               onChange={(date) => field.onChange(date?.toDate?.() || null)}
               placeholder={placeholder}
-               style={{
-    border: "none",
-    boxShadow: "none",
-    outline: "none",
-    background: "transparent",
-  }}
+              className="teal"
+              inputClass="placeholder:text-xs"
+              style={{
+                border: 'none',
+                boxShadow: 'none',
+                outline: 'none',
+                background: 'transparent',
+              }}
             />
           )}
         />
@@ -60,11 +63,9 @@ const DateInput: React.FC<FormInputProps> = ({
         </span>
       </div>
 
-      {error && (
-        <p className="mt-1 text-sm text-rose-500">{error.message}</p>
-      )}
+      {error && <p className="mt-1 text-sm text-rose-500">{error.message}</p>}
     </div>
-  );
-};
+  )
+}
 
-export default DateInput;
+export default DateInput

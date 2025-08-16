@@ -1,15 +1,17 @@
 import { Navigate, Outlet } from 'react-router-dom'
-import { useAuth } from '../hooks/useAuth'
+import type { RootState } from '@/store'
+import { useSelector } from 'react-redux'
 
 export default function GuestRoutes() {
-  const { isAuthenticated } = useAuth()
-
-  // if (isAuthenticated) {
-  //   return <Navigate to="/services" replace />
-  // }
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  )
+  if (isAuthenticated) {
+    return <Navigate to="/services" replace />
+  }
 
   return (
-    <div className="flex flex-col items-center flex-1 w-full p-4  bg-secondary-100 rounded-tr-4xl rounded-tl-4xl bg-gradient-to-b from-secondary-100 to-secondary-100 text-primary-900">
+    <div className="flex flex-col items-center flex-1 w-full p-4 mt-10  bg-secondary-100 rounded-tr-4xl rounded-tl-4xl bg-gradient-to-b from-secondary-100 to-secondary-100 text-primary-900 relative">
       <Outlet />
     </div>
   )
