@@ -56,6 +56,8 @@ const authSlice = createSlice({
         } catch (error) {
           authSlice.caseReducers.logout(state)
         }
+      }else{
+        authSlice.caseReducers.logout(state)
       }
     },
   },

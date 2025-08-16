@@ -108,11 +108,9 @@
 
   --Dunkel: #1e1e1e;
   --blue: #3E48FF;
-  --red: #FF0000;
-  --DarkRed: #C62828;
+  --red: #e11d48;
+  --DarkRed: #9f1239;
   --SemiDarkGray: #B0BEC5;
-  --Success: #4CAF50;
-  --Green: #66BB6A;
 
   font-family: 'Yekan Bakh', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -169,4 +167,22 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset !important;
   box-shadow: 0 0 0px 1000px white inset !important;
   -webkit-text-fill-color: var(--primary-900) !important;
+}
+
+/* toast */
+.success-toast {
+  font-family: 'Yekan Bakh', sans-serif !important;
+  font-size: 14px !important;
+  background: var(--primary-500) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  width: 300px !important;
+}
+.rejected-toast{
+  font-family: 'Yekan Bakh', sans-serif !important;
+  font-size: 14px !important;
+  background: var(--red) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  width: 300px !important;
 }

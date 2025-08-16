@@ -1,10 +1,9 @@
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet} from 'react-router-dom'
 import header from './assets/images/header.png'
 import { ToastContainer } from 'react-toastify'
 import { useEffect } from 'react'
 import { checkAuthFromStorage } from './features/authSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import type { RootState } from './store'
+import { useDispatch } from 'react-redux'
 
 function App() {
   const dispatch = useDispatch()

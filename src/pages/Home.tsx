@@ -22,14 +22,14 @@ const Home = () => {
       }
     }, 2000)
     return () => clearTimeout(timer)
-  }, [])
+  }, [isAuthenticated])
 
   return (
     <div className="flex-1 flex flex-col items-center relative">
       <div>
         <img className="absolute -left-3 top-4" src={homeSingleSide} />{' '}
       </div>
-      {isAuthenticated===null &&
+      {isAuthenticated===null ||isAuthenticated===false &&
       <div className="flex flex-col justify-center items-center gap-1 z-20">
         <img src={homeLogo} className="mt-44" />
         <FadeLoader color="white" />
