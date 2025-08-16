@@ -1,32 +1,55 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import baseQuery from './baseApi'
 import type { UserData } from '@/types/userdata'
+import type {
+  SendOTPType,
+  SignupType,
+  VerifyOTPType,
+} from '@/types/servicesTypes/Authenticate'
 
 type ApiResponse<T> = {
-  data: T;
-};
+  data: T
+}
 
 export const Authenticate = createApi({
   reducerPath: 'Authenticate',
   baseQuery,
   endpoints: (builder) => ({
-    login: builder.mutation({
-      query: (credentials) => ({
-        url: '/Authenticate/Login',
+    sendOTP: builder.mutation({
+      query: (sendOTPFormData: SendOTPType) => ({
+        url: 'Authenticate/SendOtp',
         method: 'POST',
-        body: credentials,
+        body: sendOTPFormData,
+      }),
+    }),
+    verfiyOTP: builder.mutation({
+      query: (verifyOTPFormData: VerifyOTPType) => ({
+        url: 'Authenticate/VerifyOtp',
+        method: 'POST',
+        body: verifyOTPFormData,
+      }),
+    }),
+    signup: builder.mutation({
+      query: (signupFormData: SignupType) => ({
+        url: 'Authenticate/RegisterCustumer',
+        method: 'POST',
+        body: signupFormData,
       }),
     }),
 
-    getUserData: builder.query<UserData , void>({
+    getUserData: builder.query<UserData, void>({
       query: () => ({
-        url: '/Authenticate/GetCurrentUserData',
+        url: 'Authenticate/GetCurrentUserData',
         method: 'POST',
       }),
       transformResponse: (response: ApiResponse<UserData>) => response.data,
     }),
   }),
-  
 })
 
-export const { useLoginMutation  , useGetUserDataQuery } = Authenticate
+export const {
+  useSendOTPMutation,
+  useVerfiyOTPMutation,
+  useSignupMutation,
+  useGetUserDataQuery,
+} = Authenticate

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
-const Profile = () => {
+const Services = () => {
   return <Outlet />
 }
-export default Profile
+export default Services

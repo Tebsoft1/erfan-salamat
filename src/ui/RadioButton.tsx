@@ -1,14 +1,28 @@
-type RadioButtonProps={
-    radioId:string;
-    radioValue:number;
-    radioName:string
-    text:string
+import type { UseFormRegister } from 'react-hook-form'
+
+type RadioButtonProps = {
+  radioId: string
+  register: UseFormRegister<any>
+  name: string
+  text: string
+  value: string
 }
-const RadioButton=(props:RadioButtonProps)=>{
-    const {radioId,radioValue,radioName,text}=props
-return <div>
-    <input id={radioId} type="radio" value={radioValue} name={radioName} className="w-4 h-4 text-primary-700 bg-secondary-300 border-secondary-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-secondary-900 focus:ring-2 dark:bg-secondary-500 dark:border-secondary-500"/>
-    <label htmlFor={radioId} className="ms-2 text-sm font-medium text-dunkel dark:text-secondary-300">{text}</label>
-</div>
+
+const RadioButton = (props: RadioButtonProps) => {
+  const { radioId, name, register, text, value } = props
+  return (
+    <div className="flex items-center gap-2">
+      <input
+        {...register(name)}
+        id={radioId}
+        type="radio"
+        value={value}
+        className="w-6 h-6"
+      />
+      <label htmlFor={radioId} className="text-sm font-bold text-primary-900">
+        {text}
+      </label>
+    </div>
+  )
 }
 export default RadioButton
