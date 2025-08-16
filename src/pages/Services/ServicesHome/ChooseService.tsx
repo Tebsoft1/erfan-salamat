@@ -1,7 +1,6 @@
 import React from "react";
 import Calendarwaiting from '@/assets/images/Calendarwaiting.png';
 import Arrowleft from '@/assets/images/Arrowleft.png';
-import Emergencyphone from '@/assets/images/Emergencyphone.png';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Backbutton from '@/assets/images/BackButton.png';

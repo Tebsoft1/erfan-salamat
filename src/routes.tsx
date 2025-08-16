@@ -10,7 +10,7 @@ import Doctor from '@/pages/Services/doctor/Doctor'
 import Pharmacy from '@/pages/Services/Pharmacy'
 import Laboratory from '@/pages/Services/Laboratory'
 import Physiotherapy from '@/pages/Services/Physiotherapy'
-import Nurse from '@/pages/Services/Nurse'
+import Nurse from '@/pages/Services/nurse/Nurse'
 import ChooseService from '@/pages/Services/ServicesHome/ChooseService'
 
 import Profile from '@/pages/Profile'

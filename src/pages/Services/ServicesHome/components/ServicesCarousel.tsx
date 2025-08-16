@@ -4,15 +4,17 @@ import Bones from '@/assets/images/Bones.png';
 import Drip from '@/assets/images/Drip.png';
 import FirstAidKit from '@/assets/images/FirstAidKit.png';
 import Vial from '@/assets/images/Vial.png'; 
+import { useNavigate } from "react-router-dom";
 
 const ServicesCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
 
   const services = [
-    { name: 'رادیولوژی', image: Bones },
-    { name: 'سرم تراپی', image: Drip },
-    { name: 'نمونه گیری', image: Vial },
-    { name: 'کمک بهیار منزل', image: FirstAidKit },
+    { name: 'رادیولوژی', image: Bones, path: "/radiology" },
+    { name: 'سرم تراپی', image: Drip, path: "/serum-therapy" },
+    { name: 'نمونه گیری', image: Vial, path: "/sampling" },
+    { name: 'کمک بهیار منزل', image: FirstAidKit, path: "nurse" },
   ];
 
   const chunkServices = (arr: typeof services, size: number) => {
@@ -53,7 +55,11 @@ const ServicesCarousel: React.FC = () => {
             {slides.map((group, slideIndex) => (
               <div key={slideIndex} className="w-full grid grid-cols-4 gap-4 flex-shrink-0">
                 {group.map((service, index) => (
-                  <button key={index} className="flex flex-col items-center">
+                  <button
+                    key={index}
+                    className="flex flex-col items-center cursor-pointer "
+                    onClick={() => service.path && navigate(service.path)}
+                  >
                     <div className="border border-secondary-500/40 rounded-sm p-3 mb-2">
                       <img src={service.image} alt={service.name} className="w-8 h-8" />
                     </div>

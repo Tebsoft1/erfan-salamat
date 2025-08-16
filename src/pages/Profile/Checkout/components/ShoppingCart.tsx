@@ -3,6 +3,10 @@ import type { LatLngExpression } from "leaflet";
 import MapComponent from "./MapComponent";
 import { useNavigate } from "react-router-dom";
 import "./scrollbar.css";
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 
 const ShoppingCart: React.FC = () => {
   const [items, setItems] = useState([
@@ -50,6 +54,12 @@ const ShoppingCart: React.FC = () => {
 
   return (
     <div className="w-98/100 bg-dunkel rounded-xl mt-8 mb-15 overflow-hidden flex flex-col relative">
+      <div className="absolute top-2 right-2">
+        <Link to="/profile" className="flex items-center text-secondary-100">
+        <FontAwesomeIcon icon={faArrowRight} className="h-6 w-6 text-dunkel ml-1" />
+      <span className="-mt-1 text-dunkel text-sm">بازگشت</span>
+    </Link>
+      </div>
       <span className="text-xl bg-primary-300 rounded-t-xl text-dunkel w-full p-5 flex justify-center">
         جزئیات سفارش
       </span>
