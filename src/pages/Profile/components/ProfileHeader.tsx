@@ -13,7 +13,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({data}) => {
   return (
     <div className="bg-secondary-900 flex justify-between w-full px-8 py-3 rounded-[30px]">
       <div className="flex items-center gap-1">
-        <TiPlusOutline size={26} className="mt-1" />
+        <TiPlusOutline size={26} className="mt-1 cursor-pointer" />
         <p>پروفایل کاربری</p>
       </div>
       <div className="flex items-center gap-3">

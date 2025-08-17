@@ -20,8 +20,8 @@ const ProfileHome: React.FC = () => {
 
   return (
     <div className="py-3 px-6 w-full flex flex-col items-center">
-      <div className="flex gap-[1px] items-center w-full">
-        <img onClick = { () => navigate("/Services") } src={Back} className="w-[28px] cursor-pointer" alt="بازگشت" />
+      <div className="flex gap-[1px] items-center w-full cursor-pointer">
+        <img onClick = { () => navigate("/Services") } src={Back} className="w-[28px] " alt="بازگشت" />
         <p>بازگشت</p>
       </div>
       <div className="w-full mt-4">
@@ -30,7 +30,7 @@ const ProfileHome: React.FC = () => {
       <div className="w-full mt-10">
         <ProfileList />
       </div>
-      <div className="border-1 border-primary-300 rounded-[30px] py-3 w-[95%] mt-12 text-center text-primary-300">
+      <div className="border-1 border-primary-300 rounded-[30px] py-3 w-[95%] mt-12 text-center text-primary-300 cursor-pointer">
         خروج از حساب کاربری
       </div>
     </div>

@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 
       <div className="flex items-center space-x-4 ml-4">
         <div className="flex flex-col items-center">
-          <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center">
+          <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center cursor-pointer">
             <svg
               width="24"
               height="24"
@@ -51,12 +51,13 @@ const Header: React.FC = () => {
               />
               <circle cx="17" cy="4" r="2" fill="#3EFFC7" />
             </svg>
+            
           </div>
-          <span className="text-xs mt-1">اعلان ها</span>
+          <span className="text-xs mt-1 cursor-pointer">اعلان ها</span>
         </div>
 
         <div className="flex flex-col items-center">
-          <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center">
+          <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center cursor-pointer">
             <svg
               width="24"
               height="24"
@@ -79,11 +80,11 @@ const Header: React.FC = () => {
               />
             </svg>
           </div>
-          <span className="text-xs mt-1">پرونده شما</span>
+          <span className="text-xs mt-1 cursor-pointer">پرونده شما</span>
         </div>
 
         <div
-          className="flex flex-col items-center"
+          className="flex flex-col items-center cursor-pointer"
           onClick={() => dispatch(logout())}
         >
           <div className="flex items-center justify-center">
@@ -93,7 +94,7 @@ const Header: React.FC = () => {
               className="text-white w-4 h-4"
             />
           </div>
-          <span className="text-xs mt-2">خروج</span>
+          <span className="text-xs mt-2 cursor-pointer">خروج</span>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ const SearchBar: React.FC = () => {
   return (
     <div className="w-full max-w-2xl p-4 mt-2">
       <div className="relative">
-        <div className="rounded-sm p-2 absolute left-5 bottom-1/4 transform -translate-y-1/2 w-5 h-5">
+        <div className="rounded-sm p-2 absolute left-5 bottom-1/4 transform -translate-y-1/2 w-5 h-5 cursor-pointer">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.9">
               <path d="M7.19008 10.8098L2.25 15.7499" stroke="#39D8B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

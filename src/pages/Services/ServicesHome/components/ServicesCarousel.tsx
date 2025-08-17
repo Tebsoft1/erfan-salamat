@@ -73,7 +73,7 @@ const ServicesCarousel: React.FC = () => {
 
         <div className="flex justify-between items-center mt-4">
           <button onClick={prevSlide} className="p-2">
-            <FaChevronRight className="text-xl" />
+            <FaChevronRight className="text-xl cursor-pointer" />
           </button>
           <div className="flex space-x-2">
             {Array.from({ length: slides.length })
@@ -86,7 +86,7 @@ const ServicesCarousel: React.FC = () => {
                 ></span>
               ))}
           </div>
-          <button onClick={nextSlide} className="p-2">
+          <button onClick={nextSlide} className="p-2 cursor-pointer">
             <FaChevronLeft className="text-xl" />
           </button>
         </div>
