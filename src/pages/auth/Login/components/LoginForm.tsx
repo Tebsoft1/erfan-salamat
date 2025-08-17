@@ -37,7 +37,6 @@ const LoginForm = (props: LoginFormPropsType) => {
 
   const phoneValue = watch('phoneNumber') || ''
 
-  // چک کن که 11 رقم هست و خطا نداره
   const isPhoneNumberValid = phoneValue.length === 11 && !errors.phoneNumber
 
   const onSubmit = async (data: LoginFormType) => {
