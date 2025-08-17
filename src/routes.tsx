@@ -11,6 +11,7 @@ import Pharmacy from '@/pages/Services/Pharmacy'
 import Laboratory from '@/pages/Services/Laboratory'
 import Physiotherapy from '@/pages/Services/Physiotherapy'
 import Nurse from '@/pages/Services/nurse/Nurse'
+import NurseServiceChoose from '@/pages/Services/nurse/NurseServiceChoose'
 import ChooseService from '@/pages/Services/ServicesHome/ChooseService'
 
 import Profile from '@/pages/Profile'
@@ -58,6 +59,7 @@ export const routes = [
               { path: 'laboratory', element: <Laboratory /> },
               { path: 'physiotherapy', element: <Physiotherapy /> },
               { path: 'nurse', element: <Nurse /> },
+              { path: 'nurseservicechoose', element: <NurseServiceChoose /> },
               { path: 'chooseservice', element: <ChooseService /> }
             ],
           },
