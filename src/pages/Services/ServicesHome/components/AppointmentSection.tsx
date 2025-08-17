@@ -1,69 +1,66 @@
-import React from 'react';
-import Calendarwaiting from '@/assets/images/Calendarwaiting.png';
-import Arrowleft from '@/assets/images/Arrowleft.png';
-import Emergencyphone from '@/assets/images/Emergencyphone.png';
-import { useNavigate } from "react-router-dom";
-
+import React from 'react'
+import Calendarwaiting from '@/assets/images/Calendarwaiting.png'
+import Arrowleft from '@/assets/images/Arrowleft.png'
+import { useNavigate } from 'react-router-dom'
+import { useGetServiceGroupQuery } from '@/services/Customers'
+import { QueryHandler } from '@/components/QueryHandler'
 
 const AppointmentSection: React.FC = () => {
-  const navigate = useNavigate();
-
+  const {
+    data: GetServiceGroup,
+    isLoading: GetServiceGroupLoading,
+    isError: GetServiceGroupError,
+  } = useGetServiceGroupQuery()
 
   return (
-    <div className="w-95/100 mb-5">
+    <div className="w-full">
+      <QueryHandler
+        data={GetServiceGroup}
+        isLoading={GetServiceGroupLoading}
+        isError={GetServiceGroupError}
+        render={(groups) => (
+          <ul>
+            {groups.map((group) => (
+              <Card
+                key={group.id}
+                address={`serviceList?groupId=${group.id}`}
+                title={group.name}
+              />
+            ))}
+          </ul>
+        )}
+      />
+    </div>
+  )
+}
 
-      <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-3 min-h-20">
-        <div className="flex flex-row justify-between items-center flex-1 gap-4 relative">
-          
-          <div className="bg-transparent">
-            <img
-              src={Calendarwaiting}
-              alt="+"
-              className="w-10 h-10 mr-2"
-            />
-          </div>
+export default AppointmentSection
 
-          <button onClick={() => navigate ("chooseService")} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center cursor-pointer">
-            نوبت دهی پزشک ، آزمایشگاه
-          </button>
-
-          <div className="bg-transparent">
-            <img
-              src={Arrowleft}
-              alt="+"
-              className="w-10 h-10"
-            />
-          </div>
+type CardPropsType = {
+  address: string
+  title: string
+}
+const Card = (props: CardPropsType) => {
+  const { address, title } = props
+  let navigate = useNavigate()
+  return (
+    <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-3 min-h-20">
+      <div className="flex flex-row justify-between items-center flex-1 gap-4 relative">
+        <div className="bg-transparent">
+          <img src={Calendarwaiting} alt="+" className="w-10 h-10 mr-2" />
         </div>
-      </div>
 
-      <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-1 mt-1 min-h-20">
-        <div className="flex flex-row justify-between items-center flex-1 relative">
-          
-          <div className="bg-transparent">
-            <img
-              src={Emergencyphone}
-              alt="+"
-              className="w-10 h-10 mr-2"
-            />
-          </div>
+        <button
+          onClick={() => navigate(address)}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center cursor-pointer"
+        >
+          {title}
+        </button>
 
-          <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center">
-            ویزیت تلفنی پزشک
-          </button>
-
-          <div className="bg-transparent">
-            <img
-              src={Arrowleft}
-              alt="+"
-              className="w-10 h-10"
-            />
-          </div>
+        <div className="bg-transparent">
+          <img src={Arrowleft} alt="+" className="w-10 h-10" />
         </div>
       </div>
     </div>
-  );
-};
-
-export default AppointmentSection;
-
+  )
+}

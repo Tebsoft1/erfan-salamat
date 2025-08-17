@@ -30,6 +30,7 @@ import UserRoutes from '@/components/UserRoutes'
 import GuestRoutes from '@/components/GuestRoutes'
 import ServicesHome from './pages/Services/ServicesHome/ServicesHome'
 import ProfileHome from './pages/Profile/ProfileHome'
+import ServiceList from './pages/Services/ServiceList'
 
 export const routes = [
   {
@@ -37,14 +38,14 @@ export const routes = [
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-{
-  path: 'auth',
-  element: <GuestRoutes />,
-  children: [
-    { path: 'login', element: <Login /> },
-    { path: 'signup', element: <Signup /> },
-  ],
-},
+      {
+        path: 'auth',
+        element: <GuestRoutes />,
+        children: [
+          { path: 'login', element: <Login /> },
+          { path: 'signup', element: <Signup /> },
+        ],
+      },
 
       {
         element: <UserRoutes />,
@@ -54,13 +55,14 @@ export const routes = [
             element: <Services />,
             children: [
               { index: true, element: <ServicesHome /> },
+              { path: 'serviceList', element: <ServiceList /> },
               { path: 'doctor', element: <Doctor /> },
               { path: 'pharmacy', element: <Pharmacy /> },
               { path: 'laboratory', element: <Laboratory /> },
               { path: 'physiotherapy', element: <Physiotherapy /> },
               { path: 'nurse', element: <Nurse /> },
               { path: 'nurseservicechoose', element: <NurseServiceChoose /> },
-              { path: 'chooseservice', element: <ChooseService /> }
+              { path: 'chooseservice', element: <ChooseService /> },
             ],
           },
           {

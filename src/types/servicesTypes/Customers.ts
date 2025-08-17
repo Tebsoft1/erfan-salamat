@@ -13,3 +13,13 @@ export type ServiceItemType = {
   isActive: boolean
   isPopular: boolean
 }
+
+export type ServiceGroupType = {
+  id: number
+  name: string
+  logo: string
+  apearInApp: boolean
+  orderId: number
+  nameInApp: string
+  showInAppMiddle: boolean
+}
