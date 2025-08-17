@@ -53,7 +53,6 @@ const NurseServiceChoose: React.FC = () => {
         ))}
       </div>
 
-      {/* نمایش انتخاب کاربر */}
       {selectedShift && (
         <div className="bg-green-800 p-3 rounded-lg text-center text-white font-bold">
           شما "{selectedShift}" را انتخاب کردید ✅
