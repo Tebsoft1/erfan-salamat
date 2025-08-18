@@ -69,7 +69,7 @@ const Card: React.FC<CardPropsType> = ({ service, navigate }) => {
       }
     >
       <div className="border border-secondary-500/40 rounded-sm p-3 mb-2">
-        <img src={HospitalIcon} alt={service.title} className="w-8 h-8" />
+        <img src={HospitalIcon} alt={service.title} className="w-6 h-6" />
       </div>
       <span className="text-xs line-clamp-3">{service.title}</span>
     </button>

@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import type { LatLngExpression } from "leaflet";
-import MapComponent from "./MapComponent";
-import Map from "@/components/Map";
+import Map from '@/components/Map'
 import { useNavigate } from "react-router-dom";
 import "./scrollbar.css";
 import { Link } from 'react-router-dom';
@@ -54,7 +53,7 @@ const ShoppingCart: React.FC = () => {
   };
 
   return (
-    <div className="w-98/100 bg-dunkel rounded-xl mt-8 mb-15 overflow-hidden flex flex-col relative">
+    <div className="w-98/100 bg-dunkel rounded-xl mt-15 mb-15 overflow-hidden flex flex-col relative">
       <div className="absolute top-2 right-2">
         <Link to="/profile" className="flex items-center text-secondary-100">
         <FontAwesomeIcon icon={faArrowRight} className="h-6 w-6 text-dunkel ml-1" />
@@ -104,7 +103,7 @@ const ShoppingCart: React.FC = () => {
         {!showExtra && (
           <button
             onClick={() => setShowExtra(true)}
-            className="bg-primary-300 text-dunkel py-2 rounded-lg w-full hover:bg-primary-500 hover:text-secondary-100"
+            className="bg-primary-300 text-dunkel py-2 rounded-lg w-full hover:bg-primary-500 hover:text-secondary-100 mb-4"
           >
             تکمیل فرآیند ثبت سفارش
           </button>
@@ -120,7 +119,7 @@ const ShoppingCart: React.FC = () => {
             <div className="space-y-2">
               <label className="block text-secondary-100 text-xl font-bold mb-2">بارگذاری مدارک:</label>
               <div
-                className="w-full p-3 rounded-lg text-l bg-secondary-900 text-secondary-100 flex items-center justify-between cursor-pointer hover:bg-secondary-800"
+                className="w-full p-3 rounded-lg text-l bg-secondary-900 text-secondary-100 flex items-center justify-between cursor-pointer hover:bg-secondary-500"
                 onClick={() => fileInputRef.current?.click()}
               >
                 <span>انتخاب فایل</span>
@@ -141,7 +140,7 @@ const ShoppingCart: React.FC = () => {
                       <span>{file.name}</span>
                       <button
                         onClick={() => handleRemoveFile(index)}
-                        className="text-red text-xl font-bold hover:text-DarkRed text-lg"
+                        className="text-red text-xl font-bold hover:text-DarkRed"
                       >
                         ×
                       </button>
@@ -151,19 +150,8 @@ const ShoppingCart: React.FC = () => {
               )}
             </div>
 
-            <MapComponent
-              defaultCenter={[35.6892, 51.3890] as LatLngExpression}
-              onLocationSelect={(coords, address) => {
-                setSelectedCoords(coords);
-                setSelectedAddress(address);
-              }}
-            />
-
-            {selectedCoords && (
-              <div className="mt-2 text-secondary-100">
-                📍 {selectedAddress}
-              </div>
-            )}
+              <Map />
+          
 
             <button
               onClick={handleFinalSubmit}

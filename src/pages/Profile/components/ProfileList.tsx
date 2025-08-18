@@ -8,7 +8,9 @@ import { TiPlusOutline } from "react-icons/ti";
 import { BsClipboard2Plus } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { FaChevronLeft } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 const ProfileList = () => {
+    const navigate = useNavigate();
   return (
     <div className="px-3 flex flex-col gap-6">
       <div className="flex justify-between items-center cursor-pointer">
@@ -26,7 +28,7 @@ const ProfileList = () => {
         <FaChevronLeft />
       </div>
       <div className="flex justify-between items-center cursor-pointer">
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-3 items-center" onClick = { () => navigate("/profile/orders") }>
           <CiViewList size={20} />
           <p>تاریخچه سفارشات</p>
         </div>

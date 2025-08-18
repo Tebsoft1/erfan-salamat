@@ -13,7 +13,7 @@ const ServiceItem = (props: ServiceItemPropsType) => {
 
   return (
     <div className="w-full">
-      <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-10 min-h-14 cursor-pointer hover:bg-blue hover:text-secondary-100 group">
+      <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-6 min-h-14 cursor-pointer hover:bg-primary-500 group">
         <div className="flex flex-row justify-between items-center flex-1 gap-4 relative">
           <div className="bg-transparent">
             <img src={HospitalIcon} alt="+" className="w-8 h-8 mr-2 -mt-1" />
