@@ -26,7 +26,7 @@ const Header: React.FC = () => {
       </div>
 
       <div className="flex items-center space-x-4 ml-4">
-        <div className="flex flex-col items-center">
+        <div onClick={() => navigate('Profile/Notifications')} className="flex flex-col items-center ">
           <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center cursor-pointer">
             <svg
               width="24"

@@ -82,8 +82,8 @@ const Wallet: React.FC = () => {
                   <td
                     className={`p-3 font-bold whitespace-nowrap ${
                       tx.amount.startsWith("+")
-                        ? "text-green-400"
-                        : "text-red-400"
+                        ? "text-primary-300"
+                        : "text-red"
                     }`}
                   >
                     {tx.amount} ریال

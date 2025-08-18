@@ -7,7 +7,7 @@ import DNA from '@/assets/images/DNA.png';
 
 const ChildrenServices: React.FC = () => {
   return (
-  <div className="relative w-95/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-50 mt-8">
+  <div className="relative w-95/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-50 mt-20 mb-5">
 
     <span className="absolute top-4 right-6 text-secondary-100 text-m font-semibold">
       خدمات ویژه کودکان
