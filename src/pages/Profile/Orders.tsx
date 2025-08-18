@@ -5,14 +5,15 @@ import { CiViewList } from "react-icons/ci";
 import { useGetUserDataQuery } from "../../services/Authenticate";
 import ProfileHeader from "./components/ProfileHeader";
 import OrdersList from "./components/OrdersList";
+import { useNavigate } from 'react-router-dom';
 
 const Orders: React.FC = () => {
   const { data, isLoading } = useGetUserDataQuery();
-  
+  const navigate = useNavigate();
 
   return (
     <div className="py-3  !w-full flex flex-col items-center">
-      <div className="flex gap-[1px] items-center w-full">
+      <div onClick = { () => navigate("/profile") } className="flex gap-[1px] items-center w-full cursor-pointer">
         <img src={Back} className="w-[28px]" alt="بازگشت" />
         <p>بازگشت</p>
       </div>

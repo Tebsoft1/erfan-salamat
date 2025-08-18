@@ -36,7 +36,6 @@ const ServicesHome: React.FC = () => {
       <AppointmentSection />
       <ChildrenServices />
       <StatsSection />
-      <FooterNav />
     </div>
   );
 };
