@@ -19,7 +19,7 @@ const ProfileHome: React.FC = () => {
   }
 
   return (
-    <div className="py-3 px-6 w-full flex flex-col items-center">
+    <div className="py-3 px-2 w-full flex flex-col items-center">
       <div className="flex gap-[1px] items-center w-full cursor-pointer">
         <img onClick = { () => navigate("/Services") } src={Back} className="w-[28px] " alt="بازگشت" />
         <p>بازگشت</p>
