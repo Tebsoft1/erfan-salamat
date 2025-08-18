@@ -18,6 +18,14 @@ export const Customers = createApi({
         }),
       }
     ),
+    getServicesIspopular: builder.query<ApiResponse<ServiceItemType[]>, void>(
+      {
+        query: () => ({
+          url: `Customers/GetServicesIspopular`,
+          method: 'POST',
+        }),
+      }
+    ),
     getServiceGroup: builder.query<ApiResponse<ServiceGroupType[]>, void>({
       query: () => ({
         url: `Customers/GetServiceGroup`,
@@ -27,5 +35,5 @@ export const Customers = createApi({
   }),
 })
 
-export const { useGetServicesByGroupIdQuery, useGetServiceGroupQuery } =
+export const { useGetServicesByGroupIdQuery, useGetServicesIspopularQuery,useGetServiceGroupQuery } =
   Customers

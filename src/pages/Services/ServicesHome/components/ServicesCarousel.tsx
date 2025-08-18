@@ -1,38 +1,22 @@
 import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import Bones from '@/assets/images/Bones.png';
-import Drip from '@/assets/images/Drip.png';
-import FirstAidKit from '@/assets/images/FirstAidKit.png';
-import Vial from '@/assets/images/Vial.png'; 
 import { useNavigate } from "react-router-dom";
+import { useGetServicesIspopularQuery } from '@/services/Customers';
+import type { ServiceItemType } from '@/types/servicesTypes/Customers';
+import HospitalIcon from '@/assets/images/HospitalIcon.png'
+import { QueryHandler } from '@/components/QueryHandler';
 
 const ServicesCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const navigate = useNavigate();
 
-  const services = [
-    { name: 'رادیولوژی', image: Bones, path: "/radiology" },
-    { name: 'سرم تراپی', image: Drip, path: "/serum-therapy" },
-    { name: 'نمونه گیری', image: Vial, path: "/sampling" },
-    { name: 'کمک بهیار منزل', image: FirstAidKit, path: "nurse" },
-  ];
-
-  const chunkServices = (arr: typeof services, size: number) => {
-    const chunks = [];
-    for (let i = 0; i < arr.length; i += size) {
-      chunks.push(arr.slice(i, i + size));
-    }
-    return chunks;
-  };
-
-  const slides = chunkServices(services, 4);
+const {data:GetServicesIspopular,isLoading:GetServicesIspopularLoading,isError:GetServicesIspopularError}=useGetServicesIspopularQuery()
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentSlide((prev) => (prev + 1) % (GetServicesIspopular?.data?.length || 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 + (GetServicesIspopular?.data?.length || 1)) % (GetServicesIspopular?.data?.length || 1));
   };
 
   return (
@@ -52,22 +36,18 @@ const ServicesCarousel: React.FC = () => {
             className="flex w-full transition-transform duration-300 ease-in-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-            {slides.map((group, slideIndex) => (
-              <div key={slideIndex} className="w-full grid grid-cols-4 gap-4 flex-shrink-0">
-                {group.map((service, index) => (
-                  <button
-                    key={index}
-                    className="flex flex-col items-center cursor-pointer "
-                    onClick={() => service.path && navigate(service.path)}
-                  >
-                    <div className="border border-secondary-500/40 rounded-sm p-3 mb-2">
-                      <img src={service.image} alt={service.name} className="w-8 h-8" />
-                    </div>
-                    <span className="text-xs whitespace-nowrap">{service.name}</span>
-                  </button>
-                ))}
-              </div>
-            ))}
+            <QueryHandler
+                    data={GetServicesIspopular}
+                    isLoading={GetServicesIspopularLoading}
+                    isError={GetServicesIspopularError}
+                    render={(services) => (
+                      <ul className='flex flex-nowrap overflow-auto'>
+                        {services.map((service) => (
+                          <Card service={service} key={service.id}  />
+                        ))}
+                      </ul>
+                    )}
+                  />
           </div>
         </div>
 
@@ -76,7 +56,7 @@ const ServicesCarousel: React.FC = () => {
             <FaChevronRight className="text-xl cursor-pointer" />
           </button>
           <div className="flex space-x-2">
-            {Array.from({ length: slides.length })
+            {Array.from({ length: GetServicesIspopular?.data?.length||1 })
               .map((_, index) => index)
               .reverse()
               .map((index) => (
@@ -96,3 +76,25 @@ const ServicesCarousel: React.FC = () => {
 };
 
 export default ServicesCarousel;
+
+type CardPropsType={
+  service:ServiceItemType
+}
+
+ const Card=(props:CardPropsType)=>{
+  const {service}=props
+
+  let navigate=useNavigate()
+
+  return  <button 
+                    className="flex flex-col items-center cursor-pointer "
+                    onClick={() => navigate(`/serviceForm/typeId=${service.medicalServicesTypesId}&serviceId=${service.id}`)}
+                  >
+                    <div className="border border-secondary-500/40 rounded-sm p-3 mb-2">
+                      <img src={HospitalIcon} alt={service.title} className="w-8 h-8" />
+                    </div>
+                    <span className="text-xs whitespace-nowrap">{service.title}</span>
+                  </button>
+              
+             
+}
