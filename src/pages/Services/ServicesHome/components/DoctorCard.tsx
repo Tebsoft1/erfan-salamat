@@ -1,5 +1,5 @@
 import React from 'react'
-import DoctorImg from '@/assets/images/DoctorImg.png'
+import DoctorImg3 from '@/assets/images/DoctorImg3.png'
 import { useNavigate } from 'react-router-dom'
 import Microscope from "@/assets/images/Microscope.png";
 import Blister2 from "@/assets/images/Blister2.png";
@@ -9,12 +9,16 @@ const DoctorCard: React.FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="w-full bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-45 mb-10 mt-8">
-      <img
-        src={DoctorImg}
+    <div className="w-full bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-40 mb-10 mt-8">
+      
+      <div className='bg-primary-300 rounded-4xl p-2 h-40 -mt-3 -mr-5'>
+        <img
+        src={DoctorImg3}
         alt="+"
-        className="bg-primary-300 w-30 h-45 rounded-4xl p-2 -mt-3 -mr-3"
+        className="w-26 -mr-2"
       />
+
+      </div>
 
       <div className="flex flex-row justify-center items-center gap-4 mr-8">
 
