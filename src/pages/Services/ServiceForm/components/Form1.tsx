@@ -4,12 +4,16 @@ import { useForm } from 'react-hook-form'
 import Button from '@/ui/Button'
 import DateInput from '@/components/DateInput'
 import TimeInput from '@/components/TimeInput'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import moment from 'moment-jalaali'
 import FormInput from '@/components/FormInput'
 import { MdNumbers } from "react-icons/md"
 import type { PurchageBasketType } from '@/types/purchageBasket'
 import { SuccessToast } from '@/ui/Toasts'
+import { useGetServicesDetailByIdQuery } from '@/services/Customers'
+import { QueryHandler } from '@/components/QueryHandler'
+import { convertToPersianDigitsWithSeparator } from '@/utils/numberUtils'
+import HospitalIcon from '@/assets/images/HospitalIcon.png'
 
 
 export type AddServicesFormType = {
@@ -54,12 +58,14 @@ const schema = yup.object().shape({
     .max(1000, 'حداکثر تعداد 1000 است')
 })
 
+type Form1PropsType={
+  serviceId:string,
+  typeId:string
+}
 
-const Form1=()=>{
-const [searchParams] = useSearchParams()
+const Form1=(props:Form1PropsType)=>{
+  const {serviceId,typeId}=props
 
-  const typeId = searchParams.get('typeId')
-  const serviceId = searchParams.get('serviceId')
 
   let navigate=useNavigate()
 
@@ -67,6 +73,8 @@ const [searchParams] = useSearchParams()
     navigate('/services')
     return
   }
+
+  const {data:GetServicesDetailById,isLoading:GetServicesDetailByIdLoading,isError:GetServicesDetailByIdError}=useGetServicesDetailByIdQuery({serviceId,typeId})
 
       const {
         register,
@@ -111,6 +119,23 @@ reset()
         }
 
     return(
+      <div>
+        <QueryHandler
+        data={GetServicesDetailById}
+        isLoading={GetServicesDetailByIdLoading}
+        isError={GetServicesDetailByIdError}
+        render={(service) => (
+        
+            <div className='flex justify-between items-center gap-4 bg-primary-300 p-4 rounded-2xl text-primary-700 mb-16'>
+              <div className='flex items-center gap-2'>
+              <div className='flex justify-center items-center'><img src={service.imageFile||HospitalIcon} /></div>
+              <p>{service.title}</p>
+              </div>
+              <p>{convertToPersianDigitsWithSeparator(service.servicePrice)}</p>
+            </div>
+         
+        )}
+      />
     <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full flex flex-col gap-4"
@@ -150,6 +175,7 @@ reset()
           />
         </div>
       </form>
+      </div>
       
 )}
 export default Form1
