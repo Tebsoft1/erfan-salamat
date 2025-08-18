@@ -31,9 +31,9 @@ const {data:GetServicesIspopular,isLoading:GetServicesIspopularLoading,isError:G
       </div>
 
       <div className="relative">
-        <div className="overflow-hidden w-full">
+        <div className="overflow-hidden w-full ">
           <div
-            className="flex w-full transition-transform duration-300 ease-in-out"
+            className="flex w-full transition-transform duration-300 ease-in-out "
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             <QueryHandler
@@ -41,7 +41,7 @@ const {data:GetServicesIspopular,isLoading:GetServicesIspopularLoading,isError:G
                     isLoading={GetServicesIspopularLoading}
                     isError={GetServicesIspopularError}
                     render={(services) => (
-                      <ul className='flex flex-nowrap overflow-auto'>
+                      <ul className='flex flex-nowrap'>
                         {services.map((service) => (
                           <Card service={service} key={service.id}  />
                         ))}
@@ -52,8 +52,8 @@ const {data:GetServicesIspopular,isLoading:GetServicesIspopularLoading,isError:G
         </div>
 
         <div className="flex justify-between items-center mt-4">
-          <button onClick={prevSlide} className="p-2">
-            <FaChevronRight className="text-xl cursor-pointer" />
+          <button onClick={nextSlide} className="p-2">
+            <FaChevronRight className="text-base cursor-pointer" />
           </button>
           <div className="flex space-x-2">
             {Array.from({ length: GetServicesIspopular?.data?.length||1 })
@@ -66,8 +66,8 @@ const {data:GetServicesIspopular,isLoading:GetServicesIspopularLoading,isError:G
                 ></span>
               ))}
           </div>
-          <button onClick={nextSlide} className="p-2 cursor-pointer">
-            <FaChevronLeft className="text-xl" />
+          <button onClick={prevSlide} className="p-2 cursor-pointer">
+            <FaChevronLeft className="text-base" />
           </button>
         </div>
       </div>
@@ -93,7 +93,7 @@ type CardPropsType={
                     <div className="border border-secondary-500/40 rounded-sm p-3 mb-2">
                       <img src={HospitalIcon} alt={service.title} className="w-8 h-8" />
                     </div>
-                    <span className="text-xs whitespace-nowrap">{service.title}</span>
+                    <span className="text-xs">{service.title}</span>
                   </button>
               
              
