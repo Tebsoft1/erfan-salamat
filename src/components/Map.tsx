@@ -112,7 +112,7 @@ const Map = () => {
           setSearchValue={setSearchValue}
         />
       </MapContainer>
-      <div style={{ padding: '1rem', background: '#f0f0f0' }}>
+      <div style={{ padding: '1rem', background: '#1e1e1e' }}>
         {searchAddressLoading ? (
           <p>
             <BeatLoader />
@@ -133,7 +133,7 @@ const Map = () => {
           />
           {searchValue.length > 0 && (
             <ul
-              className="flex flex-col gap-2 max-h-40 overflow-auto p-2 rounded-md text-primary-900"
+              className="flex flex-col gap-2 max-h-40 overflow-auto p-2 rounded-md text-secondary-300"
               style={{
                 scrollbarWidth: 'thin',
                 scrollbarColor: 'black',

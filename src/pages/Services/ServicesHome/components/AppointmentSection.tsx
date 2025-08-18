@@ -44,7 +44,8 @@ const Card = (props: CardPropsType) => {
   const { address, title } = props
   let navigate = useNavigate()
   return (
-    <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-4 min-h-20 hover:bg-blue cursor-pointer">
+    <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-4 min-h-20  text-secondary-100 hover:bg-primary-500 cursor-pointer">
+  
       <div className="flex flex-row justify-between items-center flex-1 relative  ">
         <div className="bg-transparent">
           <img src={Calendarwaiting} alt="+" className="w-10 h-10 mr-2" />
@@ -52,7 +53,7 @@ const Card = (props: CardPropsType) => {
 
         <button
           onClick={() => navigate(address)}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-secondary-100 text-l whitespace-nowrap text-center cursor-pointer"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-l whitespace-nowrap text-center cursor-pointer"
         >
           {title}
         </button>
