@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import type { LatLngExpression } from "leaflet";
 import MapComponent from "./MapComponent";
+import Map from "@/components/Map";
 import { useNavigate } from "react-router-dom";
 import "./scrollbar.css";
 import { Link } from 'react-router-dom';

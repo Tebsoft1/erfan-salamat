@@ -33,7 +33,7 @@ const ShiftSection: React.FC = () => {
       </div>
 
       {selectedShift && (
-        <div className="bg-green-800 p-3 rounded-lg text-center text-white font-bold">
+        <div className="bg-primary-700 p-3 rounded-lg text-center text-white font-bold">
           شما "{selectedShift}" را انتخاب کردید ✅
         </div>
       )}

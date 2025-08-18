@@ -1,101 +1,49 @@
 import React from 'react'
 import DoctorImg from '@/assets/images/DoctorImg.png'
 import { useNavigate } from 'react-router-dom'
+import Microscope from "@/assets/images/Microscope.png";
+import Blister2 from "@/assets/images/Blister2.png";
+import PharmacyImg from "@/assets/images/PharmacyImg.png";
 
 const DoctorCard: React.FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="w-97/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-45 mb-10 mt-4">
+    <div className="w-full bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-45 mb-10 mt-8">
       <img
         src={DoctorImg}
         alt="+"
-        className="bg-primary-300 w-28 h-45 rounded-4xl p-2 -mt-3 -mr-3"
+        className="bg-primary-300 w-30 h-45 rounded-4xl p-2 -mt-3 -mr-3"
       />
 
-      <div className="flex flex-col gap-3 mr-3 mt-5 text-xs">
-        <button
-          onClick={() => navigate('Doctor')}
-          className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors cursor-pointer"
-        >
-          ویزیت پزشک
-        </button>
-        <button
-          onClick={() => navigate('Nurse')}
-          className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors cursor-pointer"
-        >
-          خدمات پرستاری
-        </button>
-        <button className="bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-dunkel px-2 py-2 rounded-full transition-colors cursor-pointer">
-          خدمات پرستاری
-        </button>
-      </div>
+      <div className="flex flex-row justify-center items-center gap-4 mr-8">
 
-      <div className="p-3 rounded-lg flex flex-row items-center flex-1 gap-2 mt-2 mr-4">
-        <svg
-          width="34"
-          height="34"
-          viewBox="0 0 23 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-9 h-9 rounded-sm p-2 border border-secondary-500/40"
-        >
-          <path
-            d="M8.80863 17.9198C8.80863 18.8352 8.04533 19.5773 7.10375 19.5773C6.16217 19.5773 5.39887 18.8352 5.39887 17.9198M8.80863 17.9198C8.80863 17.0044 8.04533 16.2623 7.10375 16.2623C6.16217 16.2623 5.39887 17.0044 5.39887 17.9198M8.80863 17.9198H13.9233M5.39887 17.9198L4.54643 17.9198C3.60485 17.9198 2.84155 17.1777 2.84155 16.2623L2.84155 7.02752C2.84155 6.1121 3.60485 5.37 4.54643 5.37L13.2926 5.37C13.6996 5.37 14.0931 5.51153 14.4021 5.76903L19.295 9.84642C19.6729 10.1613 19.8903 10.621 19.8903 11.1049V16.2623C19.8903 17.1777 19.127 17.9198 18.1855 17.9198L17.333 17.9198M17.333 17.9198C17.333 18.8352 16.5697 19.5773 15.6281 19.5773C14.6866 19.5773 13.9233 18.8352 13.9233 17.9198M17.333 17.9198C17.333 17.0044 16.5697 16.2623 15.6281 16.2623C14.6866 16.2623 13.9233 17.0044 13.9233 17.9198"
-            stroke="white"
-            strokeWidth="1.89431"
-            strokeLinecap="round"
-          />
-          <path
-            d="M7.57717 8.21167V10.106M7.57717 10.106V12.0003M7.57717 10.106H9.47148M7.57717 10.106H5.68286"
-            stroke="#39D8B0"
-            strokeWidth="1.89431"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        <svg
-          width="34"
-          height="30"
-          viewBox="0 0 23 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-9 h-9 rounded-sm p-2 border border-secondary-500/40"
-        >
-          <path
-            d="M10.5417 13.9164V19.6664C10.5417 20.1957 10.9708 20.6247 11.5001 20.6247H13.4167C13.946 20.6247 14.3751 20.1957 14.3751 19.6664V18.0982C14.3751 17.5689 14.8041 17.1399 15.3334 17.1399"
-            stroke="#39D8B0"
-            strokeWidth="1.91667"
-          />
-          <path
-            d="M7.66675 3.375H8.62508C8.62508 3.02157 8.43055 2.69683 8.11895 2.53006C7.80734 2.36329 7.42923 2.38157 7.13516 2.57762L7.66675 3.375ZM15.0115 4.43818L15.5431 3.64079V3.64079L15.0115 4.43818ZM13.4167 3.375L13.9483 2.57762C13.6543 2.38157 13.2762 2.36329 12.9646 2.53006C12.6529 2.69683 12.4584 3.02157 12.4584 3.375L13.4167 3.375ZM6.70841 4.8125C6.70841 5.34177 7.13748 5.77083 7.66675 5.77083C8.19602 5.77083 8.62508 5.34177 8.62508 4.8125H6.70841ZM12.4584 4.8125C12.4584 5.34177 12.8875 5.77083 13.4167 5.77083C13.946 5.77083 14.3751 5.34177 14.3751 4.8125H12.4584ZM16.2917 6.83032H15.3334V10.0833H16.2917H17.2501V6.83032H16.2917ZM12.4584 13.9167V12.9583H8.62508V13.9167V14.875H12.4584V13.9167ZM4.79175 10.0833H5.75008V6.83032H4.79175H3.83341V10.0833H4.79175ZM6.07198 4.43818L6.60357 5.23556L8.19834 4.17238L7.66675 3.375L7.13516 2.57762L5.5404 3.64079L6.07198 4.43818ZM15.0115 4.43818L15.5431 3.64079L13.9483 2.57762L13.4167 3.375L12.8852 4.17238L14.4799 5.23556L15.0115 4.43818ZM7.66675 3.375H6.70841V4.8125H7.66675H8.62508V3.375H7.66675ZM13.4167 3.375H12.4584V4.8125H13.4167H14.3751V3.375H13.4167ZM8.62508 13.9167V12.9583C7.03726 12.9583 5.75008 11.6712 5.75008 10.0833H4.79175H3.83341C3.83341 12.7297 5.97872 14.875 8.62508 14.875V13.9167ZM16.2917 10.0833H15.3334C15.3334 11.6712 14.0462 12.9583 12.4584 12.9583V13.9167V14.875C15.1048 14.875 17.2501 12.7297 17.2501 10.0833H16.2917ZM16.2917 6.83032H17.2501C17.2501 5.54863 16.6095 4.35175 15.5431 3.64079L15.0115 4.43818L14.4799 5.23556C15.0131 5.59103 15.3334 6.18948 15.3334 6.83032H16.2917ZM4.79175 6.83032H5.75008C5.75008 6.18948 6.07036 5.59103 6.60357 5.23556L6.07198 4.43818L5.5404 3.64079C4.47397 4.35175 3.83341 5.54863 3.83341 6.83032H4.79175ZM19.1667 17.1397H18.2084C18.2084 17.4044 17.9939 17.6189 17.7292 17.6189V18.5772V19.5355C19.0524 19.5355 20.1251 18.4629 20.1251 17.1397H19.1667ZM17.7292 18.5772V17.6189C17.4642 17.6189 17.2501 17.4044 17.2501 17.1402H16.2917H15.3334C15.3334 18.4637 16.4064 19.5355 17.7292 19.5355V18.5772ZM16.2917 17.1402H17.2501C17.2501 16.8751 17.465 16.6605 17.7292 16.6605V15.7022V14.7439C16.4057 14.7439 15.3334 15.8173 15.3334 17.1402H16.2917ZM17.7292 15.7022V16.6605C17.9939 16.6605 18.2084 16.8751 18.2084 17.1397H19.1667H20.1251C20.1251 15.8165 19.0524 14.7439 17.7292 14.7439V15.7022Z"
-            fill="white"
-          />
-        </svg>
-
-        <div>
-          <svg
-            width="30"
-            height="30"
-            viewBox="0 0 14 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-9 h-9 rounded-sm p-2 border border-secondary-500/40"
-          >
-            <path
-              d="M7 13V14.5M7 14.5V16M7 14.5H8.5M7 14.5H5.5"
-              stroke="#39D8B0"
-              strokeWidth="2"
-              strokeMiterlimit="2.20439"
-              strokeLinecap="square"
+          <div className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-2 flex flex-col items-center w-15 cursor-pointer">
+            <img
+              src={Microscope}
+              alt="+"
+              className="w-9 h-9 rounded-sm p-2"
             />
-            <path
-              d="M3.57143 1V0C3.01914 0 2.57143 0.447715 2.57143 1L3.57143 1ZM10.4286 1H11.4286C11.4286 0.447715 10.9809 0 10.4286 0V1ZM9.17037 9.18701L8.51851 8.42867L9.17037 9.18701ZM13 14.05H12V17.2H13H14V14.05H13ZM11.2857 19V18H2.71429V19V20H11.2857V19ZM1 17.2H2V14.05H1H0V17.2H1ZM2.71429 19V18C2.36521 18 2 17.6884 2 17.2H1H0C0 18.6999 1.16981 20 2.71429 20V19ZM13 17.2H12C12 17.6884 11.6348 18 11.2857 18V19V20C12.8302 20 14 18.6999 14 17.2H13ZM3.57143 1V2H10.4286V1V0H3.57143V1ZM10.4286 1H9.42857V4.6H10.4286H11.4286V1H10.4286ZM10.4286 4.6V3.6H3.57143V4.6V5.6H10.4286V4.6ZM3.57143 4.6H4.57143V1H3.57143H2.57143V4.6H3.57143ZM7 10V9C6.42956 9 5.90204 8.79017 5.48149 8.42867L4.82963 9.18701L4.17777 9.94535C4.93946 10.6001 5.92338 11 7 11V10ZM4.82963 9.18701L5.48149 8.42867C4.93244 7.95672 4.57143 7.22944 4.57143 6.4H3.57143H2.57143C2.57143 7.81759 3.19074 9.09692 4.17777 9.94535L4.82963 9.18701ZM4.82963 9.18701L4.63413 8.20631C1.96189 8.73902 0 11.1814 0 14.05H1H2C2 12.0859 3.33586 10.5045 5.02513 10.1677L4.82963 9.18701ZM10.4286 6.4H9.42857C9.42857 7.22944 9.06756 7.95672 8.51851 8.42867L9.17037 9.18701L9.82223 9.94535C10.8093 9.09692 11.4286 7.81759 11.4286 6.4H10.4286ZM9.17037 9.18701L8.51851 8.42867C8.09796 8.79017 7.57044 9 7 9V10V11C8.07662 11 9.06054 10.6001 9.82223 9.94535L9.17037 9.18701ZM9.17037 9.18701L8.97487 10.1677C10.6641 10.5045 12 12.0859 12 14.05H13H14C14 11.1814 12.0381 8.73902 9.36587 8.20631L9.17037 9.18701ZM3.57143 6.4H4.57143V4.6H3.57143H2.57143V6.4H3.57143ZM10.4286 4.6H9.42857V6.4H10.4286H11.4286V4.6H10.4286Z"
-              fill="white"
+            <span className="text-secondary-100 text-xs">آزمایشگاه</span>
+          </div>
+
+          <div className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-2 flex flex-col items-center w-15 cursor-pointer">
+            <img
+              src={PharmacyImg}
+              alt="+"
+              className="w-9 h-9 rounded-sm p-2"
             />
-          </svg>
-        </div>
+            <span className="text-secondary-100 text-xs">داروخانه</span>
+          </div>
+
+          <div className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-2 flex flex-col items-center w-15 cursor-pointer">
+            <img
+              src={Blister2}
+              alt="+"
+              className="w-9 h-9 rounded-sm p-2"
+            />
+            <span className="text-secondary-100 text-xs">رادیولوژی</span>
+          </div>
       </div>
     </div>
   )
