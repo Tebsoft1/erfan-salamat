@@ -50,21 +50,34 @@ export const Customers = createApi({
         }
       },
     }),
+
     getServicesByGroupId: builder.query<ApiResponse<ServiceItemType[]>, string>({
       query: (typeId: string) => ({
         url: `Customers/GetServicesByGroupId?typeId=${typeId}`,
         method: 'POST',
       }),
     }),
+
     getServicesIspopular: builder.query<ApiResponse<ServiceItemType[]>, void>({
       query: () => ({
         url: `Customers/GetServicesIspopular`,
         method: 'POST',
       }),
     }),
+
     getServiceGroup: builder.query<ApiResponse<ServiceGroupType[]>, void>({
       query: () => ({
         url: `Customers/GetServiceGroup`,
+        method: 'POST',
+      }),
+    }),
+
+
+    getPrescription: builder.query<
+      ApiResponse<any>,
+      { printCode: string; preType: number }>({
+      query: ({ printCode, preType }) => ({
+        url: `Customers/GetPrescription?printCode=${printCode}&preType=${preType}`,
         method: 'POST',
       }),
     }),
@@ -76,4 +89,6 @@ export const {
   useGetServicesByGroupIdQuery,
   useGetServicesIspopularQuery,
   useGetServiceGroupQuery,
+  useGetPrescriptionQuery,
+  useLazyGetPrescriptionQuery
 } = Customers
