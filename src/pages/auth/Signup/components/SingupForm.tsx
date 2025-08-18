@@ -91,17 +91,18 @@ type SingupFormPropsType = {
 }
 const SingupForm = (props: SingupFormPropsType) => {
   const { setIsOTPComponent, setMobileNumber } = props
+  
   const {
     register,
     handleSubmit,
     control,
-
     formState: { errors, isValid, isDirty },
   } = useForm({
     resolver: yupResolver(schema),
     mode: 'all',
     defaultValues: { gender: '1' },
   })
+
   let navigate = useNavigate()
 
   const [signup, { isLoading: signupLoading }] = useSignupMutation()

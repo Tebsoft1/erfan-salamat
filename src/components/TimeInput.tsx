@@ -3,28 +3,33 @@ import persian_fa from 'react-date-object/locales/persian_fa'
 import 'react-multi-date-picker/styles/colors/teal.css'
 import { Controller, type Control, type FieldError } from 'react-hook-form'
 import DatePicker from 'react-multi-date-picker'
-import { CiCalendarDate } from 'react-icons/ci'
+import TimePicker from 'react-multi-date-picker/plugins/time_picker'
+import { CiClock2 } from 'react-icons/ci'
 import React from 'react'
 
-interface FormInputProps {
+interface TimeInputProps {
   name: string
   label?: string
   placeholder?: string
   icon?: React.ReactNode
   error?: FieldError
   className?: string
-  iconClassname?:string
   control: Control<any>
+  format?: string 
+  hideSeconds?: boolean
+  iconClassname?:string
 }
 
-const DateInput: React.FC<FormInputProps> = ({
+const TimeInput: React.FC<TimeInputProps> = ({
   name,
   label,
-  placeholder,
+  placeholder = 'انتخاب زمان',
   error,
   className = '',
-  iconClassname,
   control,
+  format = 'HH:mm',
+  hideSeconds = true,
+  iconClassname
 }) => {
   return (
     <div className={`!w-full ${className}`}>
@@ -44,12 +49,20 @@ const DateInput: React.FC<FormInputProps> = ({
           control={control}
           render={({ field }) => (
             <DatePicker
+              disableDayPicker
               calendar={persian}
               locale={persian_fa}
               value={field.value}
-              onChange={(date) => field.onChange(date?.toDate?.() || null)}
+              onChange={(time) => field.onChange(time?.toDate?.() || null)}
               placeholder={placeholder}
-              className="teal"
+              format={format}
+              plugins={[
+                <TimePicker 
+                  key="time-picker"
+                  hideSeconds={hideSeconds}
+                />
+              ]}
+              className="text-primary-700"
               inputClass="placeholder:text-xs"
               style={{
                 border: 'none',
@@ -61,13 +74,13 @@ const DateInput: React.FC<FormInputProps> = ({
           )}
         />
         <span className="text-primary-700 text-lg">
-          <CiCalendarDate className={iconClassname} />
+          <CiClock2 className={iconClassname} />
         </span>
       </div>
 
-      {error && <p className="mt-1 text-sm text-rose-500">{error.message}</p>}
+      {error && <p className="mt-1 text-sm text-red">{error.message}</p>}
     </div>
   )
 }
 
-export default DateInput
+export default TimeInput

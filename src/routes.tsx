@@ -6,10 +6,8 @@ import Login from '@/pages/auth/Login'
 import Signup from '@/pages/auth/Signup'
 
 import Services from '@/pages/Services/services'
-import Doctor from '@/pages/Services/doctor/Doctor'
-import Pharmacy from '@/pages/Services/Pharmacy'
-import Laboratory from '@/pages/Services/Laboratory'
-import Physiotherapy from '@/pages/Services/Physiotherapy'
+import PharmacyForm from '@/pages/Services/PharmacyForm'
+
 
 import Profile from '@/pages/Profile'
 import Identity from '@/pages/Profile/Identity'
@@ -28,6 +26,7 @@ import GuestRoutes from '@/components/GuestRoutes'
 import ServicesHome from './pages/Services/ServicesHome/ServicesHome'
 import ProfileHome from './pages/Profile/ProfileHome'
 import ServiceList from './pages/Services/ServiceList'
+import ServiceForm from './pages/Services/ServiceForm'
 
 export const routes = [
   {
@@ -53,10 +52,8 @@ export const routes = [
             children: [
               { index: true, element: <ServicesHome /> },
               { path: 'serviceList', element: <ServiceList /> },
-              { path: 'doctor', element: <Doctor /> },
-              { path: 'pharmacy', element: <Pharmacy /> },
-              { path: 'laboratory', element: <Laboratory /> },
-              { path: 'physiotherapy', element: <Physiotherapy /> },
+              { path: 'pharmacyForm', element: <PharmacyForm /> },
+              { path: 'serviceForm', element: <ServiceForm /> },
             ],
           },
           {
