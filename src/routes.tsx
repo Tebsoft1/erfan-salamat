@@ -10,9 +10,6 @@ import Doctor from '@/pages/Services/doctor/Doctor'
 import Pharmacy from '@/pages/Services/Pharmacy'
 import Laboratory from '@/pages/Services/Laboratory'
 import Physiotherapy from '@/pages/Services/Physiotherapy'
-import Nurse from '@/pages/Services/nurse/Nurse'
-import NurseServiceChoose from '@/pages/Services/nurse/NurseServiceChoose'
-import ChooseService from '@/pages/Services/ServicesHome/ChooseService'
 
 import Profile from '@/pages/Profile'
 import Identity from '@/pages/Profile/Identity'
@@ -60,9 +57,6 @@ export const routes = [
               { path: 'pharmacy', element: <Pharmacy /> },
               { path: 'laboratory', element: <Laboratory /> },
               { path: 'physiotherapy', element: <Physiotherapy /> },
-              { path: 'nurse', element: <Nurse /> },
-              { path: 'nurseservicechoose', element: <NurseServiceChoose /> },
-              { path: 'chooseservice', element: <ChooseService /> },
             ],
           },
           {

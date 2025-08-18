@@ -18,7 +18,7 @@ const ServiceItem = (props: ServiceItemPropsType) => {
             <img src={HospitalIcon} alt="+" className="w-8 h-8 mr-2 -mt-1" />
           </div>
 
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 ml-15 -mt-1 -translate-y-1/2 text-secondary-100 text-sm whitespace-nowrap">
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 ml-15 -mt-1 -translate-y-1/2 text-secondary-100 text-sm whitespace-normal">
             {serviceTitle}
           </span>
 
