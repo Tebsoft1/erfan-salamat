@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 interface AuthState {
-  isAuthenticated: boolean|null
+  isAuthenticated: boolean | null
   token: string | null
   tokenExpiration: string | null
 }
@@ -18,12 +18,18 @@ const authSlice = createSlice({
   reducers: {
     login: (
       state,
-      action: PayloadAction<{ token: string; expiration: string }>
+      action: PayloadAction<{
+        token: string
+        expiration: string
+        fullName: string
+        mobile: string
+      }>
     ) => {
       state.isAuthenticated = true
       state.token = action.payload.token
       state.tokenExpiration = action.payload.expiration
-
+      localStorage.setItem('fullName', action.payload.fullName)
+      localStorage.setItem('mobile', action.payload.mobile)
       localStorage.setItem('token', action.payload.token)
       localStorage.setItem('tokenExpiration', action.payload.expiration)
     },
@@ -56,7 +62,7 @@ const authSlice = createSlice({
         } catch (error) {
           authSlice.caseReducers.logout(state)
         }
-      }else{
+      } else {
         authSlice.caseReducers.logout(state)
       }
     },

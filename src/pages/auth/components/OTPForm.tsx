@@ -67,7 +67,9 @@ const OTPForm = (props: OTPFormPropsType) => {
       (data) => {
         dispatch(
           login({
-            token:data?.token || '',
+            fullName: data?.fullName || '',
+            mobile: mobileNumber || '',
+            token: data?.token || '',
             expiration: data?.expiration || '',
           })
         )

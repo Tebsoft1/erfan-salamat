@@ -17,11 +17,20 @@ import {
 } from '@/utils/neshanAPI'
 import debounce from 'lodash.debounce'
 
-const Map = () => {
-  const [position, setPosition] = useState<LatLngTuple>([35.6892, 51.389])
-  const [address, setAddress] = useState<string>(
-    'استان تهران، تهران، اسکندری، بزرگراه نواب صفوی، نواب، لنگرودی، احترامی'
-  )
+type MapPropsType = {
+  position: LatLngTuple
+  setPosition: (position: LatLngTuple) => void
+  address: string
+  setAddress: (address: string) => void
+}
+const Map = (props: MapPropsType) => {
+  const { address, setAddress, setPosition, position } = props
+
+  //این دو استیت باید در جایی که این کامپوننت استفاده می شود], قرار گیرند
+  // const [position, setPosition] = useState<LatLngTuple>([35.6892, 51.389])
+  // const [address, setAddress] = useState<string>(
+  //   'استان تهران، تهران، اسکندری، بزرگراه نواب صفوی، نواب، لنگرودی، احترامی'
+  // )
   const [searchAddressLoading, setSearchAddressLoading] =
     useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>('')

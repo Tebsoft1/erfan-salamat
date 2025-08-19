@@ -7,15 +7,15 @@ import type {
 } from '@/types/servicesTypes/Customers'
 
 export type Order = {
-  id: number;
-  type?: number;
-  orderId: string | number;
-  serviceStartDate?: string | Date | null; 
-  sPers?: string | number | null;
-  status: "ثبت شده" | "کنسل شده" | "انتصاب داده شده" | "انجام شده" | string;
-};
+  id: number
+  type?: number
+  orderId: string | number
+  serviceStartDate?: string | Date | null
+  sPers?: string | number | null
+  status: 'ثبت شده' | 'کنسل شده' | 'انتصاب داده شده' | 'انجام شده' | string
+}
 
-const orderTypes = [1, 2, 3, 4];
+const orderTypes = [1, 2, 3, 4]
 
 export const Customers = createApi({
   reducerPath: 'Customers',
@@ -29,41 +29,46 @@ export const Customers = createApi({
               url: `/Customers/GetOrdersForCustomerByType?type=${type}`,
               method: 'POST',
             })
-          );
+          )
 
-          const responses = await Promise.all(requests);
+          const responses = await Promise.all(requests)
 
           const mergedOrders: Order[] = responses?.flatMap((res, idx) => {
-            if (res.error) throw res.error;
-            const apiRes = res?.data as ApiResponse<Order[]>;
+            if (res.error) throw res.error
+            const apiRes = res?.data as ApiResponse<Order[]>
             return (
               apiRes?.data?.map((order) => ({
                 ...order,
                 type: orderTypes[idx],
               })) ?? []
-            );
-          });
+            )
+          })
 
-          return { data: mergedOrders };
+          return { data: mergedOrders }
         } catch (err: any) {
-          return { error: err };
+          return { error: err }
         }
       },
     }),
-    getServicesByGroupId: builder.query<ApiResponse<ServiceItemType[]>, string>({
-      query: (typeId: string) => ({
-        url: `Customers/GetServicesByGroupId?typeId=${typeId}`,
-        method: 'POST',
-      }),
-    }),
+    getServicesByGroupId: builder.query<ApiResponse<ServiceItemType[]>, string>(
+      {
+        query: (typeId: string) => ({
+          url: `Customers/GetServicesByGroupId?typeId=${typeId}`,
+          method: 'POST',
+        }),
+      }
+    ),
     getServicesIspopular: builder.query<ApiResponse<ServiceItemType[]>, void>({
       query: () => ({
         url: `Customers/GetServicesIspopular`,
         method: 'POST',
       }),
     }),
-    getServicesDetailById: builder.query<ApiResponse<ServiceItemType>, {typeId:string,serviceId:string}>({
-      query: ({typeId,serviceId}) => ({
+    getServicesDetailById: builder.query<
+      ApiResponse<ServiceItemType>,
+      { typeId: string; serviceId: string }
+    >({
+      query: ({ typeId, serviceId }) => ({
         url: `Customers/GetServicesDetailById?typeId=${typeId}&serviceId=${serviceId}`,
         method: 'POST',
       }),
@@ -72,6 +77,13 @@ export const Customers = createApi({
       query: () => ({
         url: `Customers/GetServiceGroup`,
         method: 'POST',
+      }),
+    }),
+    addOnlineOrder: builder.mutation<ApiResponse<string>, FormData>({
+      query: (body) => ({
+        url: `Customers/AddOnlineOrder`,
+        method: 'POST',
+        body,
       }),
     }),
   }),
@@ -83,4 +95,5 @@ export const {
   useGetServicesIspopularQuery,
   useGetServicesDetailByIdQuery,
   useGetServiceGroupQuery,
+  useAddOnlineOrderMutation,
 } = Customers
