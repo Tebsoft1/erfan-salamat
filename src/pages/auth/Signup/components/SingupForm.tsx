@@ -91,7 +91,7 @@ type SingupFormPropsType = {
 }
 const SingupForm = (props: SingupFormPropsType) => {
   const { setIsOTPComponent, setMobileNumber } = props
-  
+
   const {
     register,
     handleSubmit,
@@ -135,7 +135,10 @@ const SingupForm = (props: SingupFormPropsType) => {
       <p className="text-sm font-light mb-20">
         اطلاعات مورد نیاز را وارد نمایید
       </p>
-      <ArrowBack onBack={() => navigate('/auth/login')} className="top-4 left-4" />
+      <ArrowBack
+        onBack={() => navigate('/auth/login')}
+        className="top-4 left-4"
+      />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full flex flex-col gap-4"

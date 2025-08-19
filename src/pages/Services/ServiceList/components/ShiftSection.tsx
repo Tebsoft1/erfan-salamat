@@ -1,9 +1,9 @@
-import type { ServiceItemType } from "@/types/servicesTypes/Customers";
+import type { ServiceItemType } from '@/types/servicesTypes/Customers'
 import { Controller, type Control, type FieldError } from 'react-hook-form'
 import React from 'react'
 
 type shiftType = {
-  id: string,
+  id: string
   name: string
 }
 
@@ -21,13 +21,13 @@ const ShiftOptions: React.FC<ShiftOptionsProps> = ({
   control,
   service,
   error,
-  className = ''
+  className = '',
 }) => {
   const shifts: shiftType[] = [
-    { id: '1', name: "شیفت صبح" },
-    { id: '2', name: "شیفت عصر" },
-    { id: '3', name: "شیفت شب" },
-  ];
+    { id: '1', name: 'شیفت صبح' },
+    { id: '2', name: 'شیفت عصر' },
+    { id: '3', name: 'شیفت شب' },
+  ]
 
   return (
     <div className={`flex flex-col gap-6 ${className}`}>
@@ -38,7 +38,7 @@ const ShiftOptions: React.FC<ShiftOptionsProps> = ({
           render={({ field }) => (
             <div className="space-y-3">
               {shifts.map((shift) => (
-                <ShiftOption 
+                <ShiftOption
                   key={shift.id}
                   shift={shift}
                   service={service}
@@ -49,17 +49,15 @@ const ShiftOptions: React.FC<ShiftOptionsProps> = ({
             </div>
           )}
         />
-        
-        {error && (
-          <p className="mt-2 text-sm text-rose-500">{error.message}</p>
-        )}
+
+        {error && <p className="mt-2 text-sm text-rose-500">{error.message}</p>}
       </div>
     </div>
-  );
-};
+  )
+}
 
 type ShiftOptionPropsType = {
-  shift: shiftType,
+  shift: shiftType
   service: ServiceItemType
   onClick: (shiftId: string) => void
   selectedShift: string
@@ -67,9 +65,9 @@ type ShiftOptionPropsType = {
 
 const ShiftOption: React.FC<ShiftOptionPropsType> = (props) => {
   const { service, shift, selectedShift, onClick } = props
-  
+
   const getShiftPrice = () => {
-    switch(shift.id) {
+    switch (shift.id) {
       case '1':
         return service.servicePrice
       case '2':
@@ -85,10 +83,12 @@ const ShiftOption: React.FC<ShiftOptionPropsType> = (props) => {
     <button
       type="button"
       onClick={() => onClick(shift.id)}
-      className={`flex flex-row justify-between items-center p-3 rounded-3xl border cursor-pointer w-full
-        ${selectedShift === shift.id 
-          ? "bg-blue border-blue text-secondary-100 scale-[1.02]" 
-          : "bg-secondary-900 border-secondary-700 text-secondary-100"} 
+      className={`flex justify-between items-center p-3 rounded-3xl border cursor-pointer w-full
+        ${
+          selectedShift === shift.id
+            ? 'bg-primary-500 border-primary-700 text-secondary-100 scale-[1.02]'
+            : 'bg-secondary-900 border-secondary-700 text-secondary-100'
+        } 
         transition-all duration-300 hover:scale-[1.01]`}
     >
       <span className="font-medium">{shift.name}</span>

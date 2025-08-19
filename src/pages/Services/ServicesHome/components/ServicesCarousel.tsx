@@ -1,26 +1,30 @@
-import React, { useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { useNavigate } from "react-router-dom";
-import { useGetServicesIspopularQuery } from '@/services/Customers';
-import type { ServiceItemType } from '@/types/servicesTypes/Customers';
+import React, { useState } from 'react'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import { useGetServicesIspopularQuery } from '@/services/Customers'
+import type { ServiceItemType } from '@/types/servicesTypes/Customers'
 import HospitalIcon from '@/assets/images/HospitalIcon.png'
-import { QueryHandler } from '@/components/QueryHandler';
+import { QueryHandler } from '@/components/QueryHandler'
 
 const ServicesCarousel: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const navigate = useNavigate()
 
-  const { data: GetServicesIspopular, isLoading: GetServicesIspopularLoading, isError: GetServicesIspopularError } = useGetServicesIspopularQuery();
+  const {
+    data: GetServicesIspopular,
+    isLoading: GetServicesIspopularLoading,
+    isError: GetServicesIspopularError,
+  } = useGetServicesIspopularQuery()
 
-  const services = GetServicesIspopular?.data || [];
+  const services = GetServicesIspopular?.data || []
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % services.length);
-  };
+    setCurrentSlide((prev) => (prev + 1) % services.length)
+  }
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
-  };
+    setCurrentSlide((prev) => (prev - 1 + services.length) % services.length)
+  }
 
   return (
     <div className="w-full max-w-4xl p-4 text-center">
@@ -36,36 +40,38 @@ const ServicesCarousel: React.FC = () => {
           <div className="relative overflow-hidden w-full">
             <div
               className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * (100 / services.length)}%)` }}
+              style={{
+                transform: `translateX(-${
+                  currentSlide * (100 / services.length)
+                }%)`,
+              }}
             >
               {services.map((service) => (
-                <Card
-                  key={service.id}
-                  service={service}
-                  navigate={navigate}
-                />
+                <Card key={service.id} service={service} navigate={navigate} />
               ))}
             </div>
           </div>
         )}
       />
     </div>
-  );
-};
+  )
+}
 
-export default ServicesCarousel;
+export default ServicesCarousel
 
 type CardPropsType = {
-  service: ServiceItemType;
-  navigate: ReturnType<typeof useNavigate>;
-};
+  service: ServiceItemType
+  navigate: ReturnType<typeof useNavigate>
+}
 
 const Card: React.FC<CardPropsType> = ({ service, navigate }) => {
   return (
     <button
       className="flex-shrink-0 w-[calc(100%/6)] flex flex-col items-center p-2 cursor-pointer"
       onClick={() =>
-        navigate(`/serviceForm/typeId=${service.medicalServicesTypesId}&serviceId=${service.id}`)
+        navigate(
+          `/services/serviceForm?typeId=${service.medicalServicesTypesId}&serviceId=${service.id}`
+        )
       }
     >
       <div className="border border-secondary-500/40 rounded-sm p-3 mb-2">
@@ -73,5 +79,5 @@ const Card: React.FC<CardPropsType> = ({ service, navigate }) => {
       </div>
       <span className="text-xs line-clamp-3">{service.title}</span>
     </button>
-  );
-};
+  )
+}

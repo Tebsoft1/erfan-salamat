@@ -1,20 +1,17 @@
 import * as yup from 'yup'
-import { yupResolver } from "@hookform/resolvers/yup"
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import Button from '@/ui/Button'
 import DateInput from '@/components/DateInput'
 import TimeInput from '@/components/TimeInput'
-import { useNavigate } from 'react-router-dom'
 import moment from 'moment-jalaali'
 import FormInput from '@/components/FormInput'
-import { MdNumbers } from "react-icons/md"
+import { MdNumbers } from 'react-icons/md'
 import type { PurchageBasketType } from '@/types/purchageBasket'
 import { SuccessToast } from '@/ui/Toasts'
-import { useGetServicesDetailByIdQuery } from '@/services/Customers'
-import { QueryHandler } from '@/components/QueryHandler'
-import { convertToPersianDigitsWithSeparator } from '@/utils/numberUtils'
-import HospitalIcon from '@/assets/images/HospitalIcon.png'
-
+import type { ServiceItemType } from '@/types/servicesTypes/Customers'
+import CardTitle from './CardTitle'
+import { AddItemToCard } from '@/utils/AddItemToCard'
 
 export type AddServicesFormType = {
   date: Date
@@ -23,7 +20,6 @@ export type AddServicesFormType = {
 }
 
 const schema = yup.object().shape({
-
   time: yup
     .date()
     .typeError('زمان معتبر نیست')
@@ -34,7 +30,6 @@ const schema = yup.object().shape({
       const minutes = value.getMinutes()
       return hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59
     }),
-
 
   date: yup
     .date()
@@ -55,97 +50,66 @@ const schema = yup.object().shape({
     .positive('تعداد باید مثبت باشد')
     .integer('تعداد باید عدد صحیح باشد')
     .min(1, 'حداقل تعداد 1 است')
-    .max(1000, 'حداکثر تعداد 1000 است')
+    .max(1000, 'حداکثر تعداد 1000 است'),
 })
 
-type Form1PropsType={
-  serviceId:string,
-  typeId:string
+type Form1PropsType = {
+  serviceId: string
+  typeId: string
+  service: ServiceItemType
 }
 
-const Form1=(props:Form1PropsType)=>{
-  const {serviceId,typeId}=props
+const Form1 = (props: Form1PropsType) => {
+  const { serviceId, typeId, service } = props
 
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors, isValid, isDirty },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'all',
+    defaultValues: { requestCount: 1 },
+  })
 
-  let navigate=useNavigate()
+  const hasError = !isValid || !isDirty
 
-  if(!typeId ||!serviceId){
-    navigate('/services')
-    return
+  const onSubmit = async (data: AddServicesFormType) => {
+    const shamsiDate = moment(new Date(data.date))
+      .locale('fa')
+      .format('jYYYY/jMM/jDD')
+    const time = moment(new Date(data.time)).locale('fa').format('HH:mm')
+    const reviesedData: PurchageBasketType = {
+      date: shamsiDate,
+      time: time,
+      id: Date.now(),
+      typeId,
+      serviceId: String(service.id),
+      serviceName: service.title,
+      servicePrice: service.servicePrice,
+      servicePackage: service.servicePackage,
+      requestCount: data.requestCount,
+    }
+    AddItemToCard(reviesedData)
+    SuccessToast('به سبد خرید اضافه شد')
+    reset()
   }
 
-  const {data:GetServicesDetailById,isLoading:GetServicesDetailByIdLoading,isError:GetServicesDetailByIdError}=useGetServicesDetailByIdQuery({serviceId,typeId})
-
-      const {
-        register,
-        handleSubmit,
-        control,
-        reset,
-        formState: { errors, isValid, isDirty, },
-      } = useForm({
-        resolver: yupResolver(schema),
-        mode: 'all',
-        defaultValues: { requestCount: 1 },
-      })
-      
-      
-        const hasError = !isValid || !isDirty
-      
-        const onSubmit = async (data: AddServicesFormType) => {
-          const shamsiDate = moment(new Date(data.date)).locale('fa').format('YYYY/MM/DD')
-          const time=moment(new Date(data.time)).locale('fa').format('HH:mm')
-          const reviesedData:PurchageBasketType = {
-            ...data,
-            date: shamsiDate,
-            time:time,
-            id:Date.now(),
-            typeId,
-            serviceId,
-            serviceName:'',
-            servicePrice:1000,
-            servicePackage:false
-          }
-if (localStorage.getItem('card')) {
-  const parsedData: PurchageBasketType[] = JSON.parse(localStorage.getItem('card') as string);
-  const updatedData = [...parsedData, reviesedData];
-  localStorage.setItem('card', JSON.stringify(updatedData));
-} else {
-  const newData: PurchageBasketType[] = [reviesedData];
-  localStorage.setItem('card', JSON.stringify(newData));
-}
-
-SuccessToast('به سبد خرید اضافه شد')
-reset()
-        }
-
-    return(
-      <div>
-        <QueryHandler
-        data={GetServicesDetailById}
-        isLoading={GetServicesDetailByIdLoading}
-        isError={GetServicesDetailByIdError}
-        render={(service) => (
-        
-            <div className='flex justify-between items-center gap-4 bg-primary-300 p-4 rounded-2xl text-primary-700 mb-16'>
-              <div className='flex items-center gap-2'>
-              <div className='flex justify-center items-center'><img src={service.imageFile||HospitalIcon} /></div>
-              <p>{service.title}</p>
-              </div>
-              <p>{convertToPersianDigitsWithSeparator(service.servicePrice)}</p>
-            </div>
-         
-        )}
-      />
-    <form
+  return (
+    <div>
+      <CardTitle service={service} />
+      <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full flex flex-col gap-4"
+        className="w-full flex flex-col gap-6"
       >
         <DateInput
           name="date"
           placeholder="تاریخ درخواست"
           control={control}
           error={errors.date}
-          iconClassname='text-secondary-100'
+          iconClassname="text-secondary-100"
         />
 
         <TimeInput
@@ -153,29 +117,26 @@ reset()
           placeholder="زمان درخواست"
           control={control}
           error={errors.time}
-          iconClassname='text-secondary-100'
+          iconClassname="text-secondary-100"
         />
 
         <FormInput
           name="requestCount"
           placeholder="تعداد"
           type="number"
-          icon={<MdNumbers className='text-secondary-100'/>}
+          icon={<MdNumbers className="text-secondary-100" />}
           register={register}
           error={errors.requestCount}
         />
-
-        <div className="flex items-center gap-2">
-          <Button
-            className={`flex-1 text-secondary-900 !bg-primary-300 `}
-            isFormButton={true}
-            canClick={!hasError}
-            type="submit"
-            text="افزودن به سبد خرید"
-          />
-        </div>
+        <Button
+          className={`flex-1 text-secondary-900 !bg-primary-300 mt-5`}
+          isFormButton={true}
+          canClick={!hasError}
+          type="submit"
+          text="افزودن به سبد خرید"
+        />
       </form>
-      </div>
-      
-)}
+    </div>
+  )
+}
 export default Form1
