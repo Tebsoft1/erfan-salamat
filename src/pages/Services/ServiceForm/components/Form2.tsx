@@ -115,6 +115,7 @@ const Form2 = (props: Form2PropsType) => {
           canClick={!hasError}
           type="submit"
           text="افزودن به سبد خرید"
+          disabled={hasError}
         />
       </form>
     </div>
