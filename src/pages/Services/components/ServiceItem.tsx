@@ -18,7 +18,7 @@ const ServiceItem = (props: ServiceItemPropsType) => {
       className="w-full"
       onClick={() =>
         navigate(
-          `/services/serviceForm?typeId=${service.medicalServicesTypesId}&serviceId=${service.id}`
+          `/services/serviceForm?groupId=${service.medicalServicesTypesId}&serviceId=${service.id}`
         )
       }
     >

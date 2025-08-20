@@ -13,7 +13,7 @@ interface FormInputProps {
   icon?: React.ReactNode
   error?: FieldError
   className?: string
-  iconClassname?:string
+  iconClassname?: string
   control: Control<any>
 }
 
@@ -51,6 +51,8 @@ const DateInput: React.FC<FormInputProps> = ({
               placeholder={placeholder}
               className="teal"
               inputClass="placeholder:text-xs"
+              calendarPosition="center"
+              containerStyle={{ flexGrow: 1 }}
               style={{
                 border: 'none',
                 boxShadow: 'none',

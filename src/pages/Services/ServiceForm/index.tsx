@@ -8,12 +8,12 @@ import { useGetServicesDetailByIdQuery } from '@/services/Customers'
 const ServiceForm: React.FC = () => {
   const [searchParams] = useSearchParams()
 
-  const typeId = searchParams.get('typeId')
+  const groupId = searchParams.get('groupId')
   const serviceId = searchParams.get('serviceId')
 
   let navigate = useNavigate()
 
-  if (!typeId || !serviceId) {
+  if (!groupId || !serviceId) {
     navigate('/services')
     return
   }
@@ -23,7 +23,7 @@ const ServiceForm: React.FC = () => {
     isLoading: GetServicesDetailByIdLoading,
     isError: GetServicesDetailByIdError,
     refetch: GetServicesDetailByIdRefetch,
-  } = useGetServicesDetailByIdQuery({ serviceId, typeId })
+  } = useGetServicesDetailByIdQuery({ serviceId, typeId: groupId })
 
   return (
     <div className="">
@@ -35,9 +35,17 @@ const ServiceForm: React.FC = () => {
         render={(service) => (
           <>
             {!service.servicePackage ? (
-              <Form1 typeId={typeId} serviceId={serviceId} service={service} />
+              <Form1
+                groupId={groupId}
+                serviceId={serviceId}
+                service={service}
+              />
             ) : (
-              <Form2 typeId={typeId} serviceId={serviceId} service={service} />
+              <Form2
+                groupId={groupId}
+                serviceId={serviceId}
+                service={service}
+              />
             )}
           </>
         )}

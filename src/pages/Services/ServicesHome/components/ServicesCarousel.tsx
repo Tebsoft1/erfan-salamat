@@ -72,7 +72,7 @@ const Card: React.FC<CardPropsType> = ({ service, navigate }) => {
       className="flex-shrink-0 w-[calc(100%/6)] flex flex-col items-center p-2 cursor-pointer"
       onClick={() =>
         navigate(
-          `/services/serviceForm?typeId=${service.medicalServicesTypesId}&serviceId=${service.id}`
+          `/services/serviceForm?groupId=${service.medicalServicesTypesId}&serviceId=${service.id}`
         )
       }
     >

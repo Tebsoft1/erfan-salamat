@@ -36,7 +36,7 @@ export function QueryHandler<T>({
 
   // اگر data وجود نداشت یا آرایه خالی بود
   if (!data?.data || (Array.isArray(data.data) && data.data.length === 0)) {
-    return <p>{'داده‌ای وجود ندارد'}</p>
+    return <p className="text-center">{'داده‌ای وجود ندارد'}</p>
   }
 
   return <>{render(data.data)}</>

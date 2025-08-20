@@ -35,8 +35,7 @@ const schema = yup.object().shape({
     .date()
     .typeError('تاریخ معتبر نیست')
     .required('وارد کردن تاریخ الزامی است')
-    .min(new Date('1900-01-01'), 'تاریخ نمی‌تواند قبل از سال 1900 باشد')
-    .max(new Date(), 'تاریخ نمی‌تواند در آینده باشد')
+    .min(new Date('2025-01-01'), 'تاریخ نمی‌تواند قبل از سال 2025 باشد')
     .test('valid-date', 'تاریخ وارد شده معتبر نیست', (value) => {
       if (!value) return false
       // بررسی اینکه تاریخ واقعی باشد
@@ -55,12 +54,12 @@ const schema = yup.object().shape({
 
 type Form1PropsType = {
   serviceId: string
-  typeId: string
+  groupId: string
   service: ServiceItemType
 }
 
 const Form1 = (props: Form1PropsType) => {
-  const { serviceId, typeId, service } = props
+  const { serviceId, groupId, service } = props
 
   const {
     register,
@@ -85,8 +84,8 @@ const Form1 = (props: Form1PropsType) => {
       date: shamsiDate,
       time: time,
       id: Date.now(),
-      typeId,
-      serviceId: String(service.id),
+      typeId: groupId,
+      serviceId: serviceId,
       serviceName: service.title,
       servicePrice: service.servicePrice,
       servicePackage: service.servicePackage,

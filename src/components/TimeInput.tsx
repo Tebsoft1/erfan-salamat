@@ -15,9 +15,9 @@ interface TimeInputProps {
   error?: FieldError
   className?: string
   control: Control<any>
-  format?: string 
+  format?: string
   hideSeconds?: boolean
-  iconClassname?:string
+  iconClassname?: string
 }
 
 const TimeInput: React.FC<TimeInputProps> = ({
@@ -29,7 +29,7 @@ const TimeInput: React.FC<TimeInputProps> = ({
   control,
   format = 'HH:mm',
   hideSeconds = true,
-  iconClassname
+  iconClassname,
 }) => {
   return (
     <div className={`!w-full ${className}`}>
@@ -57,11 +57,9 @@ const TimeInput: React.FC<TimeInputProps> = ({
               placeholder={placeholder}
               format={format}
               plugins={[
-                <TimePicker 
-                  key="time-picker"
-                  hideSeconds={hideSeconds}
-                />
+                <TimePicker key="time-picker" hideSeconds={hideSeconds} />,
               ]}
+              containerStyle={{ flexGrow: 1 }}
               className="text-primary-700"
               inputClass="placeholder:text-xs"
               style={{
