@@ -9,7 +9,6 @@ import { SuccessToast } from '@/ui/Toasts'
 import ShiftOptions from '../../ServiceList/components/ShiftSection'
 import type { ServiceItemType } from '@/types/servicesTypes/Customers'
 import CardTitle from './CardTitle'
-import { AddItemToCard } from '@/utils/AddItemToCard'
 import { addItem } from '@/features/cartSlice'
 import { useDispatch } from 'react-redux'
 
