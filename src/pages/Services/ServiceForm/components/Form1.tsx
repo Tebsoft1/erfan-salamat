@@ -11,7 +11,8 @@ import type { PurchageBasketType } from '@/types/purchageBasket'
 import { SuccessToast } from '@/ui/Toasts'
 import type { ServiceItemType } from '@/types/servicesTypes/Customers'
 import CardTitle from './CardTitle'
-import { AddItemToCard } from '@/utils/AddItemToCard'
+import { useDispatch } from 'react-redux'
+import { addItem } from '@/features/cartSlice'
 
 export type AddServicesFormType = {
   date: Date
@@ -61,6 +62,7 @@ type Form1PropsType = {
 const Form1 = (props: Form1PropsType) => {
   const { serviceId, groupId, service } = props
 
+  const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
@@ -91,7 +93,7 @@ const Form1 = (props: Form1PropsType) => {
       servicePackage: service.servicePackage,
       requestCount: data.requestCount,
     }
-    AddItemToCard(reviesedData)
+    dispatch(addItem(reviesedData))
     SuccessToast('به سبد خرید اضافه شد')
     reset()
   }

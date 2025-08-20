@@ -1,4 +1,3 @@
-import React from 'react'
 import FooterBorder from '../assets/images/Subtract.png'
 import Home from '../assets/images/Home.png'
 import Message from '../assets/images/Message-2.png'
@@ -8,9 +7,13 @@ import Basket from '../assets/images/basket.png'
 import Shadow from '../assets/images/Ellipse.png'
 import { useNavigate } from 'react-router-dom'
 import Tag from '@/ui/Tag'
+import { useSelector } from 'react-redux'
+import type { RootState } from '../store'
 
 const FooterMenu = () => {
   let navigate = useNavigate()
+
+  const items = useSelector((state: RootState) => state.cart.items)
 
   return (
     <div className=" w-full flex justify-center">
@@ -39,7 +42,9 @@ const FooterMenu = () => {
           src={Basket}
           className=" w-[45px] h-[60px]  z-20 cursor-pointer "
         />
-        <Tag number={2} className="absolute z-20" />
+        {items.length > 0 && (
+          <Tag number={items.length} className="absolute z-20" />
+        )}
       </div>
       <img src={Shadow} className="absolute w-full z-0" />
     </div>

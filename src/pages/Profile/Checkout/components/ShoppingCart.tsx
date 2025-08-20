@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import type { PurchageBasketType } from '@/types/purchageBasket'
 import ShopItem from './ShopItem'
 import type { LatLngTuple } from 'leaflet'
 import FileUploader from '@/components/FileUploader'
@@ -12,6 +11,11 @@ import { RejectToast } from '@/ui/Toasts'
 import { handleApiCall } from '@/utils/handleApiCall'
 import { useAddOnlineOrderMutation } from '@/services/Customers'
 import Button from '@/ui/Button'
+import { convertToPersianDigitsWithSeparator } from '@/utils/numberUtils'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeItem, removeItems } from '@/features/cartSlice'
+import type { RootState } from '@/store'
+import type { PurchageBasketType } from '@/types/purchageBasket'
 
 type ServiceListToBackedType = {
   serviceId: number
@@ -22,27 +26,29 @@ type ServiceListToBackedType = {
   description: string
 }
 const ShoppingCart: React.FC = () => {
-  const cardList = JSON.parse(localStorage.getItem('card') || '[]')
-
   const [showExtra, setShowExtra] = useState(false)
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
-  const [shopList, setShopList] = useState<PurchageBasketType[]>(cardList)
   const [desc, setDesc] = useState('')
   const [position, setPosition] = useState<LatLngTuple>([35.6892, 51.389])
   const [address, setAddress] = useState<string>(
     'استان تهران، تهران، اسکندری، بزرگراه نواب صفوی، نواب، لنگرودی، احترامی'
   )
 
+  const dispatch = useDispatch()
+
   const navigate = useNavigate()
+  const cartItems: PurchageBasketType[] = useSelector(
+    (state: RootState) => state.cart.items
+  )
 
   const [AddOnlineOrder, { isLoading: AddOnlineOrderLoading }] =
     useAddOnlineOrderMutation()
 
   const handleDelete = (id: number) => {
-    setShopList((prev) => prev.filter((item) => item.id !== id))
+    dispatch(removeItem(id))
   }
 
-  const totalPrice = shopList.reduce(
+  const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.servicePrice * item.requestCount,
     0
   )
@@ -51,7 +57,7 @@ const ShoppingCart: React.FC = () => {
     let serviceList: ServiceListToBackedType[] = []
 
     // ساختن آرایه serviceList از CartItems
-    shopList.forEach((item) => {
+    cartItems.forEach((item) => {
       const shift = item.servicePackage ? parseInt(item.time) : 0
 
       serviceList.push({
@@ -72,8 +78,7 @@ const ShoppingCart: React.FC = () => {
       lon: position[1],
       serviceList,
     }
-    console.log(data)
-    console.log(selectedFile)
+
     if (serviceList.length === 0) {
       RejectToast('لطفا حداقل یک خدمت رو به لیست اضافه کنید')
       return
@@ -97,6 +102,7 @@ const ShoppingCart: React.FC = () => {
 
       () => {
         navigate('/services')
+        dispatch(removeItems())
       },
       (response) => {
         console.log('Error:', response)
@@ -124,7 +130,7 @@ const ShoppingCart: React.FC = () => {
           className="flex-1 mt-2 space-y-6 overflow-y-auto scrollbar-hide"
           style={{ maxHeight: '250px' }}
         >
-          {shopList.map((item) => (
+          {cartItems.map((item) => (
             <ShopItem key={item.id} item={item} handleDelete={handleDelete} />
           ))}
         </div>
@@ -133,11 +139,11 @@ const ShoppingCart: React.FC = () => {
         <div className="flex justify-between items-center mb-4">
           <span className="text-lg font-bold">جمع کل فاکتور:</span>
           <span className="text-lg font-bold">
-            {totalPrice.toLocaleString()} ریال
+            {convertToPersianDigitsWithSeparator(totalPrice)} ریال
           </span>
         </div>
 
-        {!showExtra && shopList.length > 0 && (
+        {!showExtra && cartItems.length > 0 && (
           <button
             onClick={() => setShowExtra(true)}
             className="bg-primary-300 text-dunkel py-2 rounded-lg w-full hover:bg-primary-500 hover:text-secondary-100 mb-4"
@@ -178,7 +184,7 @@ const ShoppingCart: React.FC = () => {
               loading={AddOnlineOrderLoading}
               text="ثبت نهایی سفارش"
               isFormButton={true}
-              canClick={shopList.length > 0}
+              canClick={cartItems.length > 0}
               className="w-full mt-4"
             />
           </div>

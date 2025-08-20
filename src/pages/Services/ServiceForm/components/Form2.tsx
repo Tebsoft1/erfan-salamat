@@ -10,6 +10,8 @@ import ShiftOptions from '../../ServiceList/components/ShiftSection'
 import type { ServiceItemType } from '@/types/servicesTypes/Customers'
 import CardTitle from './CardTitle'
 import { AddItemToCard } from '@/utils/AddItemToCard'
+import { addItem } from '@/features/cartSlice'
+import { useDispatch } from 'react-redux'
 
 export type AddServicesFormType = {
   date: Date
@@ -42,6 +44,8 @@ type Form2PropsType = {
 
 const Form2 = (props: Form2PropsType) => {
   const { serviceId, groupId, service } = props
+
+  const dispatch = useDispatch()
 
   const {
     handleSubmit,
@@ -78,9 +82,7 @@ const Form2 = (props: Form2PropsType) => {
       servicePackage: service.servicePackage,
       requestCount: 1,
     }
-    console.log('reviesedData', reviesedData)
-    AddItemToCard(reviesedData)
-
+    dispatch(addItem(reviesedData))
     SuccessToast('به سبد خرید اضافه شد')
     reset()
   }
