@@ -8,13 +8,13 @@ import type { PurchageBasketType } from '@/types/purchageBasket'
 import ShopItem from './ShopItem'
 import type { LatLngTuple } from 'leaflet'
 import FileUploader from '@/components/FileUploader'
-import { RejectToast, SuccessToast } from '@/ui/Toasts'
+import { RejectToast } from '@/ui/Toasts'
 import { handleApiCall } from '@/utils/handleApiCall'
 import { useAddOnlineOrderMutation } from '@/services/Customers'
 import Button from '@/ui/Button'
 
 type ServiceListToBackedType = {
-  serviceId: string
+  serviceId: number
   shiftId: number
   serviceTime: string
   serviceDate: string
@@ -33,7 +33,6 @@ const ShoppingCart: React.FC = () => {
     'استان تهران، تهران، اسکندری، بزرگراه نواب صفوی، نواب، لنگرودی، احترامی'
   )
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const navigate = useNavigate()
 
   const [AddOnlineOrder, { isLoading: AddOnlineOrderLoading }] =
@@ -56,7 +55,7 @@ const ShoppingCart: React.FC = () => {
       const shift = item.servicePackage ? parseInt(item.time) : 0
 
       serviceList.push({
-        serviceId: item.serviceId,
+        serviceId: Number(item.serviceId),
         shiftId: shift,
         serviceTime: item.time,
         serviceDate: item.date,
@@ -74,6 +73,7 @@ const ShoppingCart: React.FC = () => {
       serviceList,
     }
     console.log(data)
+    console.log(selectedFile)
     if (serviceList.length === 0) {
       RejectToast('لطفا حداقل یک خدمت رو به لیست اضافه کنید')
       return
@@ -97,7 +97,6 @@ const ShoppingCart: React.FC = () => {
 
       () => {
         navigate('/services')
-        SuccessToast('سفارش شما با موفقیت ثبت شد')
       },
       (response) => {
         console.log('Error:', response)
@@ -175,12 +174,12 @@ const ShoppingCart: React.FC = () => {
             />
 
             <Button
-              onSubmit={handleSubmit}
+              onsubmit={handleSubmit}
               loading={AddOnlineOrderLoading}
               text="ثبت نهایی سفارش"
               isFormButton={true}
-              className="w-full mt-4"
               canClick={shopList.length > 0}
+              className="w-full mt-4"
             />
           </div>
         )}

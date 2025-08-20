@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGetServicesIspopularQuery } from '@/services/Customers'
 import type { ServiceItemType } from '@/types/servicesTypes/Customers'
@@ -7,7 +6,6 @@ import HospitalIcon from '@/assets/images/HospitalIcon.png'
 import { QueryHandler } from '@/components/QueryHandler'
 
 const ServicesCarousel: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
   const navigate = useNavigate()
 
   const {
@@ -18,14 +16,6 @@ const ServicesCarousel: React.FC = () => {
   } = useGetServicesIspopularQuery()
 
   const services = GetServicesIspopular?.data || []
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % services.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + services.length) % services.length)
-  }
 
   return (
     <div className="w-full max-w-4xl p-4 text-center">
@@ -39,19 +29,10 @@ const ServicesCarousel: React.FC = () => {
         isError={GetServicesIspopularError}
         onRefetch={GetServicesIspopularRefetch}
         render={() => (
-          <div className="relative overflow-hidden w-full">
-            <div
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{
-                transform: `translateX(-${
-                  currentSlide * (100 / services.length)
-                }%)`,
-              }}
-            >
-              {services.map((service) => (
-                <Card key={service.id} service={service} navigate={navigate} />
-              ))}
-            </div>
+          <div className="flex flex-nowrap overflow-auto">
+            {services.map((service) => (
+              <Card key={service.id} service={service} navigate={navigate} />
+            ))}
           </div>
         )}
       />
