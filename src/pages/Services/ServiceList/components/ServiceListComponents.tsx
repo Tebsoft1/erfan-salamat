@@ -41,8 +41,7 @@ const ServiceListComponents = () => {
             {services.map((service) => (
               <ServiceItem
                 key={service.id}
-                servicePrice={service.servicePrice}
-                serviceTitle={service.title}
+                service={service}
                 onArrowBack={() => navigate('/services')}
               />
             ))}
