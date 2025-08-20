@@ -22,6 +22,7 @@ const ServiceForm: React.FC = () => {
     data: GetServicesDetailById,
     isLoading: GetServicesDetailByIdLoading,
     isError: GetServicesDetailByIdError,
+    refetch: GetServicesDetailByIdRefetch,
   } = useGetServicesDetailByIdQuery({ serviceId, typeId })
 
   return (
@@ -30,6 +31,7 @@ const ServiceForm: React.FC = () => {
         data={GetServicesDetailById}
         isLoading={GetServicesDetailByIdLoading}
         isError={GetServicesDetailByIdError}
+        onRefetch={GetServicesDetailByIdRefetch}
         render={(service) => (
           <>
             {!service.servicePackage ? (

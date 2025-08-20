@@ -10,6 +10,7 @@ const AppointmentSection: React.FC = () => {
     data: GetServiceGroup,
     isLoading: GetServiceGroupLoading,
     isError: GetServiceGroupError,
+    refetch: GetServiceGroupRefetch,
   } = useGetServiceGroupQuery()
 
   return (
@@ -18,6 +19,7 @@ const AppointmentSection: React.FC = () => {
         data={GetServiceGroup}
         isLoading={GetServiceGroupLoading}
         isError={GetServiceGroupError}
+        onRefetch={GetServiceGroupRefetch}
         render={(groups) => (
           <ul>
             {groups.map((group) => (
@@ -45,7 +47,6 @@ const Card = (props: CardPropsType) => {
   let navigate = useNavigate()
   return (
     <div className="bg-dunkel rounded-4xl flex flex-row items-stretch p-3 mt-4 min-h-20  text-secondary-100 hover:bg-primary-500 cursor-pointer">
-  
       <div className="flex flex-row justify-between items-center flex-1 relative  ">
         <div className="bg-transparent">
           <img src={Calendarwaiting} alt="+" className="w-10 h-10 mr-2" />

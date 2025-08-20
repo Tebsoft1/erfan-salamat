@@ -1,5 +1,5 @@
 import React from 'react'
-import Ellipse37 from '@/assets/images/Ellipse37.png'
+import userLogo from '@/assets/images/userLogo.png'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
@@ -12,21 +12,24 @@ const Header: React.FC = () => {
   const dispatch = useDispatch()
   return (
     <div className="w-full p-1 flex justify-between items-center relative">
-      <div className="flex items-center">
+      <div className="flex items-center gap-1">
         <img
-          src={Ellipse37}
+          src={userLogo}
           alt="photo"
           className="rounded-full w-8 h-8 bg-primary-300 flex items-center justify-center cursor-pointer"
           onClick={() => navigate('/Profile')}
         />
         <div className="flex flex-col items-end text-xs pr-2">
-          <span>محمد پیله چی</span>
-          <span>09107502907</span>
+          <span>{localStorage.getItem('fullName')}</span>
+          <span>{localStorage.getItem('mobile')}</span>
         </div>
       </div>
 
       <div className="flex items-center space-x-4 ml-4">
-        <div onClick={() => navigate('Profile/Notifications')} className="flex flex-col items-center ">
+        <div
+          onClick={() => navigate('Profile/Notifications')}
+          className="flex flex-col items-center "
+        >
           <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center cursor-pointer">
             <svg
               width="24"
@@ -51,7 +54,6 @@ const Header: React.FC = () => {
               />
               <circle cx="17" cy="4" r="2" fill="#3EFFC7" />
             </svg>
-            
           </div>
           <span className="text-xs mt-1 cursor-pointer">اعلان ها</span>
         </div>

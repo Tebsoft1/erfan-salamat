@@ -11,6 +11,7 @@ import FileUploader from '@/components/FileUploader'
 import { RejectToast, SuccessToast } from '@/ui/Toasts'
 import { handleApiCall } from '@/utils/handleApiCall'
 import { useAddOnlineOrderMutation } from '@/services/Customers'
+import Button from '@/ui/Button'
 
 type ServiceListToBackedType = {
   serviceId: string
@@ -137,7 +138,7 @@ const ShoppingCart: React.FC = () => {
           </span>
         </div>
 
-        {!showExtra && (
+        {!showExtra && shopList.length > 0 && (
           <button
             onClick={() => setShowExtra(true)}
             className="bg-primary-300 text-dunkel py-2 rounded-lg w-full hover:bg-primary-500 hover:text-secondary-100 mb-4"
@@ -173,16 +174,14 @@ const ShoppingCart: React.FC = () => {
               setPosition={setPosition}
             />
 
-            <button
-              onClick={handleSubmit}
-              className="bg-primary-300 text-dunkel py-2 rounded-lg w-full hover:bg-primary-500 hover:text-secondary-100 flex justify-center items-center"
-            >
-              {isSubmitting ? (
-                <span className="border-t-2 border-secondary-100 rounded-full w-5 h-5 animate-spin "></span>
-              ) : (
-                'ثبت نهایی سفارش'
-              )}
-            </button>
+            <Button
+              onSubmit={handleSubmit}
+              loading={AddOnlineOrderLoading}
+              text="ثبت نهایی سفارش"
+              isFormButton={true}
+              className="w-full mt-4"
+              canClick={shopList.length > 0}
+            />
           </div>
         )}
       </div>

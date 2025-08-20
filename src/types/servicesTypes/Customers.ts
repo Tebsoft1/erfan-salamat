@@ -23,3 +23,10 @@ export type ServiceGroupType = {
   nameInApp: string
   showInAppMiddle: boolean
 }
+
+export type WalletTransactionType = {
+  tDate: string
+  price: number
+  description: string
+  title: string
+}

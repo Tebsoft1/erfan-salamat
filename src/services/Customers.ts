@@ -4,6 +4,7 @@ import type { ApiResponse } from '@/types/servicesTypes/globalSerivicesType'
 import type {
   ServiceGroupType,
   ServiceItemType,
+  WalletTransactionType,
 } from '@/types/servicesTypes/Customers'
 
 export type Order = {
@@ -79,6 +80,12 @@ export const Customers = createApi({
         method: 'POST',
       }),
     }),
+    getWalletTrns: builder.query<ApiResponse<WalletTransactionType[]>, void>({
+      query: () => ({
+        url: `Customers/GetWalletTrns`,
+        method: 'POST',
+      }),
+    }),
     addOnlineOrder: builder.mutation<ApiResponse<string>, FormData>({
       query: (body) => ({
         url: `Customers/AddOnlineOrder`,
@@ -95,5 +102,6 @@ export const {
   useGetServicesIspopularQuery,
   useGetServicesDetailByIdQuery,
   useGetServiceGroupQuery,
+  useGetWalletTrnsQuery,
   useAddOnlineOrderMutation,
 } = Customers

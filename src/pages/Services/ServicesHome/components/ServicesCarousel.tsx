@@ -14,6 +14,7 @@ const ServicesCarousel: React.FC = () => {
     data: GetServicesIspopular,
     isLoading: GetServicesIspopularLoading,
     isError: GetServicesIspopularError,
+    refetch: GetServicesIspopularRefetch,
   } = useGetServicesIspopularQuery()
 
   const services = GetServicesIspopular?.data || []
@@ -36,6 +37,7 @@ const ServicesCarousel: React.FC = () => {
         data={GetServicesIspopular}
         isLoading={GetServicesIspopularLoading}
         isError={GetServicesIspopularError}
+        onRefetch={GetServicesIspopularRefetch}
         render={() => (
           <div className="relative overflow-hidden w-full">
             <div

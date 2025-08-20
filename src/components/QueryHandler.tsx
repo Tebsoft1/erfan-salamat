@@ -9,6 +9,7 @@ type QueryHandlerPropsType<T> = {
   }
   isLoading: boolean
   isError: boolean
+  onRefetch: () => void
   render: (data: T) => React.ReactNode
 }
 
@@ -16,13 +17,14 @@ export function QueryHandler<T>({
   data,
   isLoading,
   isError,
+  onRefetch,
   render,
 }: QueryHandlerPropsType<T>) {
-  if (isLoading) return <BeatLoader />
+  if (isLoading) return <BeatLoader className="text-center" color="#fff" />
 
   if (isError)
     return (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2" onClick={onRefetch}>
         <p>
           دریافت اطلاعات با مشکل مواجه شد، <strong>تلاش مجدد</strong>
         </p>
