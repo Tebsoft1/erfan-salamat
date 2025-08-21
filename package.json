@@ -23,6 +23,7 @@
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.539.0",
     "moment-jalaali": "^0.10.4",
+    "pnpm": "^10.15.0",
     "react": "^19.1.0",
     "react-date-object": "^2.1.9",
     "react-dom": "^19.1.0",

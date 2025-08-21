@@ -81,6 +81,28 @@ export const Customers = createApi({
         method: 'POST',
       }),
     }),
+
+    addOnlineOrder: builder.mutation<ApiResponse<any>, { data?: any; file?: File }>({
+      query: ({ data, file }) => {
+        const formData = new FormData();
+    
+        if (data) {
+          
+          const dataBlob = new Blob([JSON.stringify(data)], { type: "application/json" });
+          formData.append("data", dataBlob, "data.json");
+        } 
+        if (file) {
+          formData.append("file", file);
+        }
+    
+        return {
+          url: `/Customers/AddOnlineOrder`,
+          method: "POST",
+          body: formData,
+        };
+      },
+    }),
+    
   }),
 })
 
@@ -90,5 +112,6 @@ export const {
   useGetServicesIspopularQuery,
   useGetServiceGroupQuery,
   useGetPrescriptionQuery,
-  useLazyGetPrescriptionQuery
+  useLazyGetPrescriptionQuery,
+  useAddOnlineOrderMutation, 
 } = Customers
