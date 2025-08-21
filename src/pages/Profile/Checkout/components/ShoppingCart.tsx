@@ -111,7 +111,7 @@ const ShoppingCart: React.FC = () => {
   }
 
   return (
-    <div className="w-98/100 bg-dunkel rounded-xl mt-15 mb-15 overflow-hidden flex flex-col relative">
+    <div className="w-98/100 bg-dunkel rounded-xl mt-4 mb-15 overflow-hidden flex flex-col relative">
       <div className="absolute top-2 right-2">
         <Link to="/profile" className="flex items-center text-secondary-100">
           <FontAwesomeIcon
@@ -185,7 +185,7 @@ const ShoppingCart: React.FC = () => {
               text="ثبت نهایی سفارش"
               isFormButton={true}
               canClick={cartItems.length > 0}
-              className="w-full mt-4"
+              className="w-full mt-4 hover:bg-primary-500"
             />
           </div>
         )}

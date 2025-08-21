@@ -5,9 +5,7 @@ import SearchBar from './components/SearchBar';
 import ServicesCarousel from './components/ServicesCarousel';
 import DoctorCard from './components/DoctorCard';
 import AppointmentSection from './components/AppointmentSection';
-import ChildrenServices from './components/ChildrenServices';
 import StatsSection from './components/StatsSection';
-import FooterNav from './components/FooterNav';
 
 const ServicesHome: React.FC = () => {
   const location = useLocation();
@@ -34,7 +32,6 @@ const ServicesHome: React.FC = () => {
       <ServicesCarousel />
       <DoctorCard />
       <AppointmentSection />
-      <ChildrenServices />
       <StatsSection />
     </div>
   );

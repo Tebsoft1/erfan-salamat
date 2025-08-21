@@ -35,7 +35,7 @@ const ProfileList = () => {
         <FaChevronLeft />
       </div>
       <div className="flex justify-between items-center cursor-pointer">
-        <div className="flex gap-3 items-center">
+        <div onClick={() => navigate('/Contact')} className="flex gap-3 items-center">
           <SlCallOut size={20}/>
           <p>تماس با ما</p>
         </div>

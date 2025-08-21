@@ -28,6 +28,7 @@ const FooterMenu = () => {
         className="absolute top-3 right-[10%]   z-20 cursor-pointer"
       />
       <img
+        onClick={() => navigate('/Contact')}
         src={Phone}
         className="absolute top-3 right-[25%]   z-20 cursor-pointer"
       />

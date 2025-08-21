@@ -18,7 +18,7 @@ import Addresses from '@/pages/Profile/Addresses'
 import Checkout from '@/pages/Profile/Checkout/Checkout'
 import Wallet from '@/pages/Profile/Wallet/Wallet'
 
-import Contact from '@/pages/Contact'
+import Contact from '@/pages/ContactUs/Contact'
 import FAQ from '@/pages/FAQ'
 
 import UserRoutes from '@/components/UserRoutes'

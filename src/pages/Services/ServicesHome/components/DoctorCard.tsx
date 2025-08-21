@@ -9,14 +9,14 @@ const DoctorCard: React.FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="w-full bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-40 mb-10 mt-8">
-      <div className="bg-primary-300 rounded-4xl p-2 h-40 -mt-3 -mr-5">
-        <img src={DoctorImg3} alt="+" className="w-26 -mr-2" />
+    <div className="w-full bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-50 mb-10 mt-8">
+      <div className="bg-primary-300 rounded-4xl p-2 h-50 -mt-4 -mr-3">
+        <img src={DoctorImg3} alt="+" className="w-60 h-50 -mt-1 -mr-2" />
       </div>
 
-      <div className="flex flex-row justify-center items-center gap-4 mr-8">
+      <div className="flex flex-row justify-center items-center gap-2 mr-6">
         <div
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-2 flex flex-col items-center w-15 cursor-pointer"
+          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer"
           onClick={() => navigate(`serviceList?groupId=52`)}
         >
           <img src={Microscope} alt="+" className="w-9 h-9 rounded-sm p-2" />
@@ -24,7 +24,7 @@ const DoctorCard: React.FC = () => {
         </div>
 
         <div
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-2 flex flex-col items-center w-15 cursor-pointer"
+          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer"
           onClick={() => navigate(`pharmacy`)}
         >
           <img src={PharmacyImg} alt="+" className="w-9 h-9 rounded-sm p-2" />
@@ -32,7 +32,7 @@ const DoctorCard: React.FC = () => {
         </div>
 
         <div
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-2 flex flex-col items-center w-15 cursor-pointer"
+          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer"
           onClick={() => navigate(`serviceList?groupId=51`)}
         >
           <img src={Blister2} alt="+" className="w-9 h-9 rounded-sm p-2" />

@@ -1,5 +1,5 @@
 import type { PurchageBasketType } from '@/types/purchageBasket'
-import { convertToPersianDigits } from '@/utils/numberUtils'
+import { convertToPersianDigitsWithSeparator } from '@/utils/numberUtils'
 
 type ShopItemPropsType = {
   item: PurchageBasketType
@@ -20,7 +20,7 @@ const ShopItem = (props: ShopItemPropsType) => {
             تاریخ خدمت: {item.date}
           </div>
           <div className="text-primary-300 text-base">
-            قیمت: {convertToPersianDigits(item.servicePrice.toString())} ریال
+            قیمت: {convertToPersianDigitsWithSeparator(item.servicePrice.toString())} ریال
           </div>
         </div>
       </div>
