@@ -210,6 +210,13 @@ const SingupForm = (props: SingupFormPropsType) => {
             loading={signupLoading}
             text="تایید اطلاعات"
           />
+          <Button
+            className={`!text-primary-900 !bg-secondary-100 border border-primary-900`}
+            type="button"
+            disabled={signupLoading}
+            text="ورود"
+            onClick={() => navigate('/auth/login')}
+          />
         </div>
       </form>
     </div>
