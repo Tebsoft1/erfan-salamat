@@ -17,7 +17,10 @@ const RadioButton = (props: RadioButtonProps) => {
         id={radioId}
         type="radio"
         value={value}
-        className="w-6 h-6"
+        className="w-6 h-6 bg-white  
+                   checked:bg-primary-500 
+                   checked:focus:ring-primary-300
+                   transition-all duration-200"
       />
       <label htmlFor={radioId} className="text-sm font-bold text-primary-900">
         {text}

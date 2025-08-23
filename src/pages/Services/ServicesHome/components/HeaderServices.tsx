@@ -19,7 +19,7 @@ const Header: React.FC = () => {
           className="rounded-full w-8 h-8 bg-primary-300 flex items-center justify-center cursor-pointer"
           onClick={() => navigate('/Profile')}
         />
-        <div className="flex flex-col items-end text-xs pr-2">
+        <div className="flex flex-col gap-1 text-xs pr-2">
           <span>{localStorage.getItem('fullName')}</span>
           <span>{localStorage.getItem('mobile')}</span>
         </div>

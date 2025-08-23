@@ -13,6 +13,7 @@ import type { ServiceItemType } from '@/types/servicesTypes/Customers'
 import CardTitle from './CardTitle'
 import { useDispatch } from 'react-redux'
 import { addItem } from '@/features/cartSlice'
+import { useNavigate } from 'react-router-dom'
 
 export type AddServicesFormType = {
   date: Date
@@ -63,6 +64,9 @@ const Form1 = (props: Form1PropsType) => {
   const { serviceId, groupId, service } = props
 
   const dispatch = useDispatch()
+
+  let navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -96,10 +100,12 @@ const Form1 = (props: Form1PropsType) => {
     dispatch(addItem(reviesedData))
     SuccessToast('به سبد خرید اضافه شد')
     reset()
+
+    navigate(-1)
   }
 
   return (
-    <div>
+    <div className="relative">
       <CardTitle service={service} />
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -130,7 +136,7 @@ const Form1 = (props: Form1PropsType) => {
           error={errors.requestCount}
         />
         <Button
-          className={`flex-1 text-primary-900 !bg-primary-300 mt-5`}
+          className={`flex-1 !text-primary-900 !bg-primary-300 mt-5`}
           isFormButton={true}
           canClick={!hasError}
           type="submit"
