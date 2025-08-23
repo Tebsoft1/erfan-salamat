@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactHeader from "./Component/ContactHeader"
+import ContactForm from './Component/ContactForm';
 import { useNavigate } from 'react-router-dom'
 import Back from '../../assets/images/Back.png'
 

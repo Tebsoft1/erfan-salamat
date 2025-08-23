@@ -32,7 +32,7 @@ const ProfileHome: React.FC = () => {
       <div className="w-full mt-10">
         <ProfileList />
       </div>
-      <div className="border-1 border-primary-300 rounded-[30px] py-3 w-[95%] mt-12 text-center text-primary-300 cursor-pointer">
+      <div onClick={() => navigate('/auth/Login')} className="border-1 border-primary-300 rounded-[30px] py-3 w-[95%] mt-12 text-center text-primary-300 cursor-pointer">
         خروج از حساب کاربری
       </div>
     </div>
