@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import { useEffect } from 'react'
 import { checkAuthFromStorage } from './features/authSlice'
 import { useDispatch } from 'react-redux'
+import PWAInstallPrompt from './components/PWAInstallPrompt'
 
 function App() {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ function App() {
         <Outlet />
       </div>
       <ToastContainer />
+      <PWAInstallPrompt />
     </div>
   )
 }
