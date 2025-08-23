@@ -1,10 +1,10 @@
 import React from "react";
-import Back from "../../assets/images/Back.png";
+import Back from "../../../assets/images/Back.png";
 import { CiViewList } from "react-icons/ci";
 
-import { useGetUserDataQuery } from "../../services/Authenticate";
-import ProfileHeader from "./components/ProfileHeader";
-import OrdersList from "./components/OrdersList";
+import { useGetUserDataQuery } from "../../../services/Authenticate";
+import ProfileHeader from "../components/ProfileHeader";
+import OrdersList from "../Orders/components/OrdersList";
 import { useNavigate } from 'react-router-dom';
 
 const Orders: React.FC = () => {

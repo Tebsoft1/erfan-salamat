@@ -51,14 +51,14 @@ export const Customers = createApi({
         }
       },
     }),
-    getServicesByGroupId: builder.query<ApiResponse<ServiceItemType[]>, string>(
-      {
-        query: (typeId: string) => ({
-          url: `Customers/GetServicesByGroupId?typeId=${typeId}`,
-          method: 'POST',
-        }),
-      }
-    ),
+
+    getServicesByGroupId: builder.query<ApiResponse<ServiceItemType[]>, string>({
+      query: (typeId: string) => ({
+        url: `Customers/GetServicesByGroupId?typeId=${typeId}`,
+        method: 'POST',
+      }),
+    }),
+    
     getServicesIspopular: builder.query<ApiResponse<ServiceItemType[]>, void>({
       query: () => ({
         url: `Customers/GetServicesIspopular`,
@@ -86,13 +86,56 @@ export const Customers = createApi({
         method: 'POST',
       }),
     }),
-    addOnlineOrder: builder.mutation<ApiResponse<string>, FormData>({
-      query: (body) => ({
-        url: `Customers/AddOnlineOrder`,
+
+    getPrescription: builder.query<
+      ApiResponse<any>,
+      { printCode: string; preType: number }>({
+      query: ({ printCode, preType }) => ({
+        url: `Customers/GetPrescription?printCode=${printCode}&preType=${preType}`,
         method: 'POST',
-        body,
       }),
     }),
+
+    addOnlineOrder: builder.mutation<
+  ApiResponse<any>,
+  { 
+    data: {
+      address: string;
+      mobile: string | null;
+      desc: string;
+      lat: number;
+      lon: number;
+      serviceList: {
+        serviceId: number;
+        shiftId: number;
+        serviceTime: string;
+        serviceDate: string;
+        count: number;
+        description: string;
+      }[];
+    };
+    file?: File | null;
+  }
+>({
+  query: ({ data, file }) => {
+    const formData = new FormData();
+
+  
+    const dataBlob = new Blob([JSON.stringify(data)], { type: "application/json" });
+    formData.append("data", dataBlob, "data.json");
+
+    if (file) {
+      formData.append("file", file);
+    }
+
+    return {
+      url: `/Customers/AddOnlineOrder`,
+      method: "POST",
+      body: formData,
+    };
+  },
+}),
+
   }),
 })
 
@@ -102,6 +145,8 @@ export const {
   useGetServicesIspopularQuery,
   useGetServicesDetailByIdQuery,
   useGetServiceGroupQuery,
+  useGetPrescriptionQuery,
+  useLazyGetPrescriptionQuery,
   useGetWalletTrnsQuery,
   useAddOnlineOrderMutation,
 } = Customers

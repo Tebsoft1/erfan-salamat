@@ -7,12 +7,12 @@ import Login from '@/pages/auth/Login'
 import Signup from '@/pages/auth/Signup'
 
 import Services from '@/pages/Services/services'
-import PharmacyForm from '@/pages/Services/PharmacyForm'
+import Pharmacy from '@/pages/Services/PharmacyForm'
 
 import Profile from '@/pages/Profile'
 import Identity from '@/pages/Profile/Identity'
 import Notifications from '@/pages/Profile/Notifications'
-import Orders from '@/pages/Profile/Orders'
+import Orders from '@/pages/Profile/Orders/Orders'
 import MedicalRecord from '@/pages/Profile/MedicalRecord'
 import Addresses from '@/pages/Profile/Addresses'
 import Checkout from '@/pages/Profile/Checkout/Checkout'
@@ -53,7 +53,7 @@ export const routes = [
             children: [
               { index: true, element: <ServicesHome /> },
               { path: 'serviceList', element: <ServiceList /> },
-              { path: 'pharmacyForm', element: <PharmacyForm /> },
+              { path: 'pharmacyForm', element: <Pharmacy /> },
               { path: 'serviceForm', element: <ServiceForm /> },
             ],
           },
