@@ -82,27 +82,46 @@ export const Customers = createApi({
       }),
     }),
 
-    addOnlineOrder: builder.mutation<ApiResponse<any>, { data?: any; file?: File }>({
-      query: ({ data, file }) => {
-        const formData = new FormData();
-    
-        if (data) {
-          
-          const dataBlob = new Blob([JSON.stringify(data)], { type: "application/json" });
-          formData.append("data", dataBlob, "data.json");
-        } 
-        if (file) {
-          formData.append("file", file);
-        }
-    
-        return {
-          url: `/Customers/AddOnlineOrder`,
-          method: "POST",
-          body: formData,
-        };
-      },
-    }),
-    
+    addOnlineOrder: builder.mutation<
+  ApiResponse<any>,
+  { 
+    data: {
+      address: string;
+      mobile: string | null;
+      desc: string;
+      lat: number;
+      lon: number;
+      serviceList: {
+        serviceId: number;
+        shiftId: number;
+        serviceTime: string;
+        serviceDate: string;
+        count: number;
+        description: string;
+      }[];
+    };
+    file?: File | null;
+  }
+>({
+  query: ({ data, file }) => {
+    const formData = new FormData();
+
+  
+    const dataBlob = new Blob([JSON.stringify(data)], { type: "application/json" });
+    formData.append("data", dataBlob, "data.json");
+
+    if (file) {
+      formData.append("file", file);
+    }
+
+    return {
+      url: `/Customers/AddOnlineOrder`,
+      method: "POST",
+      body: formData,
+    };
+  },
+}),
+
   }),
 })
 
