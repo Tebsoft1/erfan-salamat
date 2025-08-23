@@ -146,7 +146,7 @@ const ShoppingCart: React.FC = () => {
         {!showExtra && cartItems.length > 0 && (
           <button
             onClick={() => setShowExtra(true)}
-            className="bg-primary-300 text-dunkel py-2 rounded-lg w-full hover:bg-primary-500 hover:text-secondary-100 mb-4"
+            className="bg-primary-300 text-dunkel py-2 rounded-lg w-full hover:bg-primary-500 hover:text-secondary-100 mb-4 cursor-pointer"
           >
             تکمیل فرآیند ثبت سفارش
           </button>

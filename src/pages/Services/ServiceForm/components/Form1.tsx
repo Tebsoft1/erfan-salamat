@@ -130,7 +130,7 @@ const Form1 = (props: Form1PropsType) => {
           error={errors.requestCount}
         />
         <Button
-          className={`flex-1 text-secondary-900 !bg-primary-300 mt-5`}
+          className={`flex-1 text-primary-900 !bg-primary-300 mt-5`}
           isFormButton={true}
           canClick={!hasError}
           type="submit"

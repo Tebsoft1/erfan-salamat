@@ -1,4 +1,5 @@
 import React from 'react'
+import ContactForm from './ContactForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -64,10 +65,51 @@ const ContactHeader: React.FC = () => {
             </div>
         </div>
 
+        <div className="flex flex-row gap-2 items-center">
+        <a href="https://t.me/erfansalamat" target="_blank" rel="noopener noreferrer">
+            <img 
+            className="w-7 h-7 object-contain hover:scale-110 transition-transform duration-200" 
+            src="/src/assets/images/telegram.png" 
+            alt="Telegram" 
+            />
+        </a>
 
+        <a href="https://www.instagram.com/erfansalamatgroup/" target="_blank" rel="noopener noreferrer">
+            <img 
+            className="w-8 h-8 object-contain hover:scale-110 transition-transform duration-200" 
+            src="/src/assets/images/instagram.png" 
+            alt="Instagram" 
+            />
+        </a>
 
-
+        <a href="https://www.aparat.com/ErfanSalamatGroup" target="_blank" rel="noopener noreferrer">
+            <img 
+            className="w-10 h-10 mt-1 -mr-1 object-contain hover:scale-110 transition-transform duration-200" 
+            src="/src/assets/images/aparat.png" 
+            alt="Aparat" 
+            />
+        </a>
     </div>
+
+        <div className="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12947.219365626352!2d51.365455!3d35.78017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e0786bbf29dff%3A0xe9c940d85c421bed!2sErfan%20Salamat%20Organization!5e0!3m2!1sen!2sus!4v1755935710741!5m2!1sen!2sus"
+        width="100%"
+        height="420"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+    </div>
+
+
+    <div>
+        <ContactForm />
+    </div>
+
+        
+</div>
 );
 
 
