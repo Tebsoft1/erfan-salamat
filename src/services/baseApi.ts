@@ -31,7 +31,7 @@ const baseQueryCore = fetchBaseQuery({
 
 const baseQuery = async (args: any, api: any, extraOptions: any) => {
   const result = await baseQueryCore(args, api, extraOptions)
-  console.log(args)
+
   const isExcluded = EXCLUDED_URLS.some((url) => args.url?.includes(url))
 
   if (!isExcluded && result.error && result.error.status === 401) {

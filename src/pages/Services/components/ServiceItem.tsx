@@ -12,7 +12,7 @@ const ServiceItem = (props: ServiceItemPropsType) => {
   const { service, onArrowBack } = props
 
   let navigate = useNavigate()
-  console.log(service)
+
   return (
     <div
       className="w-full"

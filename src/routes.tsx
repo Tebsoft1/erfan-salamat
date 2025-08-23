@@ -1,32 +1,40 @@
 import App from '@/App'
+import { lazy } from 'react'
 
-import Home from '@/pages/Home'
+// Lazy load all components
+const Home = lazy(() => import('@/pages/Home'))
 
-import OTP from '@/pages/auth/OTP'
-import Login from '@/pages/auth/Login'
-import Signup from '@/pages/auth/Signup'
+// Auth components
+const OTP = lazy(() => import('@/pages/auth/OTP'))
+const Login = lazy(() => import('@/pages/auth/Login'))
+const Signup = lazy(() => import('@/pages/auth/Signup'))
 
-import Services from '@/pages/Services/services'
-import Pharmacy from '@/pages/Services/PharmacyForm'
+// Services components
+const Services = lazy(() => import('@/pages/Services/services'))
+const ServicesHome = lazy(
+  () => import('@/pages/Services/ServicesHome/ServicesHome')
+)
+const ServiceList = lazy(() => import('@/pages/Services/ServiceList'))
+const Pharmacy = lazy(() => import('@/pages/Services/PharmacyForm'))
+const ServiceForm = lazy(() => import('@/pages/Services/ServiceForm'))
 
-import Profile from '@/pages/Profile'
-import Identity from '@/pages/Profile/Identity'
-import Notifications from '@/pages/Profile/Notifications'
-import Orders from '@/pages/Profile/Orders/Orders'
-import MedicalRecord from '@/pages/Profile/MedicalRecord'
-import Addresses from '@/pages/Profile/Addresses'
-import Checkout from '@/pages/Profile/Checkout/Checkout'
-import Wallet from '@/pages/Profile/Wallet/Wallet'
+// Profile components
+const Profile = lazy(() => import('@/pages/Profile'))
+const ProfileHome = lazy(() => import('@/pages/Profile/ProfileHome'))
+const Identity = lazy(() => import('@/pages/Profile/Identity'))
+const Notifications = lazy(() => import('@/pages/Profile/Notifications'))
+const Orders = lazy(() => import('@/pages/Profile/Orders/Orders'))
+const MedicalRecord = lazy(() => import('@/pages/Profile/MedicalRecord'))
+const Addresses = lazy(() => import('@/pages/Profile/Addresses'))
+const Checkout = lazy(() => import('@/pages/Profile/Checkout/Checkout'))
+const Wallet = lazy(() => import('@/pages/Profile/Wallet/Wallet'))
 
-import Contact from '@/pages/ContactUs/Contact'
-import FAQ from '@/pages/FAQ'
+// Other components
+const Contact = lazy(() => import('@/pages/ContactUs/Contact'))
+const FAQ = lazy(() => import('@/pages/FAQ'))
 
 import UserRoutes from '@/components/UserRoutes'
 import GuestRoutes from '@/components/GuestRoutes'
-import ServicesHome from './pages/Services/ServicesHome/ServicesHome'
-import ProfileHome from './pages/Profile/ProfileHome'
-import ServiceList from './pages/Services/ServiceList'
-import ServiceForm from './pages/Services/ServiceForm'
 
 export const routes = [
   {
