@@ -1,6 +1,5 @@
 import React from 'react';
 import ContactHeader from "./Component/ContactHeader"
-import ContactForm from './Component/ContactForm';
 import { useNavigate } from 'react-router-dom'
 import Back from '../../assets/images/Back.png'
 
@@ -8,7 +7,7 @@ const Contact: React.FC = () => {
     const navigate = useNavigate()
   
   return (
-    <div className="py-3 px-2 w-full flex flex-col items-center">
+    <div className="py-3 px-2 w-full flex flex-col items-center -mt-3">
 
       <div onClick={() => navigate('/Services')} className="flex gap-[1px] items-center w-full cursor-pointer">
         <img

@@ -27,9 +27,12 @@ const Orders: React.FC = () => {
       <div className="w-full mt-6">
         <OrdersList />
       </div>
-      <div className="border-1 border-primary-300 rounded-[30px] py-3 w-[95%] mt-12 text-center text-primary-300">
+      <div className="border-1 border-primary-300 rounded-[30px] py-3 w-[95%] mt-12 text-center text-primary-300 cursor-pointer">
+        <button onClick={() => navigate('/auth/login')} className="cursor-pointer">
         خروج از حساب کاربری
+      </button>
       </div>
+      
     </div>
   );
 };

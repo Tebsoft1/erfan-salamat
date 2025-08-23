@@ -1,6 +1,7 @@
 import FooterBorder from '../assets/images/Subtract.png'
 import Home from '../assets/images/Home.png'
 import Message from '../assets/images/Message-2.png'
+import Icon from '../assets/images/icon.png'
 import Phone from '../assets/images/Emergency.png'
 import Wallet from '../assets/images/wallet.png'
 import Basket from '../assets/images/basket.png'
@@ -24,8 +25,9 @@ const FooterMenu = () => {
         className="absolute top-[-6px] right-[46.5%]  z-20 cursor-pointer"
       />
       <img
-        src={Message}
-        className="absolute top-3 right-[10%]   z-20 cursor-pointer"
+        onClick={() => navigate('/Profile')}
+        src={Icon}
+        className="absolute top-3 right-[10%]  w-[20px] h-[25px]    z-20 cursor-pointer"
       />
       <img
         onClick={() => navigate('/Contact')}
