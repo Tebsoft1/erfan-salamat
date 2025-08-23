@@ -2,12 +2,12 @@ import App from '@/App'
 
 import Home from '@/pages/Home'
 
+import OTP from '@/pages/auth/OTP'
 import Login from '@/pages/auth/Login'
 import Signup from '@/pages/auth/Signup'
 
 import Services from '@/pages/Services/services'
 import PharmacyForm from '@/pages/Services/PharmacyForm'
-
 
 import Profile from '@/pages/Profile'
 import Identity from '@/pages/Profile/Identity'
@@ -40,6 +40,7 @@ export const routes = [
         children: [
           { path: 'login', element: <Login /> },
           { path: 'signup', element: <Signup /> },
+          { path: 'otp', element: <OTP /> },
         ],
       },
 

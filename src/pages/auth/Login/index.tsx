@@ -1,27 +1,87 @@
-import { useState } from 'react'
-import OTPForm from '../components/OTPForm'
-import LoginForm from './components/LoginForm'
+import FormInput from '@/components/FormInput'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { FaMobileAlt } from 'react-icons/fa'
+import Button from '@/ui/Button'
+import { useNavigate } from 'react-router-dom'
+import { useSendOTPMutation } from '@/services/Authenticate'
+import type { ApiResponse } from '@/types/servicesTypes/globalSerivicesType'
+import { RejectToast, SuccessToast } from '@/ui/Toasts'
 
+type LoginFormType = {
+  phoneNumber: string
+}
+
+const schema = yup.object().shape({
+  phoneNumber: yup
+    .string()
+    .required('شماره موبایل را وارد کنید')
+    .matches(/^09\d{9}$/, 'شماره موبایل نامعتبر است'),
+})
 
 const Login = () => {
-  const [isOTPComponent, setIsOTPComponent] = useState(false)
-  const [mobileNumber, setMobileNumber] = useState<string>('')
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) })
 
+  const [SendOTP, { isLoading: SendOTPLoading }] = useSendOTPMutation()
 
-  if (!isOTPComponent)
-    return (
-      <LoginForm
-        setIsOTPComponent={setIsOTPComponent}
-        setMobileNumber={setMobileNumber}
-      />
-    )
-  if (isOTPComponent)
-    return (
-      <OTPForm
-        mobileNumber={mobileNumber}
-        onBack={() => setIsOTPComponent(false)}
-        onTimeFinish={() => setIsOTPComponent(false)}
-      />
-    )
+  const phoneValue = watch('phoneNumber') || ''
+
+  const isPhoneNumberValid = phoneValue.length === 11 && !errors.phoneNumber
+
+  const onSubmit = async (data: LoginFormType) => {
+    const response: ApiResponse<boolean> = await SendOTP({
+      phoneNumber: data.phoneNumber,
+      typeId: 0,
+    }).unwrap()
+    if (response.isSuccess) {
+      SuccessToast('رمز یک بار مصرف ارسال شد')
+      navigate('/auth/otp', { state: { mobileNumber: data.phoneNumber } })
+    } else {
+      RejectToast('لطفا ابتدا ثبت نام کنید')
+    }
+  }
+
+  let navigate = useNavigate()
+  return (
+    <div className="flex flex-col items-center !w-full">
+      <h2 className="text-xl font-bold text-center mb-2"> خوش آمدید!</h2>
+      <p className="text-sm font-light mb-20">شماره موبایل خود را وارد کنید</p>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+        <FormInput
+          name="phoneNumber"
+          placeholder="شماره موبایل خود را وارد کنید"
+          type="tel"
+          icon={<FaMobileAlt />}
+          register={register}
+          error={errors.phoneNumber}
+          className="mb-10"
+        />
+        <div className="flex items-center gap-2">
+          <Button
+            type="submit"
+            disabled={!isPhoneNumberValid || SendOTPLoading}
+            loading={SendOTPLoading}
+            text="ورود"
+            isFormButton={true}
+            canClick={isPhoneNumberValid}
+            className="flex-1"
+          />
+          <Button
+            onsubmit={() => navigate('/auth/signup')}
+            text="ثبت نام"
+            type="button"
+            disabled={SendOTPLoading}
+            className="!text-primary-900 border border-primary-900 !bg-secondary-100"
+          ></Button>
+        </div>
+      </form>
+    </div>
+  )
 }
 export default Login

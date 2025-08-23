@@ -1,6 +1,6 @@
 import Button from '@/ui/Button'
 import { convertToPersianDigits } from '@/utils/numberUtils'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { CiStopwatch } from 'react-icons/ci'
 import OtpInput from 'react-otp-input'
 import useTimer from '@/hooks/useTimer'
@@ -8,50 +8,50 @@ import ArrowBack from '@/ui/ArrowBack'
 import { useVerfiyOTPMutation } from '@/services/Authenticate'
 import type { VerifyOTPDataResponseType } from '@/types/servicesTypes/Authenticate'
 import { handleApiCall } from '@/utils/handleApiCall'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login } from '@/features/authSlice'
 
-type OTPFormPropsType = {
-  mobileNumber: string
-  onBack: () => void
-  onTimeFinish: () => void
-}
-
-const OTPForm = (props: OTPFormPropsType) => {
-  const { mobileNumber, onBack, onTimeFinish } = props
+const OTP = () => {
   const dispatch = useDispatch()
+  const location = useLocation()
+  let navigate = useNavigate()
 
   const [otp, setOtp] = useState<string>('')
 
-  useEffect(() => {
-    if ('OTPCredential' in window) {
-      const ac = new AbortController()
-      setTimeout(() => ac.abort(), 120000)
+  const mobileNumber = location.state?.mobileNumber
 
-      navigator.credentials
-        .get({
-          otp: { transport: ['sms'] },
-          signal: ac.signal,
-        } as any)
-        .then((otp) => {
-          if (otp && 'code' in otp) {
-            setOtp(String((otp as { code?: string })?.code ?? ''))
-          }
-        })
-        .catch((err) => {
-          console.log('OTP detection failed:', err)
-        })
-    }
-  }, [])
+  if (!mobileNumber) {
+    navigate('/auth/login')
+    return
+  }
+  //   useEffect(() => {
+  //     if ('OTPCredential' in window) {
+  //       const ac = new AbortController()
+  //       setTimeout(() => ac.abort(), 120000)
+
+  //       navigator.credentials
+  //         .get({
+  //           otp: { transport: ['sms'] },
+  //           signal: ac.signal,
+  //         } as any)
+  //         .then((otp) => {
+  //           if (otp && 'code' in otp) {
+  //             setOtp(String((otp as { code?: string })?.code ?? ''))
+  //           }
+  //         })
+  //         .catch((err) => {
+  //           console.log('OTP detection failed:', err)
+  //         })
+  //     }
+  //   }, [])
 
   const [verifyOTP, { isLoading: VerfiyOTPLoading }] = useVerfiyOTPMutation()
-  let navigate = useNavigate()
 
   const formattedTime = useTimer({
     initialSeconds: 120,
     onTimeFinish: () => {
-      onTimeFinish()
+      navigate('/auth/login')
     },
   })
 
@@ -89,7 +89,10 @@ const OTPForm = (props: OTPFormPropsType) => {
       <p className="text-sm font-light mb-20">
         کد تایید پیامک شده را وارد کنید
       </p>
-      <ArrowBack onBack={onBack} className="top-4 left-4" />
+      <ArrowBack
+        onBack={() => navigate('/auth/login')}
+        className="top-4 left-4"
+      />
       <div dir="ltr" className="mb-10">
         <OtpInput
           value={otp}
@@ -121,4 +124,4 @@ const OTPForm = (props: OTPFormPropsType) => {
     </div>
   )
 }
-export default OTPForm
+export default OTP
