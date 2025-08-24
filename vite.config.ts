@@ -83,11 +83,6 @@ export default defineConfig({
             sizes: '512x512',
             type: 'image/png',
           },
-          {
-            src: 'PWAicons/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
         ],
         screenshots: [
           {
@@ -115,7 +110,7 @@ export default defineConfig({
   },
   server: {
     https: {},
-    host: true,
+    host: '0.0.0.0',
     port: 5173,
   },
 })
