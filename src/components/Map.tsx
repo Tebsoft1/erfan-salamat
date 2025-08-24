@@ -44,7 +44,6 @@ const Map = (props: MapPropsType) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
-          console.log(pos)
           setSearchAddressLoading(true)
           const lat = pos.coords.latitude
           const lng = pos.coords.longitude
@@ -191,7 +190,6 @@ const LocationPicker = (props: LocationPickerPropsType) => {
 }
 
 function RecenterMap({ position }: { position: LatLngTuple }) {
-  console.log('Moving to:', position) // باید دو عدد باشه
   const map = useMap()
   map.setView(position)
   return null
