@@ -36,15 +36,10 @@ const PWAInstallPrompt = () => {
 
     // Event listener برای beforeinstallprompt
     const handleBeforeInstallPrompt = (e: any) => {
-      console.log('PWA: beforeinstallprompt رخ داد')
-      console.log('isInstalled:', isInstalled)
-      console.log('isPromptDismissed:', isPromptDismissed())
-
       e.preventDefault()
       setDeferredPrompt(e)
 
       if (!isInstalled && !isPromptDismissed()) {
-        console.log('نمایش پرامپت...')
         setShowPrompt(true)
       } else {
         console.log('پرامپت نمایش داده نشد چون:', {
