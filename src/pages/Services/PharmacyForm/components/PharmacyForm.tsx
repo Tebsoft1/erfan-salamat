@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import moment from "moment-jalaali";
 import { useNavigate } from "react-router-dom";
 import { RejectToast, SuccessToast } from "@/ui/Toasts";
+import Map from "../../../../components/Map"
+import type { LatLngTuple } from "leaflet"
 
 type InsuranceType = 1 | 2 | 3;
 
@@ -21,6 +23,8 @@ const PharmacyForm: React.FC<any> = ({ setIsModalOpen, trigger, confirmedDrugs }
   const [selected, setSelected] = useState<InsuranceType>(1);
   const [printCode, setPrintCode] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
+  const [position, setPosition] = useState<LatLngTuple>([35.6892, 51.389])
+  const [address, setAddress] = useState<string>("")
 
   const navigate=useNavigate()
 
@@ -66,11 +70,11 @@ const PharmacyForm: React.FC<any> = ({ setIsModalOpen, trigger, confirmedDrugs }
 
       await addOnlineOrder({
         data: {
-          address: "",
+          address,             
           mobile: localStorage.getItem("mobile"),
           desc: getDescription(),
-          lat: 0,
-          lon: 0,
+          lat: position[0],     
+          lon: position[1],  
           serviceList,
         },
         file,
@@ -170,6 +174,25 @@ const PharmacyForm: React.FC<any> = ({ setIsModalOpen, trigger, confirmedDrugs }
                 </p>
               )}
             </div>
+            <div className="my-4">
+            <Map
+        position={position}
+        setPosition={setPosition}
+        address={address}
+        setAddress={setAddress}
+      />
+
+  
+      <div className="mt-4">
+        <label className="block mb-2">آدرس</label>
+        <input
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          className="w-full p-3 border rounded-xl"
+        />
+      </div>
+            </div>
             <div>
               <button
                 disabled={isLoading}
@@ -243,6 +266,25 @@ const PharmacyForm: React.FC<any> = ({ setIsModalOpen, trigger, confirmedDrugs }
                 </p>
               )}
             </div>
+            <div className="my-4">
+            <Map
+        position={position}
+        setPosition={setPosition}
+        address={address}
+        setAddress={setAddress}
+      />
+
+  
+      <div className="mt-4">
+        <label className="block mb-2">آدرس</label>
+        <input
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          className="w-full p-3 border rounded-xl"
+        />
+      </div>
+            </div>
             <div>
               <button
                 disabled={isLoading}
@@ -275,6 +317,25 @@ const PharmacyForm: React.FC<any> = ({ setIsModalOpen, trigger, confirmedDrugs }
                   فایل انتخاب‌شده: {file.name}
                 </p>
               )}
+            </div>
+            <div className="my-4">
+            <Map
+        position={position}
+        setPosition={setPosition}
+        address={address}
+        setAddress={setAddress}
+      />
+
+  
+      <div className="mt-4">
+        <label className="block mb-2">آدرس</label>
+        <input
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          className="w-full p-3 border rounded-xl"
+        />
+      </div>
             </div>
             <div>
               <button
