@@ -5,7 +5,7 @@ import DoctorShape from '@/assets/images/DoctorShape.png';
 const StatsSection: React.FC = () => {
   return (
   <div className="w-full max-w-4xl flex mt-8">
-  {/* 
+  
 <div className="flex-1 flex flex-col justify-center items-right">
   
   <div className="w-34 h-23 rounded-2xl bg-primary-300 p-2 mb-4 relative flex items-center justify-center">
@@ -51,7 +51,7 @@ const StatsSection: React.FC = () => {
   </div>
   
 </div>
-</div> */ }
+</div>
 
 
       <div className="flex-2 flex justify-center">
