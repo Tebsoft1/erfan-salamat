@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
+import telegram from '../../../assets/images/telegram.png'
+import instagram from '../../../assets/images/instagram.png'
+import aparat from '../../../assets/images/aparat.png'
 
 
 const ContactHeader: React.FC = () => {
@@ -70,7 +72,7 @@ const ContactHeader: React.FC = () => {
         <a href="https://t.me/erfansalamat" target="_blank" rel="noopener noreferrer">
             <img 
             className="w-7 h-7 object-contain hover:scale-110 transition-transform duration-200" 
-            src="/src/assets/images/telegram.png" 
+            src={telegram}
             alt="Telegram" 
             />
         </a>
@@ -78,7 +80,7 @@ const ContactHeader: React.FC = () => {
         <a href="https://www.instagram.com/erfansalamatgroup/" target="_blank" rel="noopener noreferrer">
             <img 
             className="w-8 h-8 object-contain hover:scale-110 transition-transform duration-200" 
-            src="/src/assets/images/instagram.png" 
+            src={instagram}
             alt="Instagram" 
             />
         </a>
@@ -86,7 +88,7 @@ const ContactHeader: React.FC = () => {
         <a href="https://www.aparat.com/ErfanSalamatGroup" target="_blank" rel="noopener noreferrer">
             <img 
             className="w-10 h-10 mt-1 -mr-1 object-contain hover:scale-110 transition-transform duration-200" 
-            src="/src/assets/images/aparat.png" 
+            src={aparat}
             alt="Aparat" 
             />
         </a>
