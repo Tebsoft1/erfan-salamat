@@ -26,7 +26,7 @@ const StatsSection: React.FC = () => {
   </div>
 
   <div className="absolute top-[50%] left-1/2 -translate-x-1/2 text-lg font-bold text-gray-800">
-    123
+    2657
   </div>
 
 </div>
@@ -48,7 +48,7 @@ const StatsSection: React.FC = () => {
   </div>
 
   <div className="absolute top-[50%] text-lg font-bold text-gray-800">
-    42
+    1028
   </div>
   
 </div>
