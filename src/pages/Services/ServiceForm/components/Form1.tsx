@@ -14,6 +14,10 @@ import CardTitle from './CardTitle'
 import { useDispatch } from 'react-redux'
 import { addItem } from '@/features/cartSlice'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+
 
 export type AddServicesFormType = {
   date: Date
@@ -106,6 +110,18 @@ const Form1 = (props: Form1PropsType) => {
 
   return (
     <div className="relative">
+
+       <Link
+              to="/Services"
+              className="flex items-center text-secondary-100 mt-2 mb-4"
+            >
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                className="h-6 w-6 text-secondary-100 ml-1"
+              />
+              <span className="-mt-1 text-secondary-100 text-sm">بازگشت</span>
+            </Link>
+
       <CardTitle service={service} />
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -136,7 +152,7 @@ const Form1 = (props: Form1PropsType) => {
           error={errors.requestCount}
         />
         <Button
-          className={`flex-1 !text-primary-900 !bg-primary-300 mt-5`}
+          className={`flex-1 !text-dunkel !bg-primary-300 mt-5`}
           isFormButton={true}
           canClick={!hasError}
           type="submit"

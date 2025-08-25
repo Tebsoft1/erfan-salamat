@@ -6,7 +6,8 @@ import Stethoscope1 from '@/assets/images/Stethoscope1.png';
 const StatsSection: React.FC = () => {
   return (
   <div className="w-full max-w-4xl flex mt-8">
-  <div className="flex-1 flex flex-col justify-center items-right">
+  {/* 
+<div className="flex-1 flex flex-col justify-center items-right">
   
   <div className="w-34 h-23 rounded-2xl bg-primary-300 p-2 mb-4 relative flex items-center justify-center">
   
@@ -51,13 +52,14 @@ const StatsSection: React.FC = () => {
   </div>
   
 </div>
-</div>
+</div> */ }
 
-      <div className="flex-2 flex justify-center items-start">
+
+      <div className="flex-2 flex justify-center">
         <img
           src={DoctorShape}
           alt="Doctor Shape"
-          className="w-90 h-75 rounded-4xl p-2"
+          className="w-70 h-75 rounded-4xl p-2"
         />
     </div>
 
