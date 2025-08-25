@@ -1,6 +1,5 @@
 import FooterBorder from '../assets/images/Subtract.png'
 import Home from '../assets/images/Home.png'
-import Message from '../assets/images/Message-2.png'
 import Icon from '../assets/images/icon.png'
 import Phone from '../assets/images/Emergency.png'
 import Wallet from '../assets/images/wallet.png'

@@ -1,4 +1,3 @@
-import React from "react";
 import { CiUser } from "react-icons/ci";
 import { CiBellOn } from "react-icons/ci";
 import { CiViewList } from "react-icons/ci";
@@ -9,12 +8,13 @@ import { BsClipboard2Plus } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { FaChevronLeft } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+
 const ProfileList = () => {
     const navigate = useNavigate();
   return (
     <div className="px-3 flex flex-col gap-6">
       <div className="flex justify-between items-center cursor-pointer">
-        <div onClick={() => navigate('/UnderUpdatePage')} className="flex gap-3 items-center">
+        <div onClick={() => navigate('/Profile/Identity')} className="flex gap-3 items-center">
           <CiUser size={20}/>
           <p>اطلاعات هویتی و کاربری</p>
         </div>

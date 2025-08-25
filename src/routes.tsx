@@ -31,7 +31,6 @@ const Wallet = lazy(() => import('@/pages/Profile/Wallet/Wallet'))
 
 // Other components
 const Contact = lazy(() => import('@/pages/ContactUs/Contact'))
-const FAQ = lazy(() => import('@/pages/UnderUpdate/UnderUpdatePage'))
 
 import UserRoutes from '@/components/UserRoutes'
 import GuestRoutes from '@/components/GuestRoutes'
