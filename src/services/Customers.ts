@@ -93,6 +93,13 @@ export const Customers = createApi({
         body,
       }),
     }),
+    searchService: builder.query<ApiResponse<ServiceItemType[]>, string>({
+      query: (term:string) => ({
+        url: `Customers/SearchService?term=${term}`,
+        method: 'POST',
+        
+      }),
+    }),
     getPrescription: builder.query<
       ApiResponse<any>,
       { printCode: string; preType: number }>({
@@ -114,5 +121,6 @@ export const {
   useGetPrescriptionQuery,
   useLazyGetPrescriptionQuery,
   useGetWalletTrnsQuery,
+  useLazySearchServiceQuery,
   useAddOnlineOrderMutation,
 } = Customers
