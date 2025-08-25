@@ -36,7 +36,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md text-dunkel relative">
+    <div className="max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg text-dunkel relative">
       <h2 className="flex justify-center text-xl text-dunkel font-bold mb-4">
         تماس با ما
       </h2>

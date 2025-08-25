@@ -18,7 +18,7 @@ const options: Option[] = [
   { label: "بیمه سلامت", value: 2 },
   { label: "سایر", value: 3 },
 ];
-
+ 
 const PharmacyForm: React.FC<any> = ({
   setIsModalOpen,
   trigger,
@@ -137,17 +137,17 @@ const PharmacyForm: React.FC<any> = ({
               />
             </div>
             <div
-              className="p-3 mt-3 rounded-xl bg-blue-700 hover:bg-blue-800 flex justify-center items-center "
+              className="p-3 mt-3 rounded-xl bg-blue hover:bg-DarkBlue flex justify-center items-center cursor-pointer"
               onClick={handleClickOnPre}
             >
               فراخوانی نسخه و انتخاب دارو
             </div>
             {confirmedDrugs.length > 0 && (
-              <div className="w-full mt-6 bg-white text-black p-4 rounded-xl shadow">
+              <div className="w-full mt-6 bg-secondary-100 text-dunkel p-4 rounded-xl shadow">
                 <h3 className="font-bold mb-2">داروهای انتخاب‌شده:</h3>
                 <div className="overflow-x-auto">
                   <table className="w-full border-collapse border border-gray-300 text-sm">
-                    <thead className="bg-gray-100">
+                    <thead className="bg-secondary-300">
                       <tr>
                         <th className="border p-2">نام دارو</th>
                         <th className="border p-2">تعداد</th>
@@ -167,7 +167,7 @@ const PharmacyForm: React.FC<any> = ({
                 </div>
               </div>
             )}
-            <div className="w-full mt-6 bg-white text-black p-4 rounded-xl shadow">
+            <div className="w-full mt-6 bg-secondary-100 text-dunkel p-4 rounded-xl shadow">
               <h3 className="font-bold mb-2">آپلود نسخه دستی:</h3>
               <input
                 type="file"
@@ -177,11 +177,11 @@ const PharmacyForm: React.FC<any> = ({
                    file:mr-4 file:py-2 file:px-4
                    file:rounded-full file:border-0
                    file:text-sm file:font-semibold
-                   file:bg-blue-50 file:text-blue-700
+                   file:bg-blue-50 file:text-blue
                    hover:file:bg-blue-100"
               />
               {file && (
-                <p className="mt-3 text-green-600 font-medium">
+                <p className="mt-3 text-primary-300 font-medium">
                   فایل انتخاب‌شده: {file.name}
                 </p>
               )}
@@ -208,7 +208,7 @@ const PharmacyForm: React.FC<any> = ({
               <button
                 disabled={isLoading}
                 onClick={handleSubmit}
-                className="w-full py-3 bg-primary-300 text-black font-bold mt-6 rounded-lg"
+                className="w-full py-3 bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-black font-bold mt-6 rounded-lg cursor-pointer"
               >
                 {isLoading ? "در حال ارسال..." : "ثبت نهایی سفارش"}
               </button>
@@ -228,7 +228,7 @@ const PharmacyForm: React.FC<any> = ({
               />
             </div>
             <div
-              className="p-3 mt-3 rounded-xl bg-blue-700 hover:bg-blue-800 flex justify-center items-center "
+              className="p-3 mt-3 rounded-xl bg-blue hover:bg-DarkBlue flex justify-center items-center cursor-pointer "
               onClick={handleClickOnPre}
             >
               فراخوانی نسخه و انتخاب دارو
@@ -268,11 +268,11 @@ const PharmacyForm: React.FC<any> = ({
                    file:mr-4 file:py-2 file:px-4
                    file:rounded-full file:border-0
                    file:text-sm file:font-semibold
-                   file:bg-blue-50 file:text-blue-700
+                   file:bg-blue-50 file:text-blue
                    hover:file:bg-blue-100"
               />
               {file && (
-                <p className="mt-3 text-green-600 font-medium">
+                <p className="mt-3 text-primary-300 font-medium">
                   فایل انتخاب‌شده: {file.name}
                 </p>
               )}
@@ -299,7 +299,7 @@ const PharmacyForm: React.FC<any> = ({
               <button
                 disabled={isLoading}
                 onClick={handleSubmit}
-                className="w-full py-3 bg-primary-300 text-black font-bold mt-6 rounded-lg"
+                className="w-full py-3 bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-black font-bold mt-6 rounded-lg cursor-pointer"
               >
                 {isLoading ? "در حال ارسال..." : "ثبت نهایی سفارش"}
               </button>
@@ -319,11 +319,11 @@ const PharmacyForm: React.FC<any> = ({
                    file:mr-4 file:py-2 file:px-4
                    file:rounded-full file:border-0
                    file:text-sm file:font-semibold
-                   file:bg-blue-50 file:text-blue-700
+                   file:bg-blue-50 file:text-blue
                    hover:file:bg-blue-100"
               />
               {file && (
-                <p className="mt-3 text-green-600 font-medium">
+                <p className="mt-3 text-primary-300 font-medium">
                   فایل انتخاب‌شده: {file.name}
                 </p>
               )}
@@ -350,7 +350,7 @@ const PharmacyForm: React.FC<any> = ({
               <button
                 disabled={isLoading}
                 onClick={handleSubmit}
-                className="w-full py-3 bg-primary-300 text-black font-bold mt-6 rounded-lg"
+                className="w-full py-3 bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-black font-bold mt-6 rounded-lg cursor-pointer"
               >
                 {isLoading ? "در حال ارسال..." : "ثبت نهایی سفارش"}
               </button>

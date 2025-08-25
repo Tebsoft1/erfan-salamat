@@ -6,6 +6,7 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
+
 const ContactHeader: React.FC = () => {
 
   return (
@@ -91,7 +92,7 @@ const ContactHeader: React.FC = () => {
         </a>
     </div>
 
-        <div className="map-container">
+        <div className="map-container overflow-hidden rounded-xl shadow-lg">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12947.219365626352!2d51.365455!3d35.78017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e0786bbf29dff%3A0xe9c940d85c421bed!2sErfan%20Salamat%20Organization!5e0!3m2!1sen!2sus!4v1755935710741!5m2!1sen!2sus"
         width="100%"

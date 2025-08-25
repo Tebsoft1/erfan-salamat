@@ -13,6 +13,7 @@
 
   --color-dunkel: var(--Dunkel);
   --color-blue: var(--blue);
+  --color-DarkBlue: var(--DarkBlue);
   --color-red: var(--red);
   --color-DarkRed: var(--DarkRed);
   --color-SemiDarkGray: var(--SemiDarkGray);
@@ -106,6 +107,7 @@
 
   --Dunkel: #1e1e1e;
   --blue: #3e48ff;
+  --DarkBlue: #1543c0;
   --red: #e11d48;
   --DarkRed: #9f1239;
   --SemiDarkGray: #b0bec5;

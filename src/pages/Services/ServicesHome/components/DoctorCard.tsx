@@ -16,7 +16,8 @@ const DoctorCard: React.FC = () => {
 
       <div className="flex flex-row justify-center items-center gap-2 mr-6">
         <div
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer"
+          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer transition-transform duration-200 ease-out
+         hover:scale-105"
           onClick={() => navigate(`serviceList?groupId=52`)}
         >
           <img src={Microscope} alt="+" className="w-9 h-9 rounded-sm p-2" />
@@ -24,7 +25,8 @@ const DoctorCard: React.FC = () => {
         </div>
 
         <div
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer"
+          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer transition-transform duration-200 ease-out
+         hover:scale-105"
           onClick={() => navigate(`pharmacyForm`)}
         >
           <img src={PharmacyImg} alt="+" className="w-9 h-9 rounded-sm p-2" />
@@ -32,7 +34,8 @@ const DoctorCard: React.FC = () => {
         </div>
 
         <div
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer"
+          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer transition-transform duration-200 ease-out
+         hover:scale-105"
           onClick={() => navigate(`serviceList?groupId=51`)}
         >
           <img src={Blister2} alt="+" className="w-9 h-9 rounded-sm p-2" />
