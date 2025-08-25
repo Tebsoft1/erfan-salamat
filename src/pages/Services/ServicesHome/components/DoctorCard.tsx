@@ -25,7 +25,7 @@ const DoctorCard: React.FC = () => {
 
         <div
           className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer"
-          onClick={() => navigate(`pharmacy`)}
+          onClick={() => navigate(`pharmacyForm`)}
         >
           <img src={PharmacyImg} alt="+" className="w-9 h-9 rounded-sm p-2" />
           <span className="text-secondary-100 text-xs">داروخانه</span>
