@@ -93,7 +93,6 @@ export const Customers = createApi({
         body,
       }),
     }),
-
     getPrescription: builder.query<
       ApiResponse<any>,
       { printCode: string; preType: number }>({
