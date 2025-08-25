@@ -41,6 +41,9 @@ const authSlice = createSlice({
 
       localStorage.removeItem('token')
       localStorage.removeItem('tokenExpiration')
+      localStorage.removeItem('fullName')
+      localStorage.removeItem('mobile')
+      localStorage.removeItem('cart')
     },
 
     checkAuthFromStorage: (state) => {
