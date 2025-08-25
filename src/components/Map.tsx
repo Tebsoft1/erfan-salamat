@@ -9,13 +9,13 @@ import {
 import 'leaflet/dist/leaflet.css'
 import { useEffect, useMemo, useState } from 'react'
 import type { LatLngTuple } from 'leaflet'
-import { BeatLoader } from 'react-spinners'
 import {
   neshanAPIfind,
   neshanAPIsearch,
   type NeshanAPIsearchResponseItemsProperty,
 } from '@/utils/neshanAPI'
 import debounce from 'lodash.debounce'
+import BeatLoaderComponent from '@/ui/BeatLoaderComponent'
 
 type MapPropsType = {
   position: LatLngTuple
@@ -123,7 +123,7 @@ const Map = (props: MapPropsType) => {
       <div style={{ padding: '1rem', background: '#1e1e1e' }}>
         {searchAddressLoading ? (
           <p>
-            <BeatLoader />
+            <BeatLoaderComponent />
           </p>
         ) : (
           <>
@@ -148,7 +148,7 @@ const Map = (props: MapPropsType) => {
               }}
             >
               {searchLoading ? (
-                <BeatLoader />
+                <BeatLoaderComponent />
               ) : suggestions.length > 0 ? (
                 suggestions.map((suggestion, index) => (
                   <li key={index} onClick={() => handleSelect(suggestion)}>

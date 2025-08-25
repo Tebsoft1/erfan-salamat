@@ -1,5 +1,5 @@
-import { BeatLoader } from 'react-spinners'
 import { IoIosRefresh } from 'react-icons/io'
+import BeatLoaderComponent from '@/ui/BeatLoaderComponent'
 
 type QueryHandlerPropsType<T> = {
   data?: {
@@ -20,7 +20,7 @@ export function QueryHandler<T>({
   onRefetch,
   render,
 }: QueryHandlerPropsType<T>) {
-  if (isLoading) return <BeatLoader className="text-center" color="#fff" />
+  if (isLoading) return <BeatLoaderComponent />
 
   if (isError)
     return (

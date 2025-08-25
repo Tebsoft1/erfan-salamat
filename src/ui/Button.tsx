@@ -1,4 +1,4 @@
-import { BeatLoader } from 'react-spinners'
+import BeatLoaderComponent from './BeatLoaderComponent'
 
 type ButtonProps = {
   onsubmit?: () => void
@@ -31,7 +31,7 @@ const Button = (props: ButtonProps) => {
       {...restProps}
     >
       {loading ? (
-        <BeatLoader color="white" size={9} className="w-full" />
+        <BeatLoaderComponent />
       ) : (
         text
       )}

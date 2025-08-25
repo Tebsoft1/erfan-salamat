@@ -6,14 +6,14 @@ import { useGetUserDataQuery } from '../../services/Authenticate'
 import ProfileHeader from './components/ProfileHeader'
 
 import { useNavigate } from 'react-router-dom'
-import { BeatLoader } from 'react-spinners'
+import BeatLoaderComponent from '@/ui/BeatLoaderComponent'
 
 const ProfileHome: React.FC = () => {
   const { data, isLoading } = useGetUserDataQuery()
   const navigate = useNavigate()
 
   if (isLoading) {
-    return <BeatLoader color="#fff" className="text-center" />
+    return <BeatLoaderComponent />
   }
 
   return (

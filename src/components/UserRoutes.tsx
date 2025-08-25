@@ -1,7 +1,7 @@
 import type { RootState } from '@/store'
+import BeatLoaderComponent from '@/ui/BeatLoaderComponent'
 import { useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
-import { BeatLoader } from 'react-spinners'
 
 export default function UserRoutes() {
   const isAuthenticated = useSelector(
@@ -14,7 +14,7 @@ export default function UserRoutes() {
 
   return (
     <div className="px-4 w-full">
-     { isAuthenticated===null ?<BeatLoader />: <Outlet /> }
+     { isAuthenticated===null ?<BeatLoaderComponent/>: <Outlet /> }
     </div>
   )
 }
