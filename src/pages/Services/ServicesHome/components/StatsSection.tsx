@@ -1,7 +1,6 @@
 import React from 'react';
 import DoctorShape from '@/assets/images/DoctorShape.png';
-import Weight from '@/assets/images/Weight.png';
-import Stethoscope1 from '@/assets/images/Stethoscope1.png';
+
 
 const StatsSection: React.FC = () => {
   return (

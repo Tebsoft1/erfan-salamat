@@ -8,7 +8,7 @@ import OrdersList from "../Orders/components/OrdersList";
 import { useNavigate } from 'react-router-dom';
 
 const Orders: React.FC = () => {
-  const { data, isLoading } = useGetUserDataQuery();
+  const { data } = useGetUserDataQuery();
   const navigate = useNavigate();
 
   return (

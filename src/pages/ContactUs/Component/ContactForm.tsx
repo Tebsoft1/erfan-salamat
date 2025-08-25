@@ -29,7 +29,7 @@ export default function ContactForm() {
     resolver: yupResolver(schema),
   })
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = () => {
     reset()
     setSuccess(true)
     setTimeout(() => setSuccess(false), 3000)

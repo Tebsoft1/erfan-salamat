@@ -10,7 +10,7 @@ import { useLazyGetPrescriptionQuery } from "@/services/Customers";
 
 const Pharmacy: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { data, isLoading } = useGetUserDataQuery();
+  const { data } = useGetUserDataQuery();
   const [trigger, { data: prescription, isLoading: preLoading }] =
     useLazyGetPrescriptionQuery();
   const navigate = useNavigate();
