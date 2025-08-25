@@ -11,7 +11,7 @@ const SearchBar: React.FC = () => {
   let navigate=useNavigate()
   
   const [LazySearchService,{data:SearchService,isFetching:SearchServiceLoading}]=useLazySearchServiceQuery()
-  
+
   const searchHandler=async()=>{
 await handleApiCall<ServiceItemType[]>(
       () => LazySearchService(searchValue).unwrap(),
@@ -54,7 +54,7 @@ await handleApiCall<ServiceItemType[]>(
       <div className='mt-2 bg-primary-700 rounded-md p-2'>
         {SearchServiceLoading && <BeatLoaderComponent />}
         
-          <ul className='flex flex-col gap-2'>
+          <ul className='flex flex-col gap-2 max-h-20 overflow-auto'>
             {SearchService?.data?.map((service) => (
               <li onClick={()=>navigate(`/services/serviceForm?groupId=${service.medicalServicesTypesId}&serviceId=${service.id}`)}>{service.title}</li>
             ))}    
