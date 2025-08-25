@@ -31,10 +31,11 @@ const Wallet = lazy(() => import('@/pages/Profile/Wallet/Wallet'))
 
 // Other components
 const Contact = lazy(() => import('@/pages/ContactUs/Contact'))
-const FAQ = lazy(() => import('@/pages/FAQ'))
+const FAQ = lazy(() => import('@/pages/UnderUpdate/UnderUpdatePage'))
 
 import UserRoutes from '@/components/UserRoutes'
 import GuestRoutes from '@/components/GuestRoutes'
+import UnderUpdatePage from '@/pages/UnderUpdate/UnderUpdatePage'
 
 export const routes = [
   {
@@ -83,7 +84,7 @@ export const routes = [
       },
 
       { path: 'contact', element: <Contact /> },
-      { path: 'faq', element: <FAQ /> },
+      { path: 'underupdatepage', element: <UnderUpdatePage /> },
     ],
   },
 ]

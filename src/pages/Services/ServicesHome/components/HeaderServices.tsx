@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 
       <div className="flex items-center space-x-4 ml-4">
         <div
-          onClick={() => navigate('/Profile/Notifications')}
+          onClick={() => navigate('/UnderUpdatePage')}
           className="flex flex-col items-center "
         >
           <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center cursor-pointer">
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           <span className="text-xs mt-1 cursor-pointer">اعلان ها</span>
         </div>
 
-        <div className="flex flex-col items-center">
+        <div onClick={() => navigate('/UnderUpdatePage')} className="flex flex-col items-center">
           <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center cursor-pointer">
             <svg
               width="24"
