@@ -86,6 +86,13 @@ export const Customers = createApi({
         method: 'POST',
       }),
     }),
+    addOnlineOrder: builder.mutation<ApiResponse<string>, FormData>({
+      query: (body) => ({
+        url: `Customers/AddOnlineOrder`,
+        method: 'POST',
+        body,
+      }),
+    }),
 
     getPrescription: builder.query<
       ApiResponse<any>,
@@ -95,48 +102,8 @@ export const Customers = createApi({
         method: 'POST',
       }),
     }),
-
-    addOnlineOrder: builder.mutation<
-  ApiResponse<any>,
-  { 
-    data: {
-      address: string;
-      mobile: string | null;
-      desc: string;
-      lat: number;
-      lon: number;
-      serviceList: {
-        serviceId: number;
-        shiftId: number;
-        serviceTime: string;
-        serviceDate: string;
-        count: number;
-        description: string;
-      }[];
-    };
-    file?: File | null;
-  }
->({
-  query: ({ data, file }) => {
-    const formData = new FormData();
-
-  
-    const dataBlob = new Blob([JSON.stringify(data)], { type: "application/json" });
-    formData.append("data", dataBlob, "data.json");
-
-    if (file) {
-      formData.append("file", file);
-    }
-
-    return {
-      url: `/Customers/AddOnlineOrder`,
-      method: "POST",
-      body: formData,
-    };
-  },
-}),
-
   }),
+
 })
 
 export const {
