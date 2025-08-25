@@ -13,7 +13,7 @@ export const handleApiCall = async <T>(
     if (response.isSuccess) {
       onSuccess?.(response.data)
       SuccessToast(
-        response?.message || successMessage || 'عملیات با موفقیت انجام شد'
+        response.message || successMessage || 'عملیات با موفقیت انجام شد'
       )
     } else if (!response.isSuccess) {
       RejectToast(response?.message || errorMessage || 'عملیات انجام نشد')

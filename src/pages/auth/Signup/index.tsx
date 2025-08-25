@@ -12,7 +12,6 @@ import DateInput from '@/components/DateInput'
 import moment from 'moment-jalaali'
 import { useSignupMutation } from '@/services/Authenticate'
 import ArrowBack from '@/ui/ArrowBack'
-import { SuccessToast } from '@/ui/Toasts'
 import { handleApiCall } from '@/utils/handleApiCall'
 import { useNavigate } from 'react-router-dom'
 
@@ -116,9 +115,12 @@ const Signup = () => {
       () => signup(reviesedData).unwrap(),
 
       () => {
-        navigate('/auth/otp', { state: { mobile: reviesedData.mobile } })
-        SuccessToast('کد به شماره موبایل شما ارسال شد')
-      }
+        navigate('/auth/login')
+      },
+       () => {
+   return
+  },
+  'ثبت‌نام با موفقیت انجام شد',
     )
   }
 
