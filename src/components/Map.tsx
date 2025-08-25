@@ -92,7 +92,8 @@ const Map = (props: MapPropsType) => {
 
   const handleSelect = (data: NeshanAPIsearchResponseItemsProperty) => {
     setPosition([data.location.y, data.location.x])
-    setAddress(`${data.region} ${data.neighbourhood} ${data.title}`)
+    setAddress(`${data.region||''}, ${data.neighbourhood||''}, ${data.title||''}`)
+    console.log(data.region, data.neighbourhood, data.title)
     setSuggestions([])
     setSearchValue('')
   }
