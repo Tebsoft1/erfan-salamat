@@ -66,7 +66,7 @@ const Login = () => {
           <Button
             type="submit"
             disabled={!isPhoneNumberValid || SendOTPLoading}
-            loading={!SendOTPLoading}
+            loading={SendOTPLoading}
             text="ورود"
             isFormButton={true}
             canClick={isPhoneNumberValid}
