@@ -32,9 +32,12 @@ const Wallet = lazy(() => import('@/pages/Profile/Wallet/Wallet'))
 // Other components
 const Contact = lazy(() => import('@/pages/ContactUs/Contact'))
 
-import UserRoutes from '@/components/UserRoutes'
-import GuestRoutes from '@/components/GuestRoutes'
-import UnderUpdatePage from '@/pages/UnderUpdate/UnderUpdatePage'
+const UserRoutes = lazy(() => import('@/components/UserRoutes'))
+const GuestRoutes = lazy(() => import('@/components/GuestRoutes'))
+const UnderUpdatePage = lazy(
+  () => import('@/pages/UnderUpdate/UnderUpdatePage')
+)
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
 export const routes = [
   {
@@ -84,6 +87,7 @@ export const routes = [
 
       { path: 'contact', element: <Contact /> },
       { path: 'underupdatepage', element: <UnderUpdatePage /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ]
