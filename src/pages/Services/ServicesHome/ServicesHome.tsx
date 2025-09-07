@@ -7,6 +7,7 @@ import DoctorCard from './components/DoctorCard';
 import AppointmentSection from './components/AppointmentSection';
 import StatsSection from './components/StatsSection';
 import SpecialServices from './components/SpecialServices';
+import ChildrenServices from './components/ChildrenServices';
 
 const ServicesHome: React.FC = () => {
   const location = useLocation();
@@ -34,6 +35,7 @@ const ServicesHome: React.FC = () => {
       <SpecialServices />
       <DoctorCard />
       <AppointmentSection />
+      <ChildrenServices />
       <StatsSection />
     </div>
   );

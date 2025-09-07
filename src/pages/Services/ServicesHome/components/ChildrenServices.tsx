@@ -7,9 +7,9 @@ import DNA from '@/assets/images/DNA.png';
 
 const ChildrenServices: React.FC = () => {
   return (
-  <div className="relative w-95/100 bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-50 mt-20 mb-5">
+  <div className="relative w-full bg-dunkel rounded-4xl flex flex-row items-stretch p-3 h-[127px] mt-10 mb-5">
 
-    <span className="absolute top-4 right-6 text-secondary-100 text-m font-semibold">
+    <span className="absolute top-4 right-6 text-secondary-100 text-[8px]">
       خدمات ویژه کودکان
     </span>
 
@@ -17,31 +17,31 @@ const ChildrenServices: React.FC = () => {
 
       <div className="flex flex-col items-center cursor-pointer">
 
-        <div className="bg-transparent border border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
-          <img src={Vial} alt="آزمایشگاه" className="w-9 h-9" />
+        <div className="border-[0.3px] border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
+          <img src={Vial} alt="نمونه گیری" className="w-9 h-9" />
         </div>
 
-        <span className="text-secondary-100 text-xs mt-2 text-center">آزمایشگاه</span>
+        <span className="text-secondary-100 text-[10px] mt-2 text-center">نمونه گیری</span>
 
       </div>
 
     <div className="flex flex-col items-center cursor-pointer">
 
-      <div className="bg-transparent border border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
-        <img src={DNA} alt="داروخانه" className="w-9 h-9" />
+      <div className="border-[0.3px] border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
+        <img src={DNA} alt="آزمایشگاه کودک" className="w-9 h-9" />
       </div>
 
-      <span className="text-secondary-100 text-xs mt-2 text-center">داروخانه</span>
+      <span className="text-secondary-100 text-[10px] mt-2 text-center">آزمایشگاه کودک</span>
     
     </div>
 
     <div className="flex flex-col items-center cursor-pointer">
 
-      <div className="bg-transparent border border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
-        <img src={Emergencyphone} alt="رادیولوژی" className="w-9 h-9" />
+      <div className="border-[0.3px] border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
+        <img src={Emergencyphone} alt="تماس فوری" className="w-9 h-9" />
       </div>
 
-      <span className="text-secondary-100 text-xs mt-2 text-center">رادیولوژی</span>
+      <span className="text-secondary-100 text-[10px] mt-2 text-center">تماس فوری</span>
 
     </div>
   </div>

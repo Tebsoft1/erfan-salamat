@@ -1,46 +1,61 @@
 import React from 'react'
 import DoctorImg3 from '@/assets/images/DoctorImg3.png'
 import { useNavigate } from 'react-router-dom'
-import Microscope from '@/assets/images/Microscope.png'
-import Blister2 from '@/assets/images/Blister2.png'
-import PharmacyImg from '@/assets/images/PharmacyImg.png'
+import Doctor from '@/assets/images/Doctor.png'
+import Ambulance from '@/assets/images/Ambulance.png'
+import Stethoscope1 from '@/assets/images/Stethoscope1.png'
+
 
 const DoctorCard: React.FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="w-full bg-dunkel rounded-4xl flex flex-row items-stretch p-3 max-h-50 mb-10 mt-8">
-      <div className="bg-primary-300 rounded-4xl p-2 h-50 -mt-4 -mr-3">
-        <img src={DoctorImg3} alt="+" className="w-60 h-50 -mt-1 -mr-2" />
+    <div className="w-full bg-dunkel rounded-4xl flex flex-row h-30 mb-6 mt-8">
+      <div className="flex items-center bg-primary-300 rounded-4xl w-[110px] h-[140px] -mt-5">
+        <img src={DoctorImg3} alt="+" className="w-[110px] h-[140px] -mr-2" />
       </div>
 
-      <div className="flex flex-row justify-center items-center gap-2 mr-6">
-        <div 
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer transition-transform duration-200 ease-out
-         hover:scale-105"
-          onClick={() => navigate(`serviceList?groupId=52`)}
-        >
-          <img src={Microscope} alt="+" className="w-9 h-9 rounded-sm p-2" />
-          <span className="text-secondary-100 text-xs">آزمایشگاه</span>
+      <div className="flex flex-row justify-between items-center">
+
+        <div className="flex flex-col items-center gap-2 w-[120px] text-[8px] text-dunkel p-2 mt-2 cursor-pointer">
+          <button className="bg-primary-300 rounded-full px-2 py-1 ">ویزیت پزشک</button>
+          <button className="bg-primary-300 rounded-full px-2 py-1 ">ویزیت پزشک</button>
+          <button className="bg-primary-300 rounded-full px-2 py-1 ">ویزیت پزشک</button>
         </div>
 
-        <div
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer transition-transform duration-200 ease-out
-         hover:scale-105"
-          onClick={() => navigate(`pharmacyForm`)}
-        >
-          <img src={PharmacyImg} alt="+" className="w-9 h-9 rounded-sm p-2" />
-          <span className="text-secondary-100 text-xs">داروخانه</span>
-        </div>
+                
+       <div className="flex flex-row gap-2">
 
-        <div
-          className="bg-transparent border-1 border-secondary-500/40 rounded-xl p-4 flex flex-col items-center w-18 cursor-pointer transition-transform duration-200 ease-out
-         hover:scale-105"
-          onClick={() => navigate(`serviceList?groupId=51`)}
-        >
-          <img src={Blister2} alt="+" className="w-9 h-9 rounded-sm p-2" />
-          <span className="text-secondary-100 text-xs">فیزیوتراپی</span>
-        </div>
+          <div
+            className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg 
+                      flex flex-col items-center justify-center w-[37px] h-[38px] cursor-pointer 
+                      transition-transform duration-200 ease-out hover:scale-105"
+            onClick={() => navigate(`serviceList?groupId=52`)}
+          >
+            <img src={Ambulance} alt="Ambulance" className="w-[22.73px] h-[22.73px] rounded-sm" />
+          </div>
+
+
+          <div
+            className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg 
+                      flex flex-col items-center justify-center w-[37px] h-[38px] cursor-pointer 
+                      transition-transform duration-200 ease-out hover:scale-105"
+            onClick={() => navigate(`pharmacyForm`)}
+          >
+            <img src={Stethoscope1} alt="Stethoscope" className="w-[22.73px] h-[22.73px] rounded-sm" />
+          </div>
+
+
+          <div
+            className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg 
+                      flex flex-col items-center justify-center w-[37px] h-[38px] cursor-pointer 
+                      transition-transform duration-200 ease-out hover:scale-105"
+            onClick={() => navigate(`serviceList?groupId=51`)}
+          >
+            <img src={Doctor} alt="Doctor" className="w-[22.73px] h-[22.73px]" />
+          </div>
+    </div>
+
       </div>
     </div>
   )
