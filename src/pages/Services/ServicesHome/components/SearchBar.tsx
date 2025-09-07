@@ -47,7 +47,7 @@ await handleApiCall<ServiceItemType[]>(
   }}
           type="text"
           placeholder="جستجو در فیزیوتراپی، آزمایشگاه، داروخانه، ..."
-          className="w-full text-xs p-3 pr-4 pl-10 rounded-full bg-dunkel text-secondary-100 placeholder-secondary-900 border border-secondary-500 border-r-4 border-r-primary-300 focus:outline-none"
+          className="w-full text-[10px] p-3 pr-4 pl-10 rounded-full bg-dunkel text-secondary-100 placeholder-secondary-900 border border-secondary-500 border-r-4 border-r-primary-300 focus:outline-none"
         />
       </div>
           {(SearchService?.data || SearchServiceLoading) &&

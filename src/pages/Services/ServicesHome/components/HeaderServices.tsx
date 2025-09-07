@@ -8,32 +8,32 @@ import { logout } from '@/features/authSlice'
 
 const Header: React.FC = () => {
   const navigate = useNavigate()
-
   const dispatch = useDispatch()
+
   return (
     <div className="w-full p-1 flex justify-between items-center relative">
+
       <div className="flex items-center gap-1">
         <img
           src={userLogo}
           alt="photo"
-          className="rounded-full w-8 h-8 bg-primary-300 flex items-center justify-center cursor-pointer"
+          className="rounded-full w-[44px] h-[44px] border-2 border-primary-300 flex items-center justify-center cursor-pointer"
           onClick={() => navigate('/Profile')}
         />
-        <div className="flex flex-col gap-1 text-xs pr-2">
+        <div className="flex flex-col gap-1 text-[10px] pr-2 font-semibold">
           <span>{localStorage.getItem('fullName')}</span>
           <span>{localStorage.getItem('mobile')}</span>
         </div>
       </div>
 
+
       <div className="flex items-center space-x-4 ml-4">
-        <div
-          onClick={() => navigate('/UnderUpdatePage')}
-          className="flex flex-col items-center "
-        >
-          <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center cursor-pointer">
+
+        <div onClick={() => navigate('/UnderUpdatePage')} className="flex flex-col items-center">
+          <div className="border-[0.3px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer p-[9px]">
             <svg
-              width="24"
-              height="24"
+              width="14"
+              height="14.5"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -55,14 +55,15 @@ const Header: React.FC = () => {
               <circle cx="17" cy="4" r="2" fill="#3EFFC7" />
             </svg>
           </div>
-          <span className="text-xs mt-1 cursor-pointer">اعلان ها</span>
+          <span className="text-[10px] mt-1 cursor-pointer">اعلان ها</span>
         </div>
 
+
         <div onClick={() => navigate('/UnderUpdatePage')} className="flex flex-col items-center">
-          <div className="border border-secondary-300 rounded-sm p-1 w-6 h-6 flex items-center justify-center cursor-pointer">
+          <div className="border-[0.3px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer p-[9px]">
             <svg
-              width="24"
-              height="24"
+              width="15"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -82,22 +83,19 @@ const Header: React.FC = () => {
               />
             </svg>
           </div>
-          <span className="text-xs mt-1 cursor-pointer">پرونده شما</span>
+          <span className="text-[10px] mt-1 cursor-pointer">پرونده شما</span>
         </div>
 
-        <div
+
+        {/*<div
           className="flex flex-col items-center cursor-pointer"
           onClick={() => dispatch(logout())}
         >
-          <div className="flex items-center justify-center">
-            <FontAwesomeIcon
-              onClick={() => navigate('auth/login')}
-              icon={faSignOutAlt}
-              className="text-white w-4 h-4"
-            />
+          <div className="flex items-center justify-center w-[33px] h-[33px] border-[0.3px] border-secondary-300 rounded-sm p-[9px]">
+            <FontAwesomeIcon icon={faSignOutAlt} className="text-white w-4 h-4" />
           </div>
-          <span className="text-xs mt-2 cursor-pointer">خروج</span>
-        </div>
+          <span className="text-[10px] mt-1 cursor-pointer">خروج</span>
+        </div>*/}
       </div>
     </div>
   )
