@@ -3,8 +3,11 @@ import DoctorCornerImg from '@/assets/images/DoctorCornerImg.png';
 import Weight from '@/assets/images/Weight.png';
 import Stethoscope1 from '@/assets/images/Stethoscope1.png';
 import DoubleRight from '@/assets/images/DoubleRight.png';
+import { useNavigate } from 'react-router-dom'
 
 const StatsSection: React.FC = () => {
+      const navigate = useNavigate()
+  
   return (
     <div className="w-full max-w-4xl flex">
 
@@ -39,7 +42,9 @@ const StatsSection: React.FC = () => {
         </div>
 
 
-        <div className="flex flex-row items-center justify-center -mr-6 mt-1 cursor-pointer">
+        <div         
+        onClick={() => navigate('/UnderUpdatePage')}
+        className="flex flex-row items-center justify-center -mr-6 mt-1 cursor-pointer">
           <img src={DoubleRight} alt="Right Arrow" className="w-[14px] h-[14px] ml-1 mb-1" />
           <span className="text-[8px] text-secondary-100">مطالعه بیشتر</span>
         </div>

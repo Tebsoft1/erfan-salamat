@@ -131,7 +131,7 @@ const Form2 = (props: Form2PropsType) => {
         />
 
         <Button
-          className={`flex-1 !text-dunkel !bg-primary-300 mt-5`}
+          className={`flex-1 !text-dunkel !bg-primary-300 hover:bg-blue mt-5`}
           isFormButton={true}
           canClick={!hasError}
           type="submit"

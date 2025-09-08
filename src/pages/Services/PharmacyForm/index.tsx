@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Back from "../../../assets/images/Back.png";
 import { CiMedicalCase } from "react-icons/ci";
+import PharmacyImg from "../../../assets/images/PharmacyImg.png"
 import ProfileHeader from "@/pages/Profile/components/ProfileHeader";
 import { useNavigate } from "react-router-dom";
 import { useGetUserDataQuery } from "@/services/Authenticate";
@@ -34,12 +35,13 @@ const Pharmacy: React.FC = () => {
         <p>بازگشت</p>
       </div>
 
-      <div className="w-full mt-4">
+     {/* <div className="w-full mt-4">
         <ProfileHeader data={data} />
-      </div>
+      </div>*/}
 
-      <div className="flex w-full items-center justify-center mt-6 gap-2">
-        <CiMedicalCase size={30} />
+      <div className="flex flex-col w-full items-center justify-center -mt-12 gap-2">
+        {/*<CiMedicalCase size={30} />*/}
+        <img src={PharmacyImg} className="w-[35px]" alt="داروخانه" />
         <p className="text-[16px]">فرم داروخانه </p>
       </div>
 

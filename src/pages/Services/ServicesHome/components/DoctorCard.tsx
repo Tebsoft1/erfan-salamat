@@ -17,10 +17,16 @@ const DoctorCard: React.FC = () => {
 
       <div className="flex flex-row justify-between items-center">
 
-        <div className="flex flex-col items-center gap-2 w-[120px] text-[8px] text-dunkel p-2 mt-2 cursor-pointer">
-          <button className="bg-primary-300 rounded-full px-2 py-1 ">ویزیت پزشک</button>
-          <button className="bg-primary-300 rounded-full px-2 py-1 ">ویزیت پزشک</button>
-          <button className="bg-primary-300 rounded-full px-2 py-1 ">ویزیت پزشک</button>
+        <div className="flex flex-col items-center gap-2 w-[120px] text-[8px] text-dunkel p-2 mt-2">
+          <button
+           onClick={() => navigate(`serviceList?groupId=44`)}
+           className="bg-primary-300 rounded-full px-2 py-1 cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">ویزیت پزشک</button>
+          <button
+          onClick={() => navigate(`serviceList?groupId=44`)}
+          className="bg-primary-300 rounded-full px-2 py-1 cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">ویزیت پزشک</button>
+          <button 
+          onClick={() => navigate(`serviceList?groupId=44`)}
+          className="bg-primary-300 rounded-full px-2 py-1 cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">ویزیت پزشک</button>
         </div>
 
                 

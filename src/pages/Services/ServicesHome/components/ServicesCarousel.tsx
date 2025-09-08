@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import { useGetServicesIspopularQuery } from '@/services/Customers'
 import type { ServiceItemType } from '@/types/servicesTypes/Customers'
 import HospitalIcon from '@/assets/images/HospitalIcon.png'
-import { QueryHandler } from '@/components/QueryHandler'
 import Serum from '@/assets/images/Serum.png'
 import Nemone from '@/assets/images/Nemone.png'
 import KomakBehyar from '@/assets/images/KomakBehyar.png'
 import Bones1 from '@/assets/images/Bones1.png'
 import DoubleLeft from '@/assets/images/DoubleLeft.png'
 import DoubleRight from '@/assets/images/DoubleRight.png'
+import { useGetServiceGroupQuery } from '@/services/Customers'
+import { QueryHandler } from '@/components/QueryHandler'
 
 
 
@@ -45,7 +46,7 @@ const ServicesCarousel: React.FC = () => {
         
 
         <div
-        //onClick={() => navigate(`serviceList?groupId=52`)}
+        onClick={() => navigate(`serviceList?groupId=53`)}
          className="flex flex-col items-center cursor-pointer">
           <div className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg p-4 flex items-center justify-center  w-[58.59px] h-[58.59px]  transition-transform duration-200 ease-out hover:scale-105">
             <img src={Bones1} alt="+" className=" w-[31px] h-[31px]  rounded-sm" />
@@ -56,6 +57,7 @@ const ServicesCarousel: React.FC = () => {
 
         <div 
         // onClick={() => navigate(`pharmacyForm`)}
+        onClick={() => navigate(`serviceForm?groupId=47&serviceId=101`)}
         className="flex flex-col items-center cursor-pointer">
           <div className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg p-4 flex items-center justify-center w-[58.59px] h-[58.59px] transition-transform duration-200 ease-out hover:scale-105">
             <img src={Serum} alt="+" className=" w-[31px] h-[31px]  rounded-sm" />
@@ -66,6 +68,7 @@ const ServicesCarousel: React.FC = () => {
 
         <div
         //onClick={() => navigate(`serviceList?groupId=51`)}
+        onClick={() => navigate(`serviceForm?groupId=47&serviceId=99`)}
          className="flex flex-col items-center cursor-pointer">
           <div className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg p-4 flex items-center justify-center  w-[58.59px] h-[58.59px]  transition-transform duration-200 ease-out hover:scale-105">
             <img src={Nemone} alt="+" className=" w-[31px] h-[31px]  rounded-sm" />
@@ -76,6 +79,7 @@ const ServicesCarousel: React.FC = () => {
 
         <div
         //onClick={() => navigate(`serviceList?groupId=51`)}
+        onClick={() => navigate(`serviceForm?groupId=43&serviceId=764`)}
          className="flex flex-col items-center cursor-pointer">
           <div className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg p-4 flex items-center justify-center  w-[58.59px] h-[58.59px]  transition-transform duration-200 ease-out hover:scale-105">
             <img src={KomakBehyar} alt="+" className=" w-[31px] h-[31px]  rounded-sm" />

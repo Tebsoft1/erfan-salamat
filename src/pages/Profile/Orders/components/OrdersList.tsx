@@ -101,7 +101,7 @@ const OrdersList: React.FC = () => {
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((p) => p - 1)}
-              className="px-3 py-1 rounded bg-secondary-300/30 disabled:opacity-40"
+              className="px-3 py-1 rounded bg-secondary-300/30 disabled:opacity-40 cursor-pointer"
             >
               قبلی
             </button>
@@ -111,7 +111,7 @@ const OrdersList: React.FC = () => {
             <button
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((p) => p + 1)}
-              className="px-3 py-1 rounded bg-secondary-300/30 disabled:opacity-40"
+              className="px-3 py-1 rounded bg-secondary-300/30 disabled:opacity-40 cursor-pointer"
             >
               بعدی
             </button>

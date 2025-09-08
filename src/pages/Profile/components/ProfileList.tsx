@@ -14,7 +14,10 @@ const ProfileList = () => {
   return (
     <div className="px-3 flex flex-col gap-6">
       <div className="flex justify-between items-center cursor-pointer">
-        <div onClick={() => navigate('/Profile/Identity')} className="flex gap-3 items-center">
+        <div
+        onClick={() => navigate('/UnderUpdatePage')}
+         //onClick={() => navigate('/Profile/Identity')} 
+         className="flex gap-3 items-center">
           <CiUser size={20}/>
           <p>اطلاعات هویتی و کاربری</p>
         </div>

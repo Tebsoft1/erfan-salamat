@@ -52,7 +52,7 @@ const FooterMenu = () => {
       <div className="absolute top-2 left-[25%] z-20 cursor-pointer flex flex-col items-center">
         <img
           //onClick={() => navigate('/Profile/Wallet')}
-          onClick={() => navigate('/UnderUpdatePage')}
+           onClick={() => navigate(`serviceList?groupId=44`)}
           src={Stethoscope3}
           className="w-[24px] h-[24px]"
         />
@@ -60,10 +60,11 @@ const FooterMenu = () => {
       </div>
 
       <div className="flex gap-1 absolute top-1 left-[7%] z-20 cursor-pointer flex flex-col items-center">
-        <div className="flex items-center">
+        <div            
+        onClick={() => navigate(`serviceList?groupId=52`)}
+        className="flex items-center">
           <img
             //onClick={() => navigate('/Profile/Checkout')}
-            onClick={() => navigate('/UnderUpdatePage')}
             src={Microspoce}
             className="w-[24px] h-[24px]"
           />

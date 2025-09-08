@@ -52,7 +52,7 @@ const SpecialServices: React.FC = () => {
         <span className="text-[7px] text-center text-dunkel">
           خدمات ویژه عرفان سلامت، با رویکردی نوین و فناورانه برای بهبود و تسریع روند دریافت خدمات طراحی گردیده است.
         </span>
-        <button className="bg-dunkel text-secondary-100 rounded-full w-[66px] h-[18px] text-[8px] whitespace-nowrap cursor-pointer">
+        <button onClick={() => navigate('/UnderUpdatePage')}  className="bg-dunkel text-secondary-100 rounded-full w-[66px] h-[18px] text-[8px] whitespace-nowrap cursor-pointer">
           دریافت مشاوره
         </button>
       </div>

@@ -208,7 +208,7 @@ const PharmacyForm: React.FC<any> = ({
               <button
                 disabled={isLoading}
                 onClick={handleSubmit}
-                className="w-full py-3 bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-black font-bold mt-6 rounded-lg cursor-pointer"
+                className="w-full py-3 bg-primary-300 hover:bg-blue hover:text-secondary-100 text-black mt-6 rounded-lg cursor-pointer"
               >
                 {isLoading ? "در حال ارسال..." : "ثبت نهایی سفارش"}
               </button>
@@ -299,7 +299,7 @@ const PharmacyForm: React.FC<any> = ({
               <button
                 disabled={isLoading}
                 onClick={handleSubmit}
-                className="w-full py-3 bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-black font-bold mt-6 rounded-lg cursor-pointer"
+                className="w-full py-3 bg-primary-300 hover:bg-blue hover:text-secondary-100 text-black mt-6 rounded-lg cursor-pointer"
               >
                 {isLoading ? "در حال ارسال..." : "ثبت نهایی سفارش"}
               </button>
@@ -350,7 +350,7 @@ const PharmacyForm: React.FC<any> = ({
               <button
                 disabled={isLoading}
                 onClick={handleSubmit}
-                className="w-full py-3 bg-primary-300 hover:bg-primary-500 hover:text-secondary-100 text-black font-bold mt-6 rounded-lg cursor-pointer"
+                className="w-full py-3 bg-primary-300 hover:bg-blue hover:text-secondary-100 text-black mt-6 rounded-lg cursor-pointer"
               >
                 {isLoading ? "در حال ارسال..." : "ثبت نهایی سفارش"}
               </button>
