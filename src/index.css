@@ -189,3 +189,9 @@ input:-webkit-autofill {
   width: 300px !important;
   padding-top: 30px !important;
 }
+
+.en-number {
+  font-family: 'Arial', 'Tahoma', sans-serif !important;
+  direction: ltr;
+  unicode-bidi: plaintext;
+}

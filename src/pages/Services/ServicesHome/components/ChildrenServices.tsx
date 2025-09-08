@@ -1,8 +1,8 @@
 import React from 'react';
-import BabyImg from '@/assets/images/BabyImg.png';
 import Vial from '@/assets/images/Vial.png';
 import Emergencyphone from '@/assets/images/Emergencyphone.png';
 import DNA from '@/assets/images/DNA.png';
+import ChildImg from '@/assets/images/ChildImg.png';
 
 
 const ChildrenServices: React.FC = () => {
@@ -13,32 +13,32 @@ const ChildrenServices: React.FC = () => {
       خدمات ویژه کودکان
     </span>
 
-    <div className="flex flex-row justify-center items-center flex-1 gap-2 mt-4 ml-2">
+    <div className="flex flex-row justify-center items-center flex-1 gap-4 ml-2">
 
-      <div className="flex flex-col items-center cursor-pointer">
+      <div className="flex flex-col w-[58.59px] h-[58.59px] cursor-pointer transition-transform duration-200 ease-out hover:scale-105">
 
         <div className="border-[0.3px] border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
-          <img src={Vial} alt="نمونه گیری" className="w-9 h-9" />
+          <img src={Vial} alt="نمونه گیری" className="w-[31px] h-[31px]" />
         </div>
 
         <span className="text-secondary-100 text-[10px] mt-2 text-center">نمونه گیری</span>
 
       </div>
 
-    <div className="flex flex-col items-center cursor-pointer">
+    <div className="flex flex-col w-[58.59px] h-[58.59px] cursor-pointer transition-transform duration-200 ease-out hover:scale-105">
 
       <div className="border-[0.3px] border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
-        <img src={DNA} alt="آزمایشگاه کودک" className="w-9 h-9" />
+        <img src={DNA} alt="آزمایشگاه کودک" className="w-[31px] h-[31px]" />
       </div>
 
-      <span className="text-secondary-100 text-[10px] mt-2 text-center">آزمایشگاه کودک</span>
+      <span className="text-secondary-100 text-[10px] mt-2 -mr-1 text-center whitespace-nowrap">آزمایشگاه کودک</span>
     
     </div>
 
-    <div className="flex flex-col items-center cursor-pointer">
+    <div className="flex flex-col w-[58.59px] h-[58.59px] cursor-pointer transition-transform duration-200 ease-out hover:scale-105">
 
       <div className="border-[0.3px] border-secondary-500/40 rounded-xl p-4 flex items-center justify-center">
-        <img src={Emergencyphone} alt="تماس فوری" className="w-9 h-9" />
+        <img src={Emergencyphone} alt="تماس فوری" className="w-[31px] h-[31px]" />
       </div>
 
       <span className="text-secondary-100 text-[10px] mt-2 text-center">تماس فوری</span>
@@ -47,9 +47,9 @@ const ChildrenServices: React.FC = () => {
   </div>
 
     <img
-      src={BabyImg}
+      src={ChildImg}
       alt="+"
-      className="bg-primary-300 w-40 h-55 rounded-4xl p-2 mb-40 -mt-6 -ml-3"
+      className="w-[113px] h-[148px] -ml-3 -mt-9"
     />
   </div>
   );
