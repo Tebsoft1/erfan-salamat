@@ -1,26 +1,26 @@
 import FooterBorder from '../assets/images/Subtract.png'
 import Home from '../assets/images/Home.png'
-import Icon from '../assets/images/icon.png'
-import Phone from '../assets/images/Emergency.png'
-import Wallet from '../assets/images/wallet.png'
-import Basket from '../assets/images/basket.png'
+// import Icon from '../assets/images/icon.png'
+// import Phone from '../assets/images/Emergency.png'
+// import Wallet from '../assets/images/wallet.png'
+// import Basket from '../assets/images/basket.png'
 import Shadow from '../assets/images/Ellipse.png'
 import Message2 from '../assets/images/Message2.png'
 import EmergencyPhone from '../assets/images/Emergencyphone.png'
 import Microspoce from '../assets/images/Microscope.png'
 import Stethoscope3 from '../assets/images/Stethoscope3.png'
 import { useNavigate } from 'react-router-dom'
-import Tag from '@/ui/Tag'
-import { useSelector } from 'react-redux'
-import type { RootState } from '../store'
+//import Tag from '@/ui/Tag'
+// import { useSelector } from 'react-redux'
+// import type { RootState } from '../store'
 
 const FooterMenu = () => {
   let navigate = useNavigate()
-  const items = useSelector((state: RootState) => state.cart.items)
+  //const items = useSelector((state: RootState) => state.cart.items)
   return (
     <div className="w-full flex justify-center">
       <img src={FooterBorder} className="relative w-full z-10 cursor-pointer" />
-      
+
       <div className="absolute top-[-6px] right-[46.3%] z-20 cursor-pointer flex flex-col items-center">
         <img
           onClick={() => navigate('/Services')}
@@ -52,17 +52,18 @@ const FooterMenu = () => {
       <div className="absolute top-2 left-[25%] z-20 cursor-pointer flex flex-col items-center">
         <img
           //onClick={() => navigate('/Profile/Wallet')}
-           onClick={() => navigate(`serviceList?groupId=44`)}
+          onClick={() => navigate(`serviceList?groupId=44`)}
           src={Stethoscope3}
           className="w-[24px] h-[24px]"
         />
         <span className="text-[10px] text-secondary-100">ویزیت پزشک</span>
       </div>
 
-      <div className="flex gap-1 absolute top-1 left-[7%] z-20 cursor-pointer flex flex-col items-center">
-        <div            
-        onClick={() => navigate(`serviceList?groupId=52`)}
-        className="flex items-center">
+      <div className="gap-1 absolute top-1 left-[7%] z-20 cursor-pointer flex flex-col items-center">
+        <div
+          onClick={() => navigate(`serviceList?groupId=52`)}
+          className="flex items-center"
+        >
           <img
             //onClick={() => navigate('/Profile/Checkout')}
             src={Microspoce}

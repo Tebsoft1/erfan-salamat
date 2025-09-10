@@ -1,18 +1,17 @@
 import React from 'react'
 import userLogo from '@/assets/images/userLogo.png'
 import { useNavigate } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
-import { useDispatch } from 'react-redux'
-import { logout } from '@/features/authSlice'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+// import { useDispatch } from 'react-redux'
+// import { logout } from '@/features/authSlice'
 
 const Header: React.FC = () => {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  //const dispatch = useDispatch()
 
   return (
     <div className="w-full p-1 flex justify-between items-center relative">
-
       <div className="flex items-center gap-1">
         <img
           src={userLogo}
@@ -26,10 +25,11 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-
       <div className="flex items-center space-x-4 ml-4">
-
-        <div onClick={() => navigate('/UnderUpdatePage')} className="flex flex-col items-center">
+        <div
+          onClick={() => navigate('/UnderUpdatePage')}
+          className="flex flex-col items-center"
+        >
           <div className="border-[0.3px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer p-[9px]">
             <svg
               width="14"
@@ -58,8 +58,10 @@ const Header: React.FC = () => {
           <span className="text-[10px] mt-1 cursor-pointer">اعلان ها</span>
         </div>
 
-
-        <div onClick={() => navigate('/UnderUpdatePage')} className="flex flex-col items-center">
+        <div
+          onClick={() => navigate('/UnderUpdatePage')}
+          className="flex flex-col items-center"
+        >
           <div className="border-[0.3px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer p-[9px]">
             <svg
               width="15"
@@ -85,7 +87,6 @@ const Header: React.FC = () => {
           </div>
           <span className="text-[10px] mt-1 cursor-pointer">پرونده شما</span>
         </div>
-
 
         {/*<div
           className="flex flex-col items-center cursor-pointer"

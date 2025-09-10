@@ -1,41 +1,39 @@
-
-import React, { useState } from "react";
-import Back from "../../../assets/images/Back.png";
-import { CiMedicalCase } from "react-icons/ci";
-import PharmacyImg from "../../../assets/images/PharmacyImg.png"
-import ProfileHeader from "@/pages/Profile/components/ProfileHeader";
-import { useNavigate } from "react-router-dom";
-import { useGetUserDataQuery } from "@/services/Authenticate";
-import PharmacyForm from "./components/PharmacyForm";
-import { useLazyGetPrescriptionQuery } from "@/services/Customers";
+import React, { useState } from 'react'
+import Back from '../../../assets/images/Back.png'
+//import { CiMedicalCase } from "react-icons/ci";
+import PharmacyImg from '../../../assets/images/PharmacyImg.png'
+//import ProfileHeader from "@/pages/Profile/components/ProfileHeader";
+import { useNavigate } from 'react-router-dom'
+//import { useGetUserDataQuery } from "@/services/Authenticate";
+import PharmacyForm from './components/PharmacyForm'
+import { useLazyGetPrescriptionQuery } from '@/services/Customers'
 
 const Pharmacy: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { data } = useGetUserDataQuery();
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  //const { data } = useGetUserDataQuery();
   const [trigger, { data: prescription, isLoading: preLoading }] =
-    useLazyGetPrescriptionQuery();
-  const navigate = useNavigate();
+    useLazyGetPrescriptionQuery()
+  const navigate = useNavigate()
 
-  const [selectedDrugs, setSelectedDrugs] = useState<any[]>([]);
-  const [confirmedDrugs, setConfirmedDrugs] = useState<any[]>([]);
+  const [selectedDrugs, setSelectedDrugs] = useState<any[]>([])
+  const [confirmedDrugs, setConfirmedDrugs] = useState<any[]>([])
 
   const confirmDrugsHandler = () => {
     setIsModalOpen(false)
     setConfirmedDrugs(selectedDrugs)
   }
-  
 
   return (
     <div className="py-3 px-2 w-full flex flex-col items-center">
       <div
-        onClick={() => navigate("/Services")}
+        onClick={() => navigate('/Services')}
         className="flex gap-[1px] items-center w-full cursor-pointer"
       >
         <img src={Back} className="w-[28px]" alt="بازگشت" />
         <p>بازگشت</p>
       </div>
 
-     {/* <div className="w-full mt-4">
+      {/* <div className="w-full mt-4">
         <ProfileHeader data={data} />
       </div>*/}
 
@@ -46,7 +44,11 @@ const Pharmacy: React.FC = () => {
       </div>
 
       <div className="w-full mt-6">
-        <PharmacyForm setIsModalOpen={setIsModalOpen} trigger={trigger} confirmedDrugs={confirmedDrugs} />
+        <PharmacyForm
+          setIsModalOpen={setIsModalOpen}
+          trigger={trigger}
+          confirmedDrugs={confirmedDrugs}
+        />
       </div>
 
       {isModalOpen && (
@@ -71,45 +73,46 @@ const Pharmacy: React.FC = () => {
                   <div>تاریخ نسخه : {prescription.data.preDate}</div>
                 </div>
                 <div className="max-h-[150px] overflow-y-auto border border-gray-300 rounded-lg my-4">
-  <table className="w-full border-collapse text-sm">
-    <thead className="bg-gray-100 sticky top-0">
-      <tr>
-        <th className="border p-2">انتخاب</th>
-        <th className="border p-2">نام دارو</th>
-        <th className="border p-2">تعداد</th>
-        <th className="border p-2">نحوه مصرف</th>
-      </tr>
-    </thead>
-    <tbody>
-      {prescription.data.drugs.map((drug: any, idx: number) => (
-        <tr key={idx}>
-          <td className="border p-2 text-center">
-            <input
-              type="checkbox"
-              className="accent-primary-500"
-              checked={selectedDrugs.some(
-                (d) => d.drugName === drug.drugName
-              )}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setSelectedDrugs((prev) => [...prev, drug]);
-                } else {
-                  setSelectedDrugs((prev) =>
-                    prev.filter((d) => d.drugName !== drug.drugName)
-                  );
-                }
-              }}
-            />
-          </td>
-          <td className="border p-2">{drug.drugName}</td>
-          <td className="border p-2">{drug.count}</td>
-          <td className="border p-2">{drug.consumption}</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
+                  <table className="w-full border-collapse text-sm">
+                    <thead className="bg-gray-100 sticky top-0">
+                      <tr>
+                        <th className="border p-2">انتخاب</th>
+                        <th className="border p-2">نام دارو</th>
+                        <th className="border p-2">تعداد</th>
+                        <th className="border p-2">نحوه مصرف</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {prescription.data.drugs.map((drug: any, idx: number) => (
+                        <tr key={idx}>
+                          <td className="border p-2 text-center">
+                            <input
+                              type="checkbox"
+                              className="accent-primary-500"
+                              checked={selectedDrugs.some(
+                                (d) => d.drugName === drug.drugName
+                              )}
+                              onChange={(e) => {
+                                if (e.target.checked) {
+                                  setSelectedDrugs((prev) => [...prev, drug])
+                                } else {
+                                  setSelectedDrugs((prev) =>
+                                    prev.filter(
+                                      (d) => d.drugName !== drug.drugName
+                                    )
+                                  )
+                                }
+                              }}
+                            />
+                          </td>
+                          <td className="border p-2">{drug.drugName}</td>
+                          <td className="border p-2">{drug.count}</td>
+                          <td className="border p-2">{drug.consumption}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
 
                 <div className="flex justify-end">
                   <button
@@ -127,8 +130,7 @@ const Pharmacy: React.FC = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Pharmacy;
-
+export default Pharmacy

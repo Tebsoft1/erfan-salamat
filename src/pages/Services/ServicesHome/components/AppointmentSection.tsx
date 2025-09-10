@@ -3,56 +3,53 @@ import Calendarwaiting from '@/assets/images/Calendarwaiting.png'
 import Emergencyphone from '@/assets/images/Emergencyphone.png'
 import Arrowleft from '@/assets/images/Arrowleft.png'
 import { useNavigate } from 'react-router-dom'
-import { useGetServiceGroupQuery } from '@/services/Customers'
-import { QueryHandler } from '@/components/QueryHandler'
-import { useGetServicesIspopularQuery } from '@/services/Customers'
-
+// import { useGetServiceGroupQuery } from '@/services/Customers'
+// import { QueryHandler } from '@/components/QueryHandler'
+//import { useGetServicesIspopularQuery } from '@/services/Customers'
 
 const AppointmentSection: React.FC = () => {
   const navigate = useNavigate()
-  
-    const {
-      data: GetServicesIspopular,
-      isLoading: GetServicesIspopularLoading,
-      isError: GetServicesIspopularError,
-      refetch: GetServicesIspopularRefetch,
-    } = useGetServicesIspopularQuery()
-  
-    const services = GetServicesIspopular?.data || []
+
+  // const {
+  //   data: GetServicesIspopular,
+  //   isLoading: GetServicesIspopularLoading,
+  //   isError: GetServicesIspopularError,
+  //   refetch: GetServicesIspopularRefetch,
+  // } = useGetServicesIspopularQuery()
+
+  //const services = GetServicesIspopular?.data || []
 
   return (
     <div className="flex flex-col w-full">
-
-    <div className="bg-dunkel rounded-full flex flex-row h-[43px] mt-3 cursor-pointer">
-
-      <div            
-      onClick={() => navigate(`serviceList?groupId=44`)}
-      className='flex flex-row justify-between items-center flex-1 relative  '>
-        <img src={Calendarwaiting} alt="+" className="w-[31px] h-[31px] mr-6" />
-        <h2 className="text-[8px] mt-0 mb-0">نوبت دهی پزشک ، آزمایشگاه</h2>
-        <img src={Arrowleft} alt="+" className="w-[24px] h-[24px] ml-6" />
+      <div className="bg-dunkel rounded-full flex flex-row h-[43px] mt-3 cursor-pointer">
+        <div
+          onClick={() => navigate(`serviceList?groupId=44`)}
+          className="flex flex-row justify-between items-center flex-1 relative  "
+        >
+          <img
+            src={Calendarwaiting}
+            alt="+"
+            className="w-[31px] h-[31px] mr-6"
+          />
+          <h2 className="text-[8px] mt-0 mb-0">نوبت دهی پزشک ، آزمایشگاه</h2>
+          <img src={Arrowleft} alt="+" className="w-[24px] h-[24px] ml-6" />
+        </div>
       </div>
 
-    </div>
-
-    <div className="bg-dunkel rounded-full flex flex-row h-[43px] mt-1 cursor-pointer">
-
-       <div            
-       onClick={() => navigate(`serviceList?groupId=44`)}
-       className="flex flex-row justify-between items-center flex-1 relative ">
-
-        <img src={Emergencyphone} alt="+" className="w-[31px] h-[31px] mr-6" />
+      <div className="bg-dunkel rounded-full flex flex-row h-[43px] mt-1 cursor-pointer">
+        <div
+          onClick={() => navigate(`serviceList?groupId=44`)}
+          className="flex flex-row justify-between items-center flex-1 relative "
+        >
+          <img
+            src={Emergencyphone}
+            alt="+"
+            className="w-[31px] h-[31px] mr-6"
+          />
           <h2 className="text-[8px] mt-0 mb-0">ویزیت تلفنی پزشک</h2>
           <img src={Arrowleft} alt="+" className="w-[24px] h-[24px] ml-6" />
-
+        </div>
       </div>
-
-    </div>
-
-
-
-
-
 
       {/*<QueryHandler
         data={GetServiceGroup}
