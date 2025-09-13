@@ -50,7 +50,7 @@ const ShiftOptions: React.FC<ShiftOptionsProps> = ({
           )}
         />
 
-        {error && <p className="mt-2 text-sm text-rose-500">{error.message}</p>}
+        {error && <p className="mt-2 text-sm text-red">{error.message}</p>}
       </div>
     </div>
   )
@@ -86,7 +86,7 @@ const ShiftOption: React.FC<ShiftOptionPropsType> = (props) => {
       className={`flex justify-between items-center p-3 rounded-3xl border cursor-pointer w-full
         ${
           selectedShift === shift.id
-            ? 'bg-primary-500 border-primary-700 text-secondary-100 scale-[1.02]'
+            ? 'bg-blue border-primary-700 text-secondary-100 scale-[1.02]'
             : 'bg-secondary-900 border-secondary-700 text-secondary-100'
         } 
         transition-all duration-300 hover:scale-[1.01]`}

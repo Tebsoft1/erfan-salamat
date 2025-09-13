@@ -9,7 +9,7 @@ const SpecialServices: React.FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="w-full bg-dunkel rounded-4xl flex flex-row justify-between items-stretch p-3 max-h-45 mb-10 mt-8">
+    <div className="w-full bg-dunkel rounded-4xl flex flex-row justify-between items-stretch p-3 max-h-35 mb-10 mt-8">
       <div className="flex flex-row justify-center items-center gap-6 mr-6">
         <div className="flex flex-col items-center">
           <div
@@ -44,8 +44,8 @@ const SpecialServices: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-secondary-100 rounded-4xl p-6 flex flex-col justify-between items-center w-30 h-45 -ml-3 -mt-3">
-        <span className="text-[10px] text-dunkel text-base font-semibold whitespace-nowrap">
+      <div className="bg-secondary-100 rounded-4xl p-6 flex flex-col justify-between items-center w-29 h-38 -ml-3 -mt-5">
+        <span className="text-[10px] text-dunkel text-base font-semibold whitespace-nowrap -mt-2 mb-2">
           خدمات ویژه عرفان
         </span>
         <span className="text-[7px] text-center text-dunkel">
@@ -54,7 +54,7 @@ const SpecialServices: React.FC = () => {
         </span>
         <button
           onClick={() => navigate('/UnderUpdatePage')}
-          className="bg-dunkel text-secondary-100 rounded-full w-[66px] h-[18px] text-[8px] whitespace-nowrap cursor-pointer"
+          className="bg-dunkel text-secondary-100 rounded-full w-[66px] h-[18px] text-[8px] whitespace-nowrap cursor-pointer mt-2"
         >
           دریافت مشاوره
         </button>

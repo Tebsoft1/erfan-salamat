@@ -20,13 +20,13 @@ const DoctorCard: React.FC = () => {
         <div className="flex flex-col items-center gap-2 w-[120px] text-[8px] text-dunkel p-2 mt-2">
           <button
            onClick={() => navigate(`serviceList?groupId=44`)}
-           className="bg-primary-300 rounded-full px-2 py-1 cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">ویزیت پزشک</button>
+           className="bg-primary-300 rounded-full w-[66px] h-[18px] cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">ویزیت پزشک</button>
           <button
-          onClick={() => navigate(`serviceList?groupId=44`)}
-          className="bg-primary-300 rounded-full px-2 py-1 cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">ویزیت پزشک</button>
+          onClick={() => navigate(`serviceList?groupId=43`)}
+          className="bg-primary-300 rounded-full w-[66px] h-[18px] cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">خدمات پرستاری</button>
           <button 
-          onClick={() => navigate(`serviceList?groupId=44`)}
-          className="bg-primary-300 rounded-full px-2 py-1 cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">ویزیت پزشک</button>
+          onClick={() => navigate(`serviceList?groupId=43`)}
+          className="bg-primary-300 rounded-full w-[66px] h-[18px] cursor-pointer transition-transform duration-200 ease-out hover:scale-105 ">خدمات پرستاری</button>
         </div>
 
                 
@@ -36,7 +36,7 @@ const DoctorCard: React.FC = () => {
             className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg 
                       flex flex-col items-center justify-center w-[37px] h-[38px] cursor-pointer 
                       transition-transform duration-200 ease-out hover:scale-105"
-            onClick={() => navigate(`serviceList?groupId=52`)}
+          onClick={() => navigate('/UnderUpdatePage')}
           >
             <img src={Ambulance} alt="Ambulance" className="w-[22.73px] h-[22.73px] rounded-sm" />
           </div>
@@ -46,7 +46,7 @@ const DoctorCard: React.FC = () => {
             className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg 
                       flex flex-col items-center justify-center w-[37px] h-[38px] cursor-pointer 
                       transition-transform duration-200 ease-out hover:scale-105"
-            onClick={() => navigate(`pharmacyForm`)}
+            onClick={() => navigate(`serviceList?groupId=44`)}
           >
             <img src={Stethoscope1} alt="Stethoscope" className="w-[22.73px] h-[22.73px] rounded-sm" />
           </div>
@@ -56,7 +56,7 @@ const DoctorCard: React.FC = () => {
             className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg 
                       flex flex-col items-center justify-center w-[37px] h-[38px] cursor-pointer 
                       transition-transform duration-200 ease-out hover:scale-105"
-            onClick={() => navigate(`serviceList?groupId=51`)}
+            onClick={() => navigate(`serviceList?groupId=43`)}
           >
             <img src={Doctor} alt="Doctor" className="w-[22.73px] h-[22.73px]" />
           </div>

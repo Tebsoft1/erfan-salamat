@@ -25,12 +25,19 @@ const Pharmacy: React.FC = () => {
 
   return (
     <div className="py-3 px-2 w-full flex flex-col items-center">
-      <div
-        onClick={() => navigate('/Services')}
-        className="flex gap-[1px] items-center w-full cursor-pointer"
-      >
-        <img src={Back} className="w-[28px]" alt="بازگشت" />
-        <p>بازگشت</p>
+      <div className="flex gap-[1px] items-center w-full z-2">
+        <img
+          src={Back}
+          className="w-[28px] cursor-pointer"
+          alt="بازگشت"
+          onClick={() => navigate('/Services')}
+        />
+        <p
+          className="cursor-pointer"
+          onClick={() => navigate('/Services')}
+        >
+          بازگشت
+        </p>
       </div>
 
       {/* <div className="w-full mt-4">

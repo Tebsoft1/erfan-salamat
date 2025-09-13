@@ -23,10 +23,10 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       onClick={onsubmit}
-      className={`py-3 px-8 rounded-md text-sm text-secondary-100 cursor-pointer  ${
+      className={`py-3 px-8 rounded-md text-sm text-dunkel cursor-pointer ${
         isFormButton && canClick
-          ? 'bg-primary-700 cursor-pointer'
-          : 'bg-secondary-300 cursor-not-allowed'
+          ? 'bg-primary-300 cursor-pointer'
+          : 'bg-primary-300 cursor-not-allowed'
       } ${className}`}
       {...restProps}
     >
