@@ -23,7 +23,7 @@ const ServicesCarousel: React.FC = () => {
   const navigate = useNavigate()
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  // حالا فقط به اندازه یک آیتم اسکرول می‌کنیم
+
   const scrollByItem = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return
     const container = scrollRef.current
