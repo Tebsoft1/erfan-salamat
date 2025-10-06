@@ -1,12 +1,12 @@
 import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import HospitalIcon from '@/assets/images/HospitalIcon.png'
-import Serum from '@/assets/images/Serum.png'
-import Nemone from '@/assets/images/Nemone.png'
-import KomakBehyar from '@/assets/images/KomakBehyar.png'
-import Bones1 from '@/assets/images/Bones1.png'
-import DoubleLeft from '@/assets/images/DoubleLeft.png'
-import DoubleRight from '@/assets/images/DoubleRight.png'
+import HospitalIcon from '@/assets/images/HospitalNew.png'
+import Serum from '@/assets/images/DripNew.png'
+import Nemone from '@/assets/images/VialNew.png'
+import KomakBehyar from '@/assets/images/FirstAidNew.png'
+import Bones1 from '@/assets/images/BonesNew.png'
+import DoubleLeft from '@/assets/images/DoubleLeftNew.png'
+import DoubleRight from '@/assets/images/DoubleRightNew.png'
 
 const services = [
   { img: Bones1, label: 'رادیولوژی', link: 'serviceList?groupId=53' },
@@ -37,7 +37,7 @@ const ServicesCarousel: React.FC = () => {
   return (
     <div className="w-full p-2 text-center">
       <div className="flex flex-col items-center mb-4">
-        <img src={HospitalIcon} alt="+" className="w-[18px] h-[18px]" />
+        <img src={HospitalIcon} alt="+" className="w-[24px] h-[24px]" />
         <h2 className="text-[8px] mt-0 mb-0">سرویس های عرفان سلامت</h2>
       </div>
 
@@ -61,14 +61,14 @@ const ServicesCarousel: React.FC = () => {
               onClick={() => navigate(service.link)}
               className="flex-shrink-0 snap-center flex flex-col items-center cursor-pointer w-1/4"
             >
-              <div className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-lg p-4 flex items-center justify-center w-[58.59px] h-[58.59px] transition-transform duration-200 ease-out hover:scale-105">
+              <div className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-md p-4 flex items-center justify-center w-[58.59px] h-[58.59px] transition-transform duration-200 ease-out hover:scale-105">
                 <img
                   src={service.img}
                   alt={service.label}
                   className="w-[31px] h-[31px] rounded-sm"
                 />
               </div>
-              <span className="text-secondary-100 text-[10px] mt-2">
+              <span className="text-secondary-100 text-[10px] mt-2 font-normal">
                 {service.label}
               </span>
             </div>

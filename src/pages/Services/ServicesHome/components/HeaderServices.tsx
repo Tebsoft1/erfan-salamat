@@ -1,6 +1,9 @@
 import React from 'react'
 import userLogo from '@/assets/images/userLogo.png'
 import { useNavigate } from 'react-router-dom'
+import MedicalNoteIcon from '@/assets/images/MedicalNoteIcon.png';
+import NotificationIcon from '@/assets/images/NotificationIcon.png';
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 // import { useDispatch } from 'react-redux'
@@ -16,12 +19,12 @@ const Header: React.FC = () => {
         <img
           src={userLogo}
           alt="photo"
-          className="rounded-full w-[44px] h-[44px] border-2 border-primary-300 flex items-center justify-center cursor-pointer"
+          className="rounded-full w-[44px] h-[44px] border-1 border-primary-300 flex items-center justify-center cursor-pointer"
           onClick={() => navigate('/Profile')}
         />
-        <div className="flex flex-col gap-1 text-[10px] pr-2 font-semibold">
+        <div className="flex flex-col gap-1 text-[10px] pr-2">
           <span>{localStorage.getItem('fullName')}</span>
-          <span>{localStorage.getItem('mobile')}</span>
+          <span className='text-center'>{localStorage.getItem('mobile')}</span>
         </div>
       </div>
 
@@ -30,30 +33,8 @@ const Header: React.FC = () => {
           onClick={() => navigate('/UnderUpdatePage')}
           className="flex flex-col items-center"
         >
-          <div className="border-[0.3px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer p-[9px]">
-            <svg
-              width="14"
-              height="14.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.4637 17.5C15.4637 19.5924 13.64 21 11.8241 21C10.0083 21 8.53631 19.5924 8.53631 17.5M7.4668 17.5H16.5332"
-                stroke="#39D8B0"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M18.946 14.072L17.7537 8.21314C17.1974 5.17461 15 3 11.8241 3C9 3 6.80256 5.17461 6.24635 8.21314L5.05401 14.072C4.73066 15.8384 5.90014 17.5 7.4668 17.5H16.5332C18.0999 17.5 19.2693 15.8384 18.946 14.072Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <circle cx="17" cy="4" r="2" fill="#3EFFC7" />
-            </svg>
+          <div className="border-[0.5px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer">
+            <img className='w-[20px] h-[20px]' src={NotificationIcon} alt="NotifIcon" />
           </div>
           <span className="text-[10px] mt-1 cursor-pointer">اعلان ها</span>
         </div>
@@ -62,28 +43,8 @@ const Header: React.FC = () => {
           onClick={() => navigate('/UnderUpdatePage')}
           className="flex flex-col items-center"
         >
-          <div className="border-[0.3px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer p-[9px]">
-            <svg
-              width="15"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 10L12 14M14 12H10"
-                stroke="#39D8B0"
-                strokeWidth="2"
-                strokeLinecap="square"
-              />
-              <path
-                d="M4 8H6M4 12H6M4 16H6M7 21H17C18.1046 21 19 20.1046 19 19V5C19 3.89543 18.1046 3 17 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+          <div className="border-[0.5px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer">
+            <img className='w-[20px] h-[20px]' src={MedicalNoteIcon} alt="MedicalIcon" />
           </div>
           <span className="text-[10px] mt-1 cursor-pointer">پرونده شما</span>
         </div>

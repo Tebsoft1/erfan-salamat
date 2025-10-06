@@ -17,6 +17,7 @@
   --color-red: var(--red);
   --color-DarkRed: var(--DarkRed);
   --color-SemiDarkGray: var(--SemiDarkGray);
+  --color-border: var(--border);
 
   --font-family-iran: 'Yekan Bakh', system-ui, -apple-system, sans-serif;
   --font-family-system: system-ui, -apple-system, sans-serif;
@@ -112,9 +113,11 @@
   --DarkRed: #9f1239;
   --SemiDarkGray: #b0bec5;
 
+  --border: #636363;
+
   font-family: 'Yekan Bakh', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 300;
 
   color-scheme: light dark;
   color: var(--secondary-100);
