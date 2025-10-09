@@ -1,8 +1,8 @@
 import React from 'react'
-import Vial from '@/assets/images/Vial.png'
-import Emergencyphone from '@/assets/images/Emergencyphone.png'
-import DNA from '@/assets/images/DNA.png'
-import ChildImg from '@/assets/images/ChildImg.png'
+import Vial from '@/assets/images/VialNew.png'
+import Emergencyphone from '@/assets/images/EmergencyNew.png'
+import DNA from '@/assets/images/DNANew.png'
+import ChildImg from '@/assets/images/BabyNew.png'
 import { useNavigate } from 'react-router-dom'
 // import { useGetServiceGroupQuery } from '@/services/Customers'
 // import { QueryHandler } from '@/components/QueryHandler'
@@ -71,7 +71,7 @@ const ChildrenServices: React.FC = () => {
         </div>
       </div>
 
-      <img src={ChildImg} alt="+" className="w-[113px] h-[148px] -ml-3 -mt-9" />
+      <img src={ChildImg} alt="+" className="w-[113px] h-[148px] -ml-3 -mt-8" />
     </div>
   )
 }
