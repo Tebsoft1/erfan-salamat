@@ -44,7 +44,7 @@ const SpecialServices: React.FC = () => {
           </span>
         </div>
          <div className="relative w-[98px]">
-          <img src={Container} alt="" />
+          <img src={SpecialContainer} alt="" />
           <button
             onClick={() => navigate('/UnderUpdatePage')}
             className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-dunkel text-secondary-100 rounded-full w-[66px] h-[18px] text-[8px] whitespace-nowrap cursor-pointer mb-1"
