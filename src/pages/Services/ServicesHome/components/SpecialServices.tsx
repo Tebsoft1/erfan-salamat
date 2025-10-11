@@ -32,7 +32,7 @@ const SpecialServices: React.FC = () => {
           <span className="text-secondary-100 text-[10px] mt-2">داروخانه</span>
         </div>
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center ml-2">
           <div
             className="bg-transparent border-[0.3px] border-secondary-300/60 rounded-md p-2 flex items-center justify-center w-[58.59px] h-[58.59px] cursor-pointer transition-transform duration-200 ease-out hover:scale-105"
             onClick={() => navigate(`serviceList?groupId=53`)}
@@ -42,6 +42,15 @@ const SpecialServices: React.FC = () => {
           <span className="text-secondary-100 text-[10px] mt-2">
             رادیولوژی
           </span>
+        </div>
+         <div className="relative w-[98px]">
+          <img src={Container} alt="" />
+          <button
+            onClick={() => navigate('/UnderUpdatePage')}
+            className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-dunkel text-secondary-100 rounded-full w-[66px] h-[18px] text-[8px] whitespace-nowrap cursor-pointer mb-1"
+          >
+            دریافت مشاوره
+          </button>
         </div>
       </div>
 

@@ -10,6 +10,14 @@ import Stethoscope1 from '@/assets/images/StethoscopeNew.png'
 const DoctorCard: React.FC = () => {
   const navigate = useNavigate()
 
+  const handleServiceNavigation = (groupId: number) => {
+    navigate(`serviceList?groupId=${groupId}`)
+  }
+
+  const handleUnderUpdateNavigation = () => {
+    navigate('/UnderUpdatePage')
+  }
+
   return (
     <div className="relative w-full mb-6 mt-8">
 
