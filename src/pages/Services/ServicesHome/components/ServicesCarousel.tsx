@@ -61,7 +61,7 @@ const ServicesCarousel: React.FC = () => {
               onClick={() => navigate(service.link)}
               className="flex-shrink-0 snap-center flex flex-col items-center cursor-pointer w-1/4"
             >
-              <div className="bg-transparent border-[0.3px] border-secondary-500/40 rounded-md p-4 flex items-center justify-center w-[58.59px] h-[58.59px] transition-transform duration-200 ease-out hover:scale-105">
+              <div className="bg-transparent border-[0.3px] border-secondary-300/60 rounded-md p-4 flex items-center justify-center w-[58.59px] h-[58.59px] transition-transform duration-200 ease-out hover:scale-105">
                 <img
                   src={service.img}
                   alt={service.label}

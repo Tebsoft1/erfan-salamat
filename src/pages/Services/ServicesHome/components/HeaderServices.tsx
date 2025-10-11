@@ -33,7 +33,7 @@ const Header: React.FC = () => {
           onClick={() => navigate('/UnderUpdatePage')}
           className="flex flex-col items-center"
         >
-          <div className="border-[0.5px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer">
+          <div className="border-[0.5px] border-secondary-300/60 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer">
             <img className='w-[20px] h-[20px]' src={NotificationIcon} alt="NotifIcon" />
           </div>
           <span className="text-[10px] mt-1 cursor-pointer">اعلان ها</span>
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
           onClick={() => navigate('/UnderUpdatePage')}
           className="flex flex-col items-center"
         >
-          <div className="border-[0.5px] border-secondary-500/40 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer">
+          <div className="border-[0.5px] border-secondary-300/60 rounded-sm w-[33px] h-[33px] flex items-center justify-center cursor-pointer">
             <img className='w-[20px] h-[20px]' src={MedicalNoteIcon} alt="MedicalIcon" />
           </div>
           <span className="text-[10px] mt-1 cursor-pointer">پرونده شما</span>

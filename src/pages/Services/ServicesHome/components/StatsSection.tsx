@@ -2,7 +2,9 @@ import React from 'react';
 import DoctorCornerImg from '@/assets/images/DoctorCornerImg.png';
 import Weight from '@/assets/images/Weight.png';
 import Stethoscope1 from '@/assets/images/Stethoscope1.png';
-import DoubleRight from '@/assets/images/DoubleRight.png';
+import DoubleRight from '@/assets/images/ArRightNew.png';
+import StatsContainer1 from '@/assets/images/StatsContainer1.png';
+import StatsContainer2 from '@/assets/images/StatsContainer2.png';
 import { useNavigate } from 'react-router-dom'
 
 const StatsSection: React.FC = () => {
@@ -11,11 +13,12 @@ const StatsSection: React.FC = () => {
   return (
     <div className="w-full max-w-4xl flex">
 
-      <div className="flex-1 flex flex-col justify-center items-right mr-4 space-y-3">
+      <div className="flex-1 flex flex-col justify-center items-right mr-4">
         
 
-        <div className="w-[98px] h-[75px] rounded-2xl bg-primary-300 p-2 relative flex items-center justify-center mt-6">
-          <div className="absolute top-1 left-1/2 -translate-x-1/2 bg-dunkel w-25 h-[30%] rounded-2xl flex items-center px-2 gap-2">
+        <div className=" p-2 relative flex items-center justify-center mt-6">
+          <img src={StatsContainer1} alt="" />
+          {/*<div className="absolute top-1 left-1/2 -translate-x-1/2 bg-dunkel w-25 h-[30%] rounded-2xl flex items-center px-2 gap-2">
             <div className="text-secondary-100">
               <div className="text-[6px] font-semibold mr-3 whitespace-nowrap">ERFAN HEALTH</div>
               <div className="text-[6px] font-semibold mr-3 whitespace-nowrap">under treatment</div>
@@ -24,12 +27,13 @@ const StatsSection: React.FC = () => {
           </div>
           <div className="absolute top-[40%] left-1/2 -translate-x-1/2 text-[32px] text-dunkel">
             <span className="en-number">3945</span>
-          </div>
+          </div>*/}
         </div>
 
 
-        <div className="w-[98px] h-[75px] rounded-2xl bg-primary-300 p-2 relative flex items-center justify-center">
-          <div className="absolute top-1 bg-dunkel w-25 h-[34%] rounded-2xl flex items-center px-2 gap-2">
+        <div className=" p-2 relative flex items-center justify-center">
+          <img src={StatsContainer2} alt="" />
+          {/*<div className="absolute top-1 bg-dunkel w-25 h-[34%] rounded-2xl flex items-center px-2 gap-2">
             <div className="text-secondary-100">
               <div className="text-[6px] font-semibold mr-3 whitespace-nowrap">ERFAN HEALTH</div>
               <div className="text-[6px] font-semibold mr-3 whitespace-nowrap">Specialist doctor</div>
@@ -38,7 +42,7 @@ const StatsSection: React.FC = () => {
           </div>
           <div className="absolute top-[40%] text-[32px] text-dunkel">
             <span className="en-number">345</span>
-          </div>
+          </div>*/}
         </div>
 
 

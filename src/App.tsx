@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import header from './assets/images/header.png'
+import header from './assets/images/HeaderNew.png'
 import { ToastContainer } from 'react-toastify'
 import { useEffect } from 'react'
 import { checkAuthFromStorage } from './features/authSlice'
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="max-w-md container mx-auto h-screen flex flex-col">
-      <img src={header} className="w-full h-[100px]" alt="Header" />
+      <img src={header} className="w-full " alt="Header" />
       <div className="flex flex-1 overflow-auto mt-[-50px] ">
         <Outlet />
       </div>
