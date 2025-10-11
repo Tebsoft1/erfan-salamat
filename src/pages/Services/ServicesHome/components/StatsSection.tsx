@@ -1,7 +1,5 @@
 import React from 'react';
 import DoctorCornerImg from '@/assets/images/DoctorCornerImg.png';
-import Weight from '@/assets/images/Weight.png';
-import Stethoscope1 from '@/assets/images/Stethoscope1.png';
 import DoubleRight from '@/assets/images/ArRightNew.png';
 import StatsContainer1 from '@/assets/images/StatsContainer1.png';
 import StatsContainer2 from '@/assets/images/StatsContainer2.png';
